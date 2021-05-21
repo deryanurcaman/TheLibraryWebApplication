@@ -105,7 +105,27 @@
         </div>
     </div>
     <br>
+    <?php 
+                //connect to database
+$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
 
+if(!$conn){
+    die ("Fail". mysqli_connect_error());
+}
+else{
+    
+
+
+$sqlString = "SELECT * FROM Book;";
+
+$query = mysqli_query($conn, $sqlString);
+
+$rows = array();
+while($result = mysqli_fetch_array($query))
+{
+    $rows[] = $result;
+}
+    ?>
     <div class="main">
 
         <div class="Instructors_requests">
@@ -123,19 +143,22 @@
                     <th>Delete</th>
                 </tr>
 
-                <?php echo"
-                <table>
-                <tr>
-                    <td>34001</td>
-                    <td> sabır $results[0]</td>
-                    <td>Stephen King</td>
-                    <td>Science Fiction</td>
-                    <td>36th</td>
-                    <td>-</td>
-                    <td>10</td>
-                    <td>13.05.2021</td>
-                </tr>
-                </table>"
+                <?php
+
+                foreach($rows as $row){
+                    echo
+                        '<tr>
+                            <td>34001</td>
+                            <td> '.$row['Book_Name'].'</td>
+                            <td>Stephen King</td>
+                            <td>Science Fiction</td>
+                            <td>36th</td>
+                            <td>-</td>
+                            <td>10</td>
+                            <td>13.05.2021</td>
+                        </tr>';
+                }
+                
 ?>
 
             
@@ -298,21 +321,6 @@
 
 <?php
 
-//connect to database
-$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021');
-
-if(!$conn){
-    die ("Fail". mysqli_connect_error());
-}
-else{
-    
-
-
-$sqlString = "SELECT * FROM databasesproject2021.Book;";
-
-
-$results = mysqli_query($conn, $sqlString); //çalıştırma kodu
-
 
 // while($row = mysqli_fetch_array($results)) {
 //     echo $row['Book_Name']; // Print a single column data
@@ -323,14 +331,14 @@ $results = mysqli_query($conn, $sqlString); //çalıştırma kodu
 
 //$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (546, 1, 'The', 'Stockett', 'Drama', 6, 0, 3, CAST('2007-05-08' AS datetime), 'bk'); ";
 //$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (765, 1, 'Harry Potter', 'JK Rowling', 'Ficiton', 6, 0, 3, CAST('2007-05-08' AS datetime), 'bk'); ";
-$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (765, 1, 'Satranç', 'Zweig', 'RealLife', 6, 0, 3, CAST('2007-05-08' AS datetime), 'BKM'); ";
+//$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (765, 1, 'Satranç', 'Zweig', 'RealLife', 6, 0, 3, CAST('2007-05-08' AS datetime), 'BKM'); ";
 
 
-$results2 = mysqli_query($conn, $sqlString2);
+//$results2 = mysqli_query($conn, $sqlString2);
 
-echo "<br><br><br><br><br><br><br>";
+// echo "<br><br><br><br><br><br><br>";
 
-$results = mysqli_query($conn, $sqlString); //çalıştırma kodu
+// $results = mysqli_query($conn, $sqlString); //çalıştırma kodu
 
 
 // while($row = mysqli_fetch_array($results)) {
