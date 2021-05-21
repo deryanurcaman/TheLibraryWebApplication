@@ -1,7 +1,7 @@
 <?php
 
 //connect to database
-$conn = mysqli_connect('localhost','webuser','123456','DatabasesProject2021');
+$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021');
 
 if(!$conn){
     die ("Fail". mysqli_connect_error());
@@ -10,7 +10,7 @@ else{
     
 
 
-$sqlString = "SELECT * FROM DatabasesProject2021.Book;";
+$sqlString = "SELECT * FROM databasesproject2021.Book;";
 
 
 $results = mysqli_query($conn, $sqlString); //çalıştırma kodu
