@@ -14,6 +14,22 @@
         alert("The Request Is Successfully Sent");
     }
 </script>
+
+<?php 
+$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
+if(!$conn){
+    die ("Fail". mysqli_connect_error());
+}
+else{
+$sqlString = "SELECT * FROM Book;";
+$query = mysqli_query($conn, $sqlString);
+$rows = array();
+while($result = mysqli_fetch_array($query))
+{
+    $rows[] = $result;
+}
+?>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Stalemate&display=swap');
@@ -105,27 +121,7 @@
         </div>
     </div>
     <br>
-    <?php 
-                //connect to database
-$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
-
-if(!$conn){
-    die ("Fail". mysqli_connect_error());
-}
-else{
     
-
-
-$sqlString = "SELECT * FROM Book;";
-
-$query = mysqli_query($conn, $sqlString);
-
-$rows = array();
-while($result = mysqli_fetch_array($query))
-{
-    $rows[] = $result;
-}
-    ?>
     <div class="main">
 
         <div class="Instructors_requests">
@@ -144,138 +140,21 @@ while($result = mysqli_fetch_array($query))
                 </tr>
 
                 <?php
-
-                foreach($rows as $row){
-                    echo
-                        '<tr>
-                            <td>34001</td>
-                            <td> '.$row['Book_Name'].'</td>
-                            <td>Stephen King</td>
-                            <td>Science Fiction</td>
-                            <td>36th</td>
-                            <td>-</td>
-                            <td>10</td>
-                            <td>13.05.2021</td>
-                        </tr>';
-                }
-                
-?>
-
-            
-                <!-- <tr>
-                    <td id="hashtag">34001</td>
-                    <td>The Shining</td>
-                    <td>Stephen King</td>
-                    <td>Science Fiction</td>
-                    <td>36th</td>
-                    <td>-</td>
-                    <td>10</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34002</td>
-                    <td>The Testaments</td>
-                    <td>Margaret Atwood</td>
-                    <td>Science Fiction</td>
-                    <td>2nd</td>
-                    <td>-</td>
-                    <td>2</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34003</td>
-                    <td>The Savior</td>
-                    <td>J.R. Ward</td>
-                    <td>Romance</td>
-                    <td>4th</td>
-                    <td>-</td>
-                    <td>1</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34004</td>
-                    <td>Royal Holiday</td>
-                    <td>Jasmine Guillory</td>
-                    <td>Romance</td>
-                    <td>2nd</td>
-                    <td>-</td>
-                    <td>6</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34005</td>
-                    <td>The Haunting of Hill House</td>
-                    <td>Shirley Jackson</td>
-                    <td>Horror</td>
-                    <td>10th</td>
-                    <td>-</td>
-                    <td>3</td>
-                    <td>04.05.2020</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34006</td>
-                    <td>Carrie</td>
-                    <td>Stephen King</td>
-                    <td>Horror</td>
-                    <td>24th</td>
-                    <td>-</td>
-                    <td>17</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34007</td>
-                    <td>A Beautiful Mind</td>
-                    <td>Sylvia Nasar</td>
-                    <td>Biography</td>
-                    <td>19th</td>
-                    <td>-</td>
-                    <td>5</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34008</td>
-                    <td>Alexander Hamilton</td>
-                    <td>Ron Chernow</td>
-                    <td>Biography</td>
-                    <td>34th</td>
-                    <td>-</td>
-                    <td>21</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34009</td>
-                    <td>One Hundred Years of Solitude</td>
-                    <td>Gabriel Garcia Marquez</td>
-                    <td>Historical Fiction</td>
-                    <td>21th</td>
-                    <td>-</td>
-                    <td>15</td>
-                    <td>13.01.2020</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td id="hashtag">34010</td>
-                    <td>The Help</td>
-                    <td>Katdryn Stockett</td>
-                    <td>Historical Fiction</td>
-                    <td>11th</td>
-                    <td>-</td>
-                    <td>8</td>
-                    <td>13.05.2021</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-
-
-                </tr> -->
+                    foreach($rows as $row){
+                        echo
+                            '<tr>
+                                <td>34001</td>
+                                <td> '.$row['Book_Name'].'</td>
+                                <td> '.$row['Author'].' </td>
+                                <td> '.$row['Type'].' </td>
+                                <td> '.$row['Num_of_Edition'].' </td>
+                                <td> '.$row['Status'].' </td>
+                                <td> '.$row['Quantity'].' </td>
+                                <td> '.$row['Arrival_Date'].' </td>
+                            </tr>';
+                    }
+                ?>          
             </table>
-
         </div>
         <br><br>
 
@@ -347,8 +226,19 @@ while($result = mysqli_fetch_array($query))
 // }
 
 
-//close the connection (database)
-mysqli_close($conn);
+// $conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
+// if(!$conn){
+//     die ("Fail". mysqli_connect_error());
+// }
+// else{
+
+// $sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (766, 2, 'Satranç', 'Zweig', 'Biography', 9, 0, 1, CAST('2017-09-18' AS datetime), 'BKM'); ";
+// $results2 = mysqli_query($conn, $sqlString2);
+// }
+
+
+// //close the connection (database)
+// mysqli_close($conn);
 
 }
 
