@@ -23,7 +23,9 @@ while($row = mysqli_fetch_array($results)) {
 
 
 
-$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (546, 1, 'The', 'Stockett', 'Drama', 6, 0, 3, CAST('2007-05-08' AS datetime), 'bk'); ";
+//$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (546, 1, 'The', 'Stockett', 'Drama', 6, 0, 3, CAST('2007-05-08' AS datetime), 'bk'); ";
+$sqlString3 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (765, 1, 'Harry Potter', 'JK Rowling', 'Ficiton', 6, 0, 3, CAST('2007-05-08' AS datetime), 'bk'); ";
+
 
 $results2 = mysqli_query($conn, $sqlString2);
 
