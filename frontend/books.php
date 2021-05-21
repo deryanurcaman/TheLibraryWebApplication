@@ -226,19 +226,19 @@ while($result = mysqli_fetch_array($query))
 // }
 
 
-// $conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
-// if(!$conn){
-//     die ("Fail". mysqli_connect_error());
-// }
-// else{
+$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
+if(!$conn){
+    die ("Fail". mysqli_connect_error());
+}
+else{
 
-// $sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (766, 2, 'Satranç', 'Zweig', 'Biography', 9, 0, 1, CAST('2017-09-18' AS datetime), 'BKM'); ";
-// $results2 = mysqli_query($conn, $sqlString2);
-// }
+$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (766, 2, 'Satranç', 'Zweig', 'Biography', 9, 0, 1, CAST('2017-09-18' AS datetime), 'BKM'); ";
+$results2 = mysqli_query($conn, $sqlString2);
+}
 
 
-// //close the connection (database)
-// mysqli_close($conn);
+//close the connection (database)
+mysqli_close($conn);
 
 }
 
