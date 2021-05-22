@@ -3,7 +3,7 @@
 
 <?php
 
-$conn = mysqli_connect('localhost', 'webuser', '123456', 'databasesproject2021', 3308);
+$conn = mysqli_connect('localhost', 'webuser', '123456', 'databasesproject2021');
 if (!$conn) {
     die("Fail connection" . mysqli_connect_error());
 }

@@ -14,6 +14,21 @@
         alert("The Request Is Successfully Sent");
     }
 </script>
+
+<?php 
+$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021');
+if(!$conn){
+    die ("Fail". mysqli_connect_error());
+}
+$sqlString = "SELECT * FROM Members;";
+$query = mysqli_query($conn, $sqlString);
+$rows = array();
+while($result = mysqli_fetch_array($query))
+{
+    $rows[] = $result;
+}
+?>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Stalemate&display=swap');
@@ -114,73 +129,33 @@
                 <tr id="heads">
                     <th>Detailed Information</th>
                     <th id="hashtag">#</th>
+                    <th>Member Code</th>
                     <th>Member Name</th>
-                    <th>Member Id</th>
                     <th>Member Phone Number</th>
                     <th>Borrowed Book</th>
+                    <th>Borrow Date</th>
+                    <th>Return Date</th>
                     <th>Borrow Duration</th>
                     <th>Delete</th>
                 </tr>
-                <tr>
-                    <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
-                    <td id="hashtag">1</td>
-                    <td>Minerva McGonagall</td>
-                    <td>124553</td>
-                    <td>08983947493 </td>
-                    <td>Kitap</td>
-                    <td>3 days</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
-                    <td id="hashtag">2</td>
-                    <td>Minerva McGonagall</td>
-                    <td>124553</td>
-                    <td>08983947493 </td>
-                    <td>Kitap</td>
-                    <td>3 days</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
-                    <td id="hashtag">3</td>
-                    <td>Minerva McGonagall</td>
-                    <td>124553</td>
-                    <td>08983947493 </td>
-                    <td>Kitap</td>
-                    <td>3 days</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
-                    <td id="hashtag">4</td>
-                    <td>Minerva McGonagall</td>
-                    <td>124553</td>
-                    <td>08983947493 </td>
-                    <td>Kitap</td>
-                    <td>3 days</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
-                    <td id="hashtag">5</td>
-                    <td>Minerva McGonagall</td>
-                    <td>124553</td>
-                    <td>08983947493 </td>
-                    <td>Kitap</td>
-                    <td>3 days</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
-                <tr>
-                    <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
-                    <td id="hashtag">6</td>
-                    <td>Minerva McGonagall</td>
-                    <td>124553</td>
-                    <td>08983947493 </td>
-                    <td>Kitap</td>
-                    <td>3 days</td>
-                    <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
-                </tr>
+                <?php
+                    foreach($rows as $row){
+                        echo
+                            '<tr>
+                                <td> </td>
+                                <td> '.$row['Member_Id'].'</td>
+                                <td> '.$row['Member_Code'].'</td>
+                                <td> '.$row['Member_Name'].' </td>
+                                <td> '.$row['Member_Phone_Number'].' </td>
+                                <td> '.$row['Borrowed_Book'].' </td>
+                                <td> '.$row['Borrow_Date'].' </td>
+                                <td> '.$row['Return_Date'].' </td>
+                                <td> '.$row['Borrow_Duration'].' days </td>
+                                <td>  </td>
+                                <td> </td>
+                            </tr>';
+                    }
+                ?> 
             </table>
 
         </div>

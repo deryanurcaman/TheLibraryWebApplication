@@ -16,7 +16,7 @@
 </script>
 
 <?php 
-$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
+$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021');
 if(!$conn){
     die ("Fail". mysqli_connect_error());
 }
@@ -148,7 +148,7 @@ while($result = mysqli_fetch_array($query))
                                 <td> '.$row['Book_Name'].'</td>
                                 <td> '.$row['Author'].' </td>
                                 <td> '.$row['Type'].' </td>
-                                <td> '.$row['Num_of_Edition'].' </td>
+                                <td> '.$row['Num_of_Edition'].'th </td>
                                 <td> '.$row['Status'].' </td>
                                 <td> '.$row['Quantity'].' </td>
                                 <td> '.$row['Arrival_Date'].' </td>
