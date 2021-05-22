@@ -128,6 +128,7 @@ while($result = mysqli_fetch_array($query))
             <table>
                 <tr id="heads">
                     <th id="hashtag">#</th>
+                    <th>Book Code</th>
                     <th>Book Name</th>
                     <th>Author</th>
                     <th>Type</th>
@@ -142,7 +143,8 @@ while($result = mysqli_fetch_array($query))
                     foreach($rows as $row){
                         echo
                             '<tr>
-                                <td>34001</td>
+                                <td> '.$row['Book_Id'].'</td>
+                                <td> '.$row['Book_Code'].'</td>
                                 <td> '.$row['Book_Name'].'</td>
                                 <td> '.$row['Author'].' </td>
                                 <td> '.$row['Type'].' </td>
@@ -150,6 +152,7 @@ while($result = mysqli_fetch_array($query))
                                 <td> '.$row['Status'].' </td>
                                 <td> '.$row['Quantity'].' </td>
                                 <td> '.$row['Arrival_Date'].' </td>
+                                <td> </td>
                             </tr>';
                     }
                 ?>          
