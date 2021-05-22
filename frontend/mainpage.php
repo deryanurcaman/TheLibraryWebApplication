@@ -47,50 +47,50 @@
         <table id="tablenavbar">
             <tr id="hv">
                 <td>
-                    <a href="mainpage.html"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/mainpage.php"></a>
                 </td>
 
-                <td> <a id="icon1" href="mainpage.html">Main Page</a>
+                <td> <a id="icon1" href="http://localhost/DatabasesProject-2021/frontend/mainpage.php">Main Page</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="books.html"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/books.php"></a>
                 </td>
 
-                <td> <a id="icon2" href="books.html">Books</a>
+                <td> <a id="icon2" href="http://localhost/DatabasesProject-2021/frontend/books.php">Books</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="members.html"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/members.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="members.html">Members</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/members.php">Members</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="grantors.html"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/grantors.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="grantors.html">Grantors</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/grantors.php">Grantors</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="employees.html"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/employees.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="employees.html">Employees</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/employees.php">Employees</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="login.html"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/login.php"></a>
                 </td>
 
-                <td><a id="icon4" href="login.html">Log Out</a></td>
+                <td><a id="icon4" href="http://localhost/DatabasesProject-2021/frontend/login.php">Log Out</a></td>
             </tr>
         </table>
 
