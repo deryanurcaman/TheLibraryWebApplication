@@ -25,6 +25,7 @@ $table1 = "CREATE TABLE Books(
 
 $table2 = "CREATE TABLE Grantors(
     Grantor_Id INT NOT NULL,
+    Grantor_Code VARCHAR(100) NOT NULL,
     Grantor_Name VARCHAR(100) NOT NULL, 
     Grantor_Phone_Number VARCHAR(11), 
     Book_Id INT NOT NULL,
@@ -34,6 +35,7 @@ $table2 = "CREATE TABLE Grantors(
 
 $table3 = "CREATE TABLE Members(
     Member_Id INT NOT NULL,
+    Member_Code VARCHAR(100) NOT NULL,
     Book_Id INT NOT NULL,
     Member_Name VARCHAR(100) NOT NULL, 
     Member_Phone_Number VARCHAR(11), 
@@ -46,6 +48,7 @@ $table3 = "CREATE TABLE Members(
 
 $table4 = "CREATE TABLE Employees(
     Employee_Id INT NOT NULL,
+    Employee_Code VARCHAR(100) NOT NULL,
     Member_Id INT NOT NULL,
     Employee_Name VARCHAR(100) NOT NULL, 
     Employee_Phone_Number VARCHAR(11), 
