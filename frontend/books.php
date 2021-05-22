@@ -20,8 +20,7 @@ $conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',330
 if(!$conn){
     die ("Fail". mysqli_connect_error());
 }
-else{
-$sqlString = "SELECT * FROM Book;";
+$sqlString = "SELECT * FROM Books;";
 $query = mysqli_query($conn, $sqlString);
 $rows = array();
 while($result = mysqli_fetch_array($query))
@@ -194,52 +193,3 @@ while($result = mysqli_fetch_array($query))
 </body>
 
 </html>
-
-
-
-
-<?php
-
-
-// while($row = mysqli_fetch_array($results)) {
-//     echo $row['Book_Name']; // Print a single column data
-//     echo print_r($row);       // Print the entire row data
-// }
-
-
-
-//$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (546, 1, 'The', 'Stockett', 'Drama', 6, 0, 3, CAST('2007-05-08' AS datetime), 'bk'); ";
-//$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (765, 1, 'Harry Potter', 'JK Rowling', 'Ficiton', 6, 0, 3, CAST('2007-05-08' AS datetime), 'bk'); ";
-//$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (765, 1, 'Satranç', 'Zweig', 'RealLife', 6, 0, 3, CAST('2007-05-08' AS datetime), 'BKM'); ";
-
-
-//$results2 = mysqli_query($conn, $sqlString2);
-
-// echo "<br><br><br><br><br><br><br>";
-
-// $results = mysqli_query($conn, $sqlString); //çalıştırma kodu
-
-
-// while($row = mysqli_fetch_array($results)) {
-//     echo $row['Book_Name']; // Print a single column data
-//     echo print_r($row);       // Print the entire row data
-// }
-
-
-$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021',3308);
-if(!$conn){
-    die ("Fail". mysqli_connect_error());
-}
-else{
-
-$sqlString2 = "INSERT INTO Book (Book_Id, Id, Book_Name, Author, Type, Num_Of_Edition, Status, Quantity, Arrival_Date, PublishingHouse_Name) VALUES (766, 2, 'Satranç', 'Zweig', 'Biography', 9, 0, 1, CAST('2017-09-18' AS datetime), 'BKM'); ";
-$results2 = mysqli_query($conn, $sqlString2);
-}
-
-
-//close the connection (database)
-mysqli_close($conn);
-
-}
-
-?>
