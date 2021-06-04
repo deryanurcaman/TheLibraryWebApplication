@@ -2,6 +2,13 @@
 include '../../database/config.php';
 $conn = OpenCon();
 
+$username = '';
+session_start();
+$username = $_SESSION['Username'];
+$sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
+$query = mysqli_query($conn, $sql);
+$result2 = mysqli_fetch_array($query);
+
 $username = $password = $check = '';        // initialize with empty string
 $errors = array('grantor_name' => '', 'phone_number' => ''
 , 'book_code' => '', 'book_name' => '', 'book_name' => '', 'book_name' => '', 'book_name' => ''); // keys and their ampty values
@@ -86,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <br>
-        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b> Luna Lovegood</strong>
+        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result2['Employee_Name']; ?></strong>
 
         <br>
         <hr style="border-color: white;">

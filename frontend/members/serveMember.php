@@ -16,6 +16,7 @@ $conn = OpenCon();
 $username = '';
 session_start();
 
+
 $username = $_SESSION['Username'];
 $sql = 'SELECT * FROM employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
@@ -116,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <br>
-        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b> Luna Lovegood</strong>
+        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result['Employee_Name']; ?></strong>
 
         <br>
         <hr style="border-color: white;">
