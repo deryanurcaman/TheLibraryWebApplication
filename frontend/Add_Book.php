@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="members.css">
-    <title>Members</title>
+    <link rel="stylesheet" href="books.css">
+    <title>Books</title>
 </head>
 
 <script>
@@ -20,7 +20,7 @@ $conn = mysqli_connect('localhost','webuser','123456','databasesproject2021');
 if(!$conn){
     die ("Fail". mysqli_connect_error());
 }
-$sqlString = "SELECT * FROM Members;";
+$sqlString = "SELECT * FROM Books;";
 $query = mysqli_query($conn, $sqlString);
 $rows = array();
 while($result = mysqli_fetch_array($query))
@@ -112,43 +112,39 @@ while($result = mysqli_fetch_array($query))
 
     </div>
 
+    
     <div class="main">
 
-        <div class="Instructors_requests">
-            <h1>Members</h1><br>
-            <table>
-                <tr id="heads">
-                    <th>Detailed Information</th>
-                    <th id="hashtag">#</th>
-                    <th>Member Code</th>
-                    <th>Member Name</th>
-                    <th>Member Phone Number</th>
-                    <th>Borrowed Book</th>
-                    <th>Borrow Date</th>
-                    <th>Return Date</th>
-                    <th>Borrow Duration</th>
-                    <th>Delete</th>
-                </tr>
-                <?php
-                    foreach($rows as $row){
-                        echo
-                            '<tr>
-                                <td> </td>
-                                <td> '.$row['Member_Id'].'</td>
-                                <td> '.$row['Member_Code'].'</td>
-                                <td> '.$row['Member_Name'].' </td>
-                                <td> '.$row['Member_Phone_Number'].' </td>
-                                <td> '.$row['Borrowed_Book'].' </td>
-                                <td> '.$row['Borrow_Date'].' </td>
-                                <td> '.$row['Return_Date'].' </td>
-                                <td> '.$row['Borrow_Duration'].' days </td>
-                                <td>  </td>
-                                <td> </td>
-                            </tr>';
-                    }
-                ?> 
-            </table>
+        <div class="Instructors_requests" id="Join">
+            <h1 style="text-align: center;">Add A Book</h1>
+            <hr><br>
 
+            <form action="../database/books.php">
+            <label id="text_input"><label id="text_input">Book Code:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input"><label id="text_input">Book Name:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input">Author:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input">Type:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input">Number Of Edition:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input">Quantity:</label>
+                <input type="number" name="" id="select" min="1"><br>
+                <br>
+                <label id="text_input">Date</label>
+                <input type="date" name="" id="select"><br>
+                <br>
+
+                <button onclick="save()" id="submit" type="submit">Add</button>
+
+            </form>
         </div>
     </div>
 </body>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mainpage.css">
+    <link rel="stylesheet" href="mainpage.css?v=<?php echo time(); ?>">
     <title>Main Page</title>
 </head>
 
@@ -95,6 +95,19 @@
         </table>
 
 
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+        <div class="div1">
+
+            <a href="./Add_Book.php"><button style="float: left;font-size: 18px;"><img src="./assets/course_siyah.png" alt=""> <br>Add A Book</button></a>
+            <a href="./Add_Grantor.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/grantor.png" alt=""> <br>Add A Grantor</button></a>
+            <a href="./Serve_Member.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/member.png" alt=""> <br>Serve A Member</button></a>
+            <a href="./Add_Employee.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/employee.png" alt=""> <br>Add An Employee</button></a>
+        </div>
+
+        
     </div>
 
 

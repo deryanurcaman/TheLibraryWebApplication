@@ -120,15 +120,6 @@
 
     </div>
 
-    <div class="dropdown">
-        <button class="dropbtn">Select</button>
-        <div class="dropdown-content">
-            <a href="#">Grantors</a>
-            <a href="#Join">Add A Grantor</a>
-        </div>
-    </div>
-    <br>
-
     <div class="main">
         <div class="Instructors_requests">
             <h1>Grantors</h1><br>
@@ -209,54 +200,7 @@
         </div>
         <br><br>
 
-        <div class="Instructors_requests" id="Join">
-            <h1 style="text-align: center;">Add A Grantor</h1>
-            <hr><br>
 
-            <form action="">
-
-                <label>Grantor Information:</label><br>
-                <hr>
-                <label id="text_input">Grantor Id:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Grantor Name:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Grantor Surname:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Grantor Phone Number:</label>
-                <input type="text" name="" id="select"><br>
-                <br><br>
-                <label>Donated Book Information:</label><br>
-                <hr>
-                <label id="text_input">Book Id:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input"><label id="text_input">Book Name:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Author:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Type:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Number Of Edition:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Quantity:</label>
-                <input type="number" name="" id="select" min="1"><br>
-                <br>
-                <label id="text_input">Date</label>
-                <input type="date" name="" id="select"><br>
-                <br>
-
-                <button id="submit" type="submit">Add</button>
-
-            </form>
-        </div>
     </div>
 
     <!-- The Modal -->

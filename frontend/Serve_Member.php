@@ -114,41 +114,38 @@ while($result = mysqli_fetch_array($query))
 
     <div class="main">
 
-        <div class="Instructors_requests">
-            <h1>Members</h1><br>
-            <table>
-                <tr id="heads">
-                    <th>Detailed Information</th>
-                    <th id="hashtag">#</th>
-                    <th>Member Code</th>
-                    <th>Member Name</th>
-                    <th>Member Phone Number</th>
-                    <th>Borrowed Book</th>
-                    <th>Borrow Date</th>
-                    <th>Return Date</th>
-                    <th>Borrow Duration</th>
-                    <th>Delete</th>
-                </tr>
-                <?php
-                    foreach($rows as $row){
-                        echo
-                            '<tr>
-                                <td> </td>
-                                <td> '.$row['Member_Id'].'</td>
-                                <td> '.$row['Member_Code'].'</td>
-                                <td> '.$row['Member_Name'].' </td>
-                                <td> '.$row['Member_Phone_Number'].' </td>
-                                <td> '.$row['Borrowed_Book'].' </td>
-                                <td> '.$row['Borrow_Date'].' </td>
-                                <td> '.$row['Return_Date'].' </td>
-                                <td> '.$row['Borrow_Duration'].' days </td>
-                                <td>  </td>
-                                <td> </td>
-                            </tr>';
-                    }
-                ?> 
-            </table>
+        <div class="Instructors_requests" id="Serve">
+            <h1 style="text-align: center;">Serve to The Member</h1>
+            <hr><br>
 
+            <form action="">
+
+                <label>Member Information:</label><br>
+                <hr>
+                <label id="text_input">Member Name:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input">Member Code:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input">Member Phone Number:</label>
+                <input type="text" name="" id="select"><br>
+                <br><br>
+                <label>Borrowed Book Information:</label><br>
+                <hr>
+                <label id="text_input">Book Code:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input"><label id="text_input">Book Name:</label>
+                <input type="text" name="" id="select"><br>
+                <br>
+                <label id="text_input">Date</label>
+                <input type="date" name="" id="select"><br>
+                <br>
+
+                <button onclick="save()" id="submit" type="submit">Serve</button>
+
+            </form>
         </div>
     </div>
 </body>

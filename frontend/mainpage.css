@@ -313,3 +313,40 @@ textarea,
 input {
     font-family: 'Domine', serif;
 }
+
+.main img {
+    height: 100px;
+    width: 100px;
+}
+
+.div1 {
+    float: left;
+    padding-top: 120px;
+    height: 500px;
+    margin-left: 2em;
+    font-family: 'Domine', serif;
+}
+
+.div1 button {
+    background-color: rgba(236, 235, 235, 0.89);
+    color: rgb(36, 35, 35);
+    font-family: 'Domine', serif;
+}
+
+button img {
+    height: 40px;
+}
+
+button {
+    border: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 1em;
+    font-size: 25px;
+    border: solid rgb(117, 90, 0) 0.2em;
+}
+
+button:hover {
+    background-color: rgb(172, 139, 139);
+    cursor: pointer;
+}
