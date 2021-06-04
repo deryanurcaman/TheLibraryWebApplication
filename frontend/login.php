@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
 
     if (empty($_POST['username'])) { 
-        $errors['username'] = 'A username is required';
+        $errors['username'] = 'An email is required';
     } else {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
     }
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['Email'] = $username;
             header("location: http://localhost/" . $page_uri);
         } else {
-            $errors['check'] = "Your Login Name or Password is invalid";
+            $errors['check'] = "Your Login Email or Password is invalid";
         }
     }
     
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         <p id="text_input">
-            <label for="">Username:</label>
+            <label for="">Email:</label>
             <br>
             <input type="text" name="username" placeholder="Enter your username" size="80" class="select" value="<?php echo htmlspecialchars($username); ?>">
         </p>
