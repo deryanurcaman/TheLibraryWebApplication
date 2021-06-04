@@ -9,21 +9,15 @@ $sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
 $result2 = mysqli_fetch_array($query);
 
-// $sqlString = "SELECT * FROM employees;";
-// $query = mysqli_query($conn, $sqlString);
-// $rows = array();
-// while($result = mysqli_fetch_array($query))
-// {
-//     $rows[] = $result;
-// }
 
-$sqlString = "SELECT * FROM grantors;";
+$sqlString = "SELECT * FROM donated_books;";
 $query = mysqli_query($conn, $sqlString);
 $rows = array();
 while ($result = mysqli_fetch_array($query)) {
     $rows[] = $result;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,37 +26,17 @@ while ($result = mysqli_fetch_array($query)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="grantors.css">
-    <title>Grantors</title>
+    <link rel="stylesheet" href="books.css">
+    <title>Books</title>
 </head>
 
 <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+    function save() {
+        alert("The Request Is Successfully Sent");
     }
 </script>
+
+
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
@@ -91,6 +65,7 @@ while ($result = mysqli_fetch_array($query)) {
 
         <br>
         <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result2['Employee_Name']; ?></strong>
+
 
         <br>
         <hr style="border-color: white;">
@@ -149,47 +124,37 @@ while ($result = mysqli_fetch_array($query)) {
     </div>
 
     <div class="main">
+
         <div class="Instructors_requests">
-            <h1>Grantors</h1><br>
+            <h1>Books</h1><br>
             <table>
                 <tr id="heads">
-                    <th>Detailed Information</th>
                     <th id="hashtag">#</th>
-                    <th>Name and Surname</th>
-                    <th>Phone Number</th>
-                    <th>Delete</th>
+                    <th>Donated Book Code</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                    <th>Number of Edition</th>
+                    <th>Quantity</th>
                 </tr>
+
                 <?php $j = 1;
                 foreach ($rows as $row) {
                 ?>
                     <tr>
-                        <a href="Grantor_Info.php?student_id=<?php echo $roww["student_id"]; ?>">
-                            <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
-                        </a>
-                        <td id="hashtag"><?php echo $j ?></td>
-                        <td><?php echo $row["Grantor_Name"]; ?></td>
-                        <td><?php echo $row["Grantor_Phone_Number"]; ?></td>
-                        <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
+                        <td><?php echo $j ?></td>
+                        <td><?php echo $row["Book_Code"]; ?></td>
+                        <td><?php echo $row["Book_Name"]; ?></td>
+                        <td><?php echo $row["Author"]; ?></td>
+                        <td><?php echo $row["Type"]; ?></td>
+                        <td><?php echo $row["Num_of_Edition"]; ?></td>
+                        <td><?php echo $row["Quantity"]; ?></td>
                     </tr>
                 <?php $j = $j + 1;
                 } ?>
             </table>
         </div>
-        <br><br>
-
-
     </div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span> Some text in the Modal..
-        </div>
-
-    </div>
-
 </body>
 
 </html>
