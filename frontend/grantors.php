@@ -1,3 +1,23 @@
+<?php 
+include '../database/config.php';
+$conn = OpenCon();
+
+$username = '';
+session_start();
+$username = $_SESSION['Username'];
+$sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
+$query = mysqli_query($conn, $sql);
+$result2 = mysqli_fetch_array($query);
+
+// $sqlString = "SELECT * FROM employees;";
+// $query = mysqli_query($conn, $sqlString);
+// $rows = array();
+// while($result = mysqli_fetch_array($query))
+// {
+//     $rows[] = $result;
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +82,7 @@
         </div>
 
         <br>
-        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b> Luna Lovegood</strong>
+        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result2['Employee_Name']; ?></strong>
 
         <br>
         <hr style="border-color: white;">
