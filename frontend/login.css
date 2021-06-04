@@ -21,7 +21,7 @@ form {
     border-radius: 10px;
     background-color: rgba(180, 180, 180, 0.486);
     padding: 1em 3em;
-    height: 400px;
+    height: 100%;
 }
 
 #title {
@@ -41,8 +41,8 @@ button {
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(82, 41, 31, 0.925);
-    width: 30%;
-    height: 45px;
+    width: 20%;
+    height: 55px;
     border-radius: 10px;
     transition-property: background-color;
     transition-duration: 1s;
@@ -61,7 +61,7 @@ button:hover {
     padding: 10px 10px;
     border-radius: 4px;
     font-size: 16px;
-    margin-left: 3em;
+    margin-top: 10px;
 }
 
 a {
