@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
 
     if (empty($_POST['username'])) { 
-        $errors['username'] = 'An email is required';
+        $errors['username'] = 'An username is required';
     } else {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
     }
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (!empty($_POST['password']) && !empty($_POST['username'])) {
-        $sql = 'SELECT Employee_id FROM '.$table_name.' WHERE Email = "'.$username.'" and password = "'.$password.'"';
+        $sql = 'SELECT Employee_id FROM '.$table_name.' WHERE Username = "'.$username.'" and password = "'.$password.'"';
 
         $result = mysqli_query($conn, $sql);
     
@@ -37,10 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $count = mysqli_num_rows($result);
         if ($count == 1) {
-            $_SESSION['Email'] = $username;
+            $_SESSION['Username'] = $username;
             header("location: http://localhost/" . $page_uri);
         } else {
-            $errors['check'] = "Your Login Email or Password is invalid";
+            $errors['check'] = "Your Login Username or Password is invalid";
         }
     }
     

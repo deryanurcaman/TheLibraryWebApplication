@@ -40,7 +40,7 @@ $table4 = "CREATE TABLE Employees(
     Employee_Name VARCHAR(100), 
     Employee_Phone_Number VARCHAR(11), 
     Sex VARCHAR(6),
-    Email VARCHAR(100),
+    Username VARCHAR(100),
     Password VARCHAR(100),
     PRIMARY KEY (Employee_Id));";
 

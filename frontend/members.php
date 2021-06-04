@@ -122,10 +122,6 @@ while($result = mysqli_fetch_array($query))
                     <th>Member Code</th>
                     <th>Member Name</th>
                     <th>Member Phone Number</th>
-                    <th>Borrowed Book</th>
-                    <th>Borrow Date</th>
-                    <th>Return Date</th>
-                    <th>Borrow Duration</th>
                     <th>Delete</th>
                 </tr>
                 <?php
@@ -137,10 +133,6 @@ while($result = mysqli_fetch_array($query))
                                 <td> '.$row['Member_Code'].'</td>
                                 <td> '.$row['Member_Name'].' </td>
                                 <td> '.$row['Member_Phone_Number'].' </td>
-                                <td> '.$row['Borrowed_Book'].' </td>
-                                <td> '.$row['Borrow_Date'].' </td>
-                                <td> '.$row['Return_Date'].' </td>
-                                <td> '.$row['Borrow_Duration'].' days </td>
                                 <td>  </td>
                                 <td> </td>
                             </tr>';

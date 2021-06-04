@@ -125,7 +125,6 @@ while($result = mysqli_fetch_array($query))
                     <th>Number of Edition</th>
                     <th>Status</th>
                     <th>Quantity</th>
-                    <th>Arrival Date</th>
                     <th>Delete</th>
                 </tr>
 
@@ -141,7 +140,6 @@ while($result = mysqli_fetch_array($query))
                                 <td> '.$row['Num_of_Edition'].'th </td>
                                 <td> '.$row['Status'].' </td>
                                 <td> '.$row['Quantity'].' </td>
-                                <td> '.$row['Arrival_Date'].' </td>
                                 <td> </td>
                             </tr>';
                     }
