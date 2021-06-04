@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         <p id="text_input">
-            <label for="">Email:</label>
+            <label for="">Username:</label>
             <br>
             <input type="text" name="username" placeholder="Enter your username" size="80" class="select" value="<?php echo htmlspecialchars($username); ?>">
         </p>

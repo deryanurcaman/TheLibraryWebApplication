@@ -127,7 +127,7 @@ $result2 = mysqli_fetch_array($query);
             <a href="./Add_Grantor.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/grantor.png" alt=""> <br>Add An Existing Grantor</button></a>
             <br> <br> <br><br> <br>
             <a href="./Add_Member.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Add A New Member</button></a>
-            <a href="./Add_Member.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/member.png" alt=""> <br>Serve to Existing Member</button></a>
+            <a href="./serve_existing_member.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/member.png" alt=""> <br>Serve to Existing Member</button></a>
             <a href="./Add_Employee.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/employee.png" alt=""> <br>Add An Employee</button></a>
         </div>
 
