@@ -122,13 +122,16 @@ $result2 = mysqli_fetch_array($query);
     <div class="main">
         <div class="div1">
 
-            <a href="./Add_Book.php"><button style="float: left;font-size: 18px; margin-left: 50px"><img src="./assets/course_siyah.png" alt=""> <br>Add A Book</button></a>
-            <a href="./Add_Grantor.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/new_grantor.png" alt=""> <br>Add A New Grantor</button></a>
-            <a href="./Add_Grantor.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/grantor.png" alt=""> <br>Add An Existing Grantor</button></a>
+            <a href="./Add_Book.php"><button style="float: left;font-size: 18px; margin-left: 50px"><img src="./assets/course_siyah.png" alt=""> <br>Add A Book Into The Inventory</button></a>
+            <a href="./Add_Member.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/new_grantor.png" alt=""> <br>Add A New Member</button></a>
+            <a href="./Add_Grantor.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/grantor.png" alt=""> <br>Add A New Grantor</button></a>
             <br> <br> <br><br> <br>
-            <a href="./Add_Member.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Add A New Member</button></a>
-            <a href="./serve_existing_member.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/member.png" alt=""> <br>Serve to Existing Member</button></a>
-            <a href="./Add_Employee.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/employee.png" alt=""> <br>Add An Employee</button></a>
+            <a href="./serve_existing_member.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Serve A Book To The Member</button></a>
+            <a href="./boş2.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/member.png" alt=""> <br>Return The Book From The Member</button></a>
+            <a href="./boş.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/employee.png" alt=""> <br>Add The Book Donated By A Grantor</button></a>
+            <br> <br> <br><br> <br>
+            <a href="./Add_Employee.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Add A New Employee</button></a>
+            
         </div>
 
         
