@@ -56,7 +56,7 @@ $result2 = mysqli_fetch_array($query);
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-        <div><img src="../frontend/assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+        <div><img src="../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
@@ -76,34 +76,34 @@ $result2 = mysqli_fetch_array($query);
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/books.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/books/books.php"></a>
                 </td>
 
-                <td> <a id="icon2" href="http://localhost/DatabasesProject-2021/frontend/books.php">Books</a>
+                <td> <a id="icon2" href="http://localhost/DatabasesProject-2021/frontend/books/books.php">Books</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/members.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/members/members.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/members.php">Members</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/members/members.php">Members</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/grantors.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/grantors/grantors.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/grantors.php">Grantors</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/grantors/grantors.php">Grantors</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/employees.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/employees/employees.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/employees.php">Employees</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/employees/employees.php">Employees</a>
                 </td>
             </tr>
             <tr id="hv">
@@ -116,21 +116,22 @@ $result2 = mysqli_fetch_array($query);
         </table>
 
 
+
     </div>
 
     <!-- Page content -->
     <div class="main">
         <div class="div1">
 
-            <a href="./Add_Book.php"><button style="float: left;font-size: 18px; margin-left: 50px"><img src="./assets/course_siyah.png" alt=""> <br>Add A Book Into The Inventory</button></a>
-            <a href="./Add_Member.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/new_grantor.png" alt=""> <br>Add A New Member</button></a>
-            <a href="./Add_Grantor.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/grantor.png" alt=""> <br>Add A New Grantor</button></a>
+            <a href="./books/addBooks.php"><button style="float: left;font-size: 18px; margin-left: 50px"><img src="./assets/course_siyah.png" alt=""> <br>Add A New Book Into The Inventory</button></a>
+            <a href="./members/addMember.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/new_grantor.png" alt=""> <br>Add A New Member</button></a>
+            <a href="./grantors/addGrantor.php"><button style=" float: left; margin-left: 2em; font-size: 18px;"><img src="./assets/grantor.png" alt=""> <br>Add A New Grantor</button></a>
             <br> <br> <br><br> <br>
-            <a href="./serve_existing_member.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Serve A Book To The Member</button></a>
+            <a href="./members/serveMember.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Serve A Book To The Member</button></a>
             <a href="./boş2.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/member.png" alt=""> <br>Return The Book From The Member</button></a>
             <a href="./boş.php"><button style=" float: left; margin-left: 2em; font-size: 18px; margin-top: 50px;"><img src="./assets/employee.png" alt=""> <br>Add The Book Donated By A Grantor</button></a>
             <br> <br> <br><br> <br>
-            <a href="./Add_Employee.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Add A New Employee</button></a>
+            <a href="./employees/addEmployee.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="./assets/new_member.png" alt=""> <br>Add A New Employee</button></a>
             
         </div>
 

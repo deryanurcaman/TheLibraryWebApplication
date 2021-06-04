@@ -1,5 +1,5 @@
 <?php
-include '../database/config.php';
+include '../../database/config.php';
 $conn = OpenCon();
 
 $username = '';
@@ -86,7 +86,7 @@ while ($result = mysqli_fetch_array($query)) {
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-        <div><img src="../frontend/assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+    <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
@@ -106,34 +106,34 @@ while ($result = mysqli_fetch_array($query)) {
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/books.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/books/books.php"></a>
                 </td>
 
-                <td> <a id="icon2" href="http://localhost/DatabasesProject-2021/frontend/books.php">Books</a>
+                <td> <a id="icon2" href="http://localhost/DatabasesProject-2021/frontend/books/books.php">Books</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/members.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/members/members.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/members.php">Members</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/members/members.php">Members</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/grantors.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/grantors/grantors.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/grantors.php">Grantors</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/grantors/grantors.php">Grantors</a>
                 </td>
             </tr>
             <tr id="hv">
                 <td>
-                    <a href="http://localhost/DatabasesProject-2021/frontend/employees.php"></a>
+                    <a href="http://localhost/DatabasesProject-2021/frontend/employees/employees.php"></a>
                 </td>
 
-                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/employees.php">Employees</a>
+                <td> <a id="icon3" href="http://localhost/DatabasesProject-2021/frontend/employees/employees.php">Employees</a>
                 </td>
             </tr>
             <tr id="hv">
@@ -144,6 +144,7 @@ while ($result = mysqli_fetch_array($query)) {
                 <td><a id="icon4" href="http://localhost/DatabasesProject-2021/frontend/login.php">Log Out</a></td>
             </tr>
         </table>
+
 
 
     </div>

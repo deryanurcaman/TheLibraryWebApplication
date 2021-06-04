@@ -1,5 +1,5 @@
 <?php
-include '../database/config.php';
+include '../../database/config.php';
 $conn = OpenCon();
 
 $username = $password = $check = '';        // initialize with empty string

@@ -168,7 +168,7 @@ form {
 body {
     background-size: cover;
     background-attachment: fixed;
-    background-image: url(../frontend/assets/login.jpeg);
+    background-image: url(../assets/login.jpeg);
 }
 
 table {
