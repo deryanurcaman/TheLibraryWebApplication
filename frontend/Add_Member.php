@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="members.css">
-    <title>Members</title>
-</head>
-
-<script>
-    function save() {
-        alert("The Request Is Successfully Sent");
-    }
-</script>
-
 <?php 
 include '../database/config.php';
 $conn = OpenCon();
@@ -26,7 +9,70 @@ while($result = mysqli_fetch_array($query))
 {
     $rows[] = $result;
 }
+
+
+
+$Member_Name = $Member_Code = $Member_Phone_Number = $Book_Code = $Book_Name = $Date = '';        // initialize with empty string
+$errors = array('Member_Name' => '', 'Member_Code' => '', 'Member_Phone_Number' => '', 'Book_Code' => '', 'Book_Name' => '', 'Date' => ''); // keys and their ampty values
+if (isset($_POST['submit'])) {
+    if (empty($_POST['Member_Name'])) {
+        $errors['Member_Name'] = 'Member_Name is required';
+    } else {
+        $Member_NameN = $_POST['Member_Name'];
+    }
+    if (empty($_POST['Member_Code'])) {
+        $errors['Member_Code'] = 'Member_Code is required';
+    } else {
+        $Member_CodeN = $_POST['Member_Code'];
+    }
+    if (empty($_POST['Member_Phone_Number'])) {
+        $errors['Member_Phone_Number'] = 'Member_Phone_Number is required';
+    } else {
+        $Member_Phone_NumberN = $_POST['Member_Phone_Number'];
+    }
+    
+
+    if(array_filter($errors)) {
+        // echo 'errors in the form';
+    } else {
+        // echo 'no errors in the form';
+
+    if (!empty($_POST['Member_Name']) && !empty($_POST['Member_Code']) && !empty($_POST['Member_Phone_Number']) ) {
+    
+    
+    $sqlNew = "INSERT INTO Members ( Member_Code, Member_Name, Member_Phone_Number) 
+    VALUES ( '$Member_CodeN', '$Member_NameN', '$Member_Phone_NumberN');";
+
+
+
+
+    if (mysqli_query($conn, $sqlNew)) {
+        echo "served successfully";
+    } else {
+        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+    }
+        echo 'no errors in the form';
+        header('Location: http://localhost/DatabasesProject-2021/frontend/members.php');
+        exit;
+    
+}}}
+
+
+
+
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="members.css">
+    <title>Members</title>
+</head>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
@@ -114,35 +160,40 @@ while($result = mysqli_fetch_array($query))
     <div class="main">
 
         <div class="Instructors_requests" id="Serve">
-            <h1 style="text-align: center;">Serve to The Member</h1>
+            <h1 style="text-align: center;">Add A New Member</h1>
             <hr><br>
 
-            <form action="">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                 <label>Member Information:</label><br>
                 <hr>
                 <label id="text_input">Member Name:</label>
-                <input type="text" name="" id="select"><br>
+                <input type="text" name="Member_Name" placeholder="Enter Member Name" class="select" value="<?php echo htmlspecialchars($Member_Name); ?>">
+
+                <div style="color: red;">
+                    <?php echo $errors['Member_Name']; ?>
+                    <!-- display error message here !-->
+                </div>
                 <br>
                 <label id="text_input">Member Code:</label>
-                <input type="text" name="" id="select"><br>
+                <input type="text" name="Member_Code" placeholder="Enter Member Code" class="select" value="<?php echo htmlspecialchars($Member_Code); ?>">
+
+                <div style="color: red;">
+                    <?php echo $errors['Member_Code']; ?>
+                    <!-- display error message here !-->
+                </div>
                 <br>
                 <label id="text_input">Member Phone Number:</label>
-                <input type="text" name="" id="select"><br>
-                <br><br>
-                <label>Borrowed Book Information:</label><br>
-                <hr>
-                <label id="text_input">Book Code:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input"><label id="text_input">Book Name:</label>
-                <input type="text" name="" id="select"><br>
-                <br>
-                <label id="text_input">Date</label>
-                <input type="date" name="" id="select"><br>
-                <br>
+                <input type="text" name="Member_Phone_Number" placeholder="Enter Member Phone_Number" class="select" value="<?php echo htmlspecialchars($Member_Phone_Number); ?>">
 
-                <button onclick="save()" id="submit" type="submit">Serve</button>
+                <div style="color: red;">
+                    <?php echo $errors['Member_Phone_Number']; ?>
+                    <!-- display error message here !-->
+                </div>
+                <br><br>
+            
+
+                <button  id="submit" name="submit" type="submit">Add</button>
 
             </form>
         </div>
