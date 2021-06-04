@@ -1,10 +1,7 @@
 <?php
 
-$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021');
-if(!$conn){
-    die ("Fail connection". mysqli_connect_error());
-}
-
+include 'config.php';
+$conn = OpenCon();
 
 $sql = "INSERT INTO Members (Member_Id, Member_Code, Book_Id, Member_Name, Member_Phone_Number, Borrowed_Book, Borrow_Date, Return_Date, Borrow_Duration) 
 VALUES (1, '35001', (SELECT Book_Id FROM Books WHERE Book_Code = '34001'), 'Bill Weasley', '12331234570', (SELECT Book_Name FROM Books WHERE Book_Code = '34001'), CAST('2021-05-22' AS datetime), CAST('2021-05-30' AS datetime), 8), 

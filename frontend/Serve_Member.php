@@ -16,10 +16,9 @@
 </script>
 
 <?php 
-$conn = mysqli_connect('localhost','webuser','123456','databasesproject2021');
-if(!$conn){
-    die ("Fail". mysqli_connect_error());
-}
+include '../database/config.php';
+$conn = OpenCon();
+
 $sqlString = "SELECT * FROM Members;";
 $query = mysqli_query($conn, $sqlString);
 $rows = array();
