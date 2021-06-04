@@ -22,14 +22,14 @@ $query = mysqli_query($conn, $sql);
 $result = mysqli_fetch_array($query);
 $emp=$result['Employee_Id'];
 
-$sqlm = 'SELECT * FROM members';
+$sqlm = 'SELECT * FROM members ORDER BY Member_Name';
 $querym = mysqli_query($conn, $sqlm);
 $rowsm = array();
 while ($resultm = mysqli_fetch_array($querym)) {
     $rowsm[] = $resultm;
 }
 
-$sqlb = 'SELECT * FROM books';
+$sqlb = 'SELECT * FROM books ORDER BY Book_Name';
 $queryb = mysqli_query($conn, $sqlb);
 $rowsb = array();
 while ($resultb = mysqli_fetch_array($queryb)) {
@@ -219,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <!-- display error message here !-->
                     </div>
                     <br>
-                    <label id="text_input">Date</label>
+                    <label id="text_input">Date:</label>
                     <input type="date" name="date" id="select" value="<?php echo htmlspecialchars($date); ?>">
                     <div style="color: red;">
                         <?php echo $errors['date'];?>
