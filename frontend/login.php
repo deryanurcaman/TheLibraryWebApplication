@@ -2,8 +2,8 @@
 include '../database/config.php';
 $conn = OpenCon();
 
-$username = $password = '';        // initialize with empty string
-$errors = array('username' => '', 'password' => ''); // keys and their ampty values
+$username = $password = $check = '';        // initialize with empty string
+$errors = array('username' => '', 'password' => '', 'check' => ''); // keys and their ampty values
 
 
 session_start();
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (!empty($_POST['password']) && !empty($_POST['username'])) {
-        $sql = 'SELECT id FROM '.$table_name.' WHERE Email = "'.$username.'" and password = "'.$password.'"';
+        $sql = 'SELECT Employee_id FROM '.$table_name.' WHERE Email = "'.$username.'" and password = "'.$password.'"';
 
         $result = mysqli_query($conn, $sql);
     
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" name="password" placeholder="Enter your password" size="80" class="select" value="<?php echo htmlspecialchars($password); ?>">
         </p>
         <div style="color: red;">
-            <?php echo $errors['password'];?>
+            <?php echo $errors['password']; echo $errors['check'];?>
             <!-- display error message here !-->
         </div>
         <br>
