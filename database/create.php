@@ -46,10 +46,10 @@ $table4 = "CREATE TABLE Employees(
 
 $table5 = "CREATE TABLE Serves(
     Serves_Id INT(11) NOT NULL AUTO_INCREMENT,
-    Book_Id INT(11),
+    Member_Id INT(11),
     Employee_Id INT(11),
     PRIMARY KEY (Serves_Id),
-    FOREIGN KEY (Book_Id) REFERENCES Books(Book_Id) ON DELETE CASCADE, 
+    FOREIGN KEY (Member_Id) REFERENCES Members(Member_Id) ON DELETE CASCADE, 
     FOREIGN KEY (Employee_Id) REFERENCES Employees(Employee_Id) ON DELETE CASCADE);";
 
 $table6 = "CREATE TABLE Borrowed_Books(
