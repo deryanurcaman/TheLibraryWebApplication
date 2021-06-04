@@ -9,6 +9,19 @@
     <title>Employees</title>
 </head>
 
+<?php 
+include '../database/config.php';
+$conn = OpenCon();
+
+$sqlString = "SELECT * FROM employees;";
+$query = mysqli_query($conn, $sqlString);
+$rows = array();
+while($result = mysqli_fetch_array($query))
+{
+    $rows[] = $result;
+}
+?>
+
 <script>
     function save() {
         alert("The Request Is Successfully Sent");
@@ -104,44 +117,21 @@
             <table>
                 <tr id="heads">
                     <th id="hashtag">#</th>
-                    <th>First Name</th>
-                    <th>Surname</th>
+                    <th>Name and Surname</th>
                     <th>Sex</th>
                     <th>Phone Number</th>
-                    <th>Salary($)</th>
                 </tr>
+    
+            <?php $j=1;
+            foreach ($rows as $row) {
+                ?>
                 <tr>
-                    <td id="hashtag">1</td>
-                    <td> Minerva </td>
-                    <td>McGonagall</td>
-                    <td>Female</td>
-                    <td>12345678</td>
-                    <td>1000</td>
+                    <td id="hashtag"><?php echo $j ?></td>
+                    <td><?php echo $row["Employee_Name"]; ?></td>
+                    <td><?php echo $row["Sex"]; ?></td>
+                    <td><?php echo $row["Employee_Phone_Number"]; ?></td>
                 </tr>
-                <tr>
-                    <td id="hashtag">2</td>
-                    <td> Filius </td>
-                    <td>Flitwick</td>
-                    <td>Male</td>
-                    <td>12345679</td>
-                    <td>1000</td>
-                </tr>
-                <tr>
-                    <td id="hashtag">3</td>
-                    <td> Severus </td>
-                    <td>Snape</td>
-                    <td>Male</td>
-                    <td>12345610 </td>
-                    <td>1000</td>
-                </tr>
-                <tr>
-                    <td id="hashtag">4</td>
-                    <td> Pomona </td>
-                    <td>Sprout</td>
-                    <td>Female</td>
-                    <td>12345611 </td>
-                    <td>1000</td>
-                </tr>
+                <?php $j=$j+1;}?>
             </table>
 
         </div>
