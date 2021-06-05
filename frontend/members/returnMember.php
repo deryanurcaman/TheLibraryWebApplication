@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql4 = 'UPDATE books SET Quantity=Quantity+1 WHERE Book_Name = "' . $bname . '"';
 
-        $sql3 = "UPDATE borrowed_books SET Return_Date = '$date' WHERE Book_Name = '" .$bname . "' ;";
+        $sql3 = "UPDATE borrowed_books SET Return_Date = '$date' WHERE Book_Id = '" .$result2['Book_Id'] . "' ;";
 
         $sql5 = "INSERT INTO serves (Member_Id, Employee_Id) 
         VALUES ( '" . $result1['Member_Id'] . "', '$emp');";
