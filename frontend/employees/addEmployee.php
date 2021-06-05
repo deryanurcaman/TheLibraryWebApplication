@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../../database/config.php';
 $conn = OpenCon();
 
@@ -42,32 +42,33 @@ if (isset($_POST['submit'])) {
     } else {
         $PasswordN = $_POST['Password'];
     }
-    
 
-    if(array_filter($errors)) {
+
+    if (array_filter($errors)) {
         // echo 'errors in the form';
     } else {
         // echo 'no errors in the form';
 
-    if (!empty($_POST['Employee_Name']) && !empty($_POST['Employee_Code']) && !empty($_POST['Employee_Phone_Number']) && !empty($_POST['Sex']) && !empty($_POST['Username']) && !empty($_POST['Password']) ) {
-    
-    
-    $sqlNew = "INSERT INTO Employees ( Employee_Code, Employee_Name, Employee_Phone_Number, Sex, Username, Password) 
+        if (!empty($_POST['Employee_Name']) && !empty($_POST['Employee_Code']) && !empty($_POST['Employee_Phone_Number']) && !empty($_POST['Sex']) && !empty($_POST['Username']) && !empty($_POST['Password'])) {
+
+
+            $sqlNew = "INSERT INTO Employees ( Employee_Code, Employee_Name, Employee_Phone_Number, Sex, Username, Password) 
     VALUES ( '$Employee_CodeN', '$Employee_NameN', '$Employee_Phone_NumberN', '$SexN', '$UsernameN', '$PasswordN' );";
 
 
 
 
-    if (mysqli_query($conn, $sqlNew)) {
-        echo "added an employee successfully";
-    } else {
-        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+            if (mysqli_query($conn, $sqlNew)) {
+                echo "added an employee successfully";
+            } else {
+                echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+            }
+            echo 'no errors in the form';
+            header('Location: http://localhost/DatabasesProject-2021/frontend/employees/employees.php');
+            exit;
+        }
     }
-        echo 'no errors in the form';
-        header('Location: http://localhost/DatabasesProject-2021/frontend/employees/employees.php');
-        exit;
-    
-}}}
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,15 +92,16 @@ if (isset($_POST['submit'])) {
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Stalemate&display=swap');
+
     body {
         font-family: 'Domine', serif;
     }
-    
+
     strong {
         font-family: 'Domine', serif;
         font-size: 25px;
     }
-    
+
     body b {
         font-family: 'Stalemate', cursive;
         font-size: 50px;
@@ -109,7 +111,7 @@ if (isset($_POST['submit'])) {
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-    <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+        <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
@@ -172,7 +174,7 @@ if (isset($_POST['submit'])) {
 
     </div>
 
-    
+
     <div class="main">
 
         <div class="Instructors_requests" id="Join">
@@ -206,8 +208,14 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <label id="text_input">Sex:</label>
-                <input type="text" name="Sex" placeholder="Enter Sex" class="select" value="<?php echo htmlspecialchars($Sex); ?>">
+                <select name="Sex" class="select" value="<?php echo htmlspecialchars($Sex); ?>">
 
+                    <option> Female</option>
+                    <option> Male</option>
+
+
+
+                </select>
                 <div style="color: red;">
                     <?php echo $errors['Sex']; ?>
                     <!-- display error message here !-->
@@ -222,7 +230,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <label id="text_input">Password:</label>
-                <input type="text" name="Password" placeholder="Enter Password" class="select" value="<?php echo htmlspecialchars($Password); ?>">
+                <input type="password" name="Password" placeholder="Enter Password" class="select" value="<?php echo htmlspecialchars($Password); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Password']; ?>
@@ -236,8 +244,8 @@ if (isset($_POST['submit'])) {
 
 
                 <br><br>
-            
-                <button  id="submit" name="submit" type="submit">Add</button>
+
+                <button id="submit" name="submit" type="submit">Add</button>
 
             </form>
         </div>
