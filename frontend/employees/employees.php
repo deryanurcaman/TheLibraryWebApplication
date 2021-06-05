@@ -129,6 +129,8 @@ while($result = mysqli_fetch_array($query))
                     <th>Name and Surname</th>
                     <th>Sex</th>
                     <th>Phone Number</th>
+                    <th>Username</th>
+
                 </tr>
     
             <?php $j=1;
@@ -139,6 +141,8 @@ while($result = mysqli_fetch_array($query))
                     <td><?php echo $row["Employee_Name"]; ?></td>
                     <td><?php echo $row["Sex"]; ?></td>
                     <td><?php echo $row["Employee_Phone_Number"]; ?></td>
+                    <td><?php echo $row["Username"]; ?></td>
+
                 </tr>
                 <?php $j=$j+1;}?>
             </table>

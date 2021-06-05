@@ -9,13 +9,65 @@ $sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
 $result2 = mysqli_fetch_array($query);
 
-$sqlString = "SELECT * FROM Books;";
-$query = mysqli_query($conn, $sqlString);
-$rows = array();
-while($result = mysqli_fetch_array($query))
-{
-    $rows[] = $result;
-}
+$Employee_Name = $Employee_Code = $Employee_Phone_Number = $Sex = $Username = $Password = '';        // initialize with empty string
+$errors = array('Employee_Name' => '', 'Employee_Code' => '', 'Employee_Phone_Number' => '', 'Sex' => '', 'Username' => '', 'Password' => ''); // keys and their ampty values
+if (isset($_POST['submit'])) {
+    if (empty($_POST['Employee_Name'])) {
+        $errors['Employee_Name'] = 'Employee_Name is required';
+    } else {
+        $Employee_NameN = $_POST['Employee_Name'];
+    }
+    if (empty($_POST['Employee_Code'])) {
+        $errors['Employee_Code'] = 'Employee_Code is required';
+    } else {
+        $Employee_CodeN = $_POST['Employee_Code'];
+    }
+    if (empty($_POST['Employee_Phone_Number'])) {
+        $errors['Employee_Phone_Number'] = 'Employee_Phone_Number is required';
+    } else {
+        $Employee_Phone_NumberN = $_POST['Employee_Phone_Number'];
+    }
+    if (empty($_POST['Sex'])) {
+        $errors['Sex'] = 'Sex is required';
+    } else {
+        $SexN = $_POST['Sex'];
+    }
+    if (empty($_POST['Username'])) {
+        $errors['Username'] = 'Username is required';
+    } else {
+        $UsernameN = $_POST['Username'];
+    }
+    if (empty($_POST['Password'])) {
+        $errors['Password'] = 'Password is required';
+    } else {
+        $PasswordN = $_POST['Password'];
+    }
+    
+
+    if(array_filter($errors)) {
+        // echo 'errors in the form';
+    } else {
+        // echo 'no errors in the form';
+
+    if (!empty($_POST['Employee_Name']) && !empty($_POST['Employee_Code']) && !empty($_POST['Employee_Phone_Number']) && !empty($_POST['Sex']) && !empty($_POST['Username']) && !empty($_POST['Password']) ) {
+    
+    
+    $sqlNew = "INSERT INTO Employees ( Employee_Code, Employee_Name, Employee_Phone_Number, Sex, Username, Password) 
+    VALUES ( '$Employee_CodeN', '$Employee_NameN', '$Employee_Phone_NumberN', '$SexN', '$UsernameN', '$PasswordN' );";
+
+
+
+
+    if (mysqli_query($conn, $sqlNew)) {
+        echo "added an employee successfully";
+    } else {
+        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+    }
+        echo 'no errors in the form';
+        header('Location: http://localhost/DatabasesProject-2021/frontend/employees/employees.php');
+        exit;
+    
+}}}
 ?>
 
 <!DOCTYPE html>
@@ -127,20 +179,65 @@ while($result = mysqli_fetch_array($query))
             <h1 style="text-align: center;">Add An Employee</h1>
             <hr><br>
 
-            <form action="../database/books.php">
-                <label id="text_input"><label id="text_input">Employee Name:</label>
-                <input type="text" name="" id="select"><br>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+                <label id="text_input">Employee Name:</label>
+                <input type="text" name="Employee_Name" placeholder="Enter Employee Name" class="select" value="<?php echo htmlspecialchars($Employee_Name); ?>">
+
+                <div style="color: red;">
+                    <?php echo $errors['Employee_Name']; ?>
+                    <!-- display error message here !-->
+                </div>
                 <br>
-                <label id="text_input">Phone Number:</label>
-                <input type="text" name="" id="select"><br>
+                <label id="text_input">Employee Code:</label>
+                <input type="text" name="Employee_Code" placeholder="Enter Employee Code" class="select" value="<?php echo htmlspecialchars($Employee_Code); ?>">
+
+                <div style="color: red;">
+                    <?php echo $errors['Employee_Code']; ?>
+                    <!-- display error message here !-->
+                </div>
                 <br>
-                <label id="text_input">User Name:</label>
-                <input type="text" name="" id="select"><br>
+                <label id="text_input">Employee Phone Number:</label>
+                <input type="text" name="Employee_Phone_Number" placeholder="Enter Employee Phone_Number" class="select" value="<?php echo htmlspecialchars($Employee_Phone_Number); ?>">
+
+                <div style="color: red;">
+                    <?php echo $errors['Employee_Phone_Number']; ?>
+                    <!-- display error message here !-->
+                </div>
+                <br>
+                <label id="text_input">Sex:</label>
+                <input type="text" name="Sex" placeholder="Enter Sex" class="select" value="<?php echo htmlspecialchars($Sex); ?>">
+
+                <div style="color: red;">
+                    <?php echo $errors['Sex']; ?>
+                    <!-- display error message here !-->
+                </div>
+                <br>
+                <label id="text_input">Username:</label>
+                <input type="text" name="Username" placeholder="Enter Username" class="select" value="<?php echo htmlspecialchars($Username); ?>">
+
+                <div style="color: red;">
+                    <?php echo $errors['Username']; ?>
+                    <!-- display error message here !-->
+                </div>
                 <br>
                 <label id="text_input">Password:</label>
-                <input type="text" name="" id="select"><br>
+                <input type="text" name="Password" placeholder="Enter Password" class="select" value="<?php echo htmlspecialchars($Password); ?>">
 
-                <button onclick="save()" id="submit" type="submit">Add</button>
+                <div style="color: red;">
+                    <?php echo $errors['Password']; ?>
+                    <!-- display error message here !-->
+                </div>
+
+
+
+
+
+
+
+                <br><br>
+            
+                <button  id="submit" name="submit" type="submit">Add</button>
 
             </form>
         </div>
