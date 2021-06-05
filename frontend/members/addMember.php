@@ -20,7 +20,7 @@ while($result = mysqli_fetch_array($query))
 
 
 $Member_Name = $Member_Code = $Member_Phone_Number = $Book_Code = $Book_Name = $Date = '';        // initialize with empty string
-$errors = array('Member_Name' => '', 'Member_Code' => '', 'Member_Phone_Number' => '', 'Book_Code' => '', 'Book_Name' => '', 'Date' => ''); // keys and their ampty values
+$errors = array('Member_Name' => '', 'Member_Code' => '', 'Member_Phone_Number' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Member_Name'])) {
         $errors['Member_Name'] = 'Member_Name is required';
@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
 
 
     if (mysqli_query($conn, $sqlNew)) {
-        echo "served successfully";
+        echo "added a member successfully";
     } else {
         echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
     }
