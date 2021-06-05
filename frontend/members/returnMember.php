@@ -68,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql1 = 'SELECT * FROM members WHERE Member_Name = "' . $mname . '"';
         $query1 = mysqli_query($conn, $sql1);
         $result1 = mysqli_fetch_array($query1);
+        $case_name = "return";
 
 
         $sql2 = 'SELECT * FROM books WHERE Book_Name = "' . $bname . '"';
@@ -78,8 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql3 = "UPDATE borrowed_books SET Return_Date = '$date' WHERE Book_Id = '" .$result2['Book_Id'] . "' ;";
 
-        $sql5 = "INSERT INTO serves (Member_Id, Employee_Id) 
-        VALUES ( '" . $result1['Member_Id'] . "', '$emp');";
+        $sql5 = "INSERT INTO transactions (Member_Id, Employee_Id, Case_Name) 
+        VALUES ( '" . $result1['Member_Id'] . "', '$emp', '$case_name');";
 
         if (mysqli_query($conn, $sql3) && mysqli_query($conn, $sql4) && mysqli_query($conn, $sql5)) {
             echo '<script> alert("Book returned to member successfully."); // window.location="serve_existing_member.php" </script>';

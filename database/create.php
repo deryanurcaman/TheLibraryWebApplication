@@ -44,11 +44,12 @@ $table4 = "CREATE TABLE Employees(
     Password VARCHAR(100),
     PRIMARY KEY (Employee_Id));";
 
-$table5 = "CREATE TABLE Serves(
-    Serves_Id INT(11) NOT NULL AUTO_INCREMENT,
+$table5 = "CREATE TABLE Transactions(
+    Transactions_Id INT(11) NOT NULL AUTO_INCREMENT,
     Member_Id INT(11),
     Employee_Id INT(11),
-    PRIMARY KEY (Serves_Id),
+    Case_Name VARCHAR(100),
+    PRIMARY KEY (Transactions_Id),
     FOREIGN KEY (Member_Id) REFERENCES Members(Member_Id) ON DELETE CASCADE, 
     FOREIGN KEY (Employee_Id) REFERENCES Employees(Employee_Id) ON DELETE CASCADE);";
 
