@@ -1,5 +1,6 @@
-<?php 
-include '../../database/config.php';$conn = OpenCon();
+<?php
+include '../../database/config.php';
+$conn = OpenCon();
 
 $username = '';
 session_start();
@@ -12,8 +13,7 @@ $result2 = mysqli_fetch_array($query);
 $sqlString = "SELECT * FROM Books;";
 $query = mysqli_query($conn, $sqlString);
 $rows = array();
-while($result = mysqli_fetch_array($query))
-{
+while ($result = mysqli_fetch_array($query)) {
     $rows[] = $result;
 }
 ?>
@@ -26,7 +26,7 @@ while($result = mysqli_fetch_array($query))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="books.css?v=<?php echo time(); ?>">
     <title>Books</title>
 </head>
 
@@ -41,15 +41,16 @@ while($result = mysqli_fetch_array($query))
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Stalemate&display=swap');
+
     body {
         font-family: 'Domine', serif;
     }
-    
+
     strong {
         font-family: 'Domine', serif;
         font-size: 25px;
     }
-    
+
     body b {
         font-family: 'Stalemate', cursive;
         font-size: 50px;
@@ -59,7 +60,7 @@ while($result = mysqli_fetch_array($query))
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-    <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+        <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
@@ -122,7 +123,7 @@ while($result = mysqli_fetch_array($query))
 
 
     </div>
-    
+
     <div class="main">
 
         <div class="Instructors_requests">
@@ -137,25 +138,27 @@ while($result = mysqli_fetch_array($query))
                     <th>Number of Edition</th>
                     <th>Status</th>
                     <th>Quantity</th>
+                    <th>Publisher</th>
                     <th>Delete</th>
                 </tr>
 
-                <?php
-                    foreach($rows as $row){
-                        echo
-                            '<tr>
-                                <td> '.$row['Book_Id'].'</td>
-                                <td> '.$row['Book_Code'].'</td>
-                                <td> '.$row['Book_Name'].'</td>
-                                <td> '.$row['Author'].' </td>
-                                <td> '.$row['Type'].' </td>
-                                <td> '.$row['Num_of_Edition'].'th </td>
-                                <td> '.$row['Status'].' </td>
-                                <td> '.$row['Quantity'].' </td>
-                                <td> </td>
-                            </tr>';
-                    }
-                ?>          
+                <?php $j = 1;
+                foreach ($rows as $row) {
+                ?>
+                    <tr>
+                        <td><?php echo $j ?></td>
+                        <td><?php echo $row["Book_Code"]; ?></td>
+                        <td><?php echo $row["Book_Name"]; ?></td>
+                        <td><?php echo $row["Author"]; ?></td>
+                        <td><?php echo $row["Type"]; ?></td>
+                        <td><?php echo $row["Num_of_Edition"]; ?></td>
+                        <td><?php echo $row["Status"]; ?></td>
+                        <td><?php echo $row["Quantity"]; ?></td>
+                        <td><?php echo $row["PublishingHouse_Name"]; ?></td>
+                        <td><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
+                    </tr>
+                <?php $j = $j + 1;
+                } ?>
             </table>
         </div>
     </div>

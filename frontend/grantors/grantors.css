@@ -252,6 +252,10 @@ button img {
     margin: 10px;
 }
 
+#decision:hover {
+    cursor: pointer;
+}
+
 .sidenav img {
     display: block;
     margin: auto;

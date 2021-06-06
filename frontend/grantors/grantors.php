@@ -32,7 +32,7 @@ while ($result = mysqli_fetch_array($query)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="grantors.css">
+    <link rel="stylesheet" href="grantors.css?v=<?php echo time(); ?>">
     <title>Grantors</title>
 </head>
 
@@ -164,13 +164,13 @@ while ($result = mysqli_fetch_array($query)) {
                 foreach ($rows as $row) {
                 ?>
                     <tr>
-                        <a href="Grantor_Info.php?student_id=<?php echo $roww["student_id"]; ?>">
-                            <td><img src="../frontend/assets/information.png" alt="" height="50px" id="myBtn"></td>
+                    <a href="../grantors/grantorInfo.php">
+                            <td><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></td>
                         </a>
                         <td id="hashtag"><?php echo $j ?></td>
                         <td><?php echo $row["Grantor_Name"]; ?></td>
                         <td><?php echo $row["Grantor_Phone_Number"]; ?></td>
-                        <td><button id="decision"><img src="../frontend/assets/reject.png" alt=""></button></td>
+                        <td><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
                     </tr>
                 <?php $j = $j + 1;
                 } ?>

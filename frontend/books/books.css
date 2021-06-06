@@ -60,14 +60,6 @@ strong {
     padding: 0px 10px;
 }
 
-form {
-    width: 45%;
-    border-radius: 4px;
-    display: block;
-    margin: auto;
-    margin-left: 8em;
-}
-
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 
@@ -250,6 +242,10 @@ button img {
 
 #decision {
     margin: 10px;
+}
+
+#decision:hover {
+    cursor: pointer;
 }
 
 .sidenav img {

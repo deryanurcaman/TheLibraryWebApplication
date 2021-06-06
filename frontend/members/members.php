@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../../database/config.php';
 $conn = OpenCon();
 
@@ -12,8 +12,7 @@ $result2 = mysqli_fetch_array($query);
 $sqlString = "SELECT * FROM Members;";
 $query = mysqli_query($conn, $sqlString);
 $rows = array();
-while($result = mysqli_fetch_array($query))
-{
+while ($result = mysqli_fetch_array($query)) {
     $rows[] = $result;
 }
 ?>
@@ -25,7 +24,7 @@ while($result = mysqli_fetch_array($query))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="members.css">
+    <link rel="stylesheet" href="members.css?v=<?php echo time(); ?>">
     <title>Members</title>
 </head>
 
@@ -38,15 +37,16 @@ while($result = mysqli_fetch_array($query))
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Stalemate&display=swap');
+
     body {
         font-family: 'Domine', serif;
     }
-    
+
     strong {
         font-family: 'Domine', serif;
         font-size: 25px;
     }
-    
+
     body b {
         font-family: 'Stalemate', cursive;
         font-size: 50px;
@@ -56,7 +56,7 @@ while($result = mysqli_fetch_array($query))
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-    <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+        <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
@@ -131,20 +131,23 @@ while($result = mysqli_fetch_array($query))
                     <th>Member Phone Number</th>
                     <th>Delete</th>
                 </tr>
-                <?php
-                    foreach($rows as $row){
-                        echo
-                            '<tr>
-                                <td> </td>
-                                <td> '.$row['Member_Id'].'</td>
-                                <td> '.$row['Member_Code'].'</td>
-                                <td> '.$row['Member_Name'].' </td>
-                                <td> '.$row['Member_Phone_Number'].' </td>
-                                <td>  </td>
-                                <td> </td>
-                            </tr>';
-                    }
-                ?> 
+                <?php $j = 1;
+                foreach ($rows as $row) {
+                ?>
+                    <tr>
+                        <a href="../grantors/grantorInfo.php">
+                            <td><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></td>
+                        </a>
+                        <td><?php echo $j ?></td>
+                        <td><?php echo $row["Member_Code"]; ?></td>
+                        <td><?php echo $row["Member_Name"]; ?></td>
+                        <td><?php echo $row["Member_Phone_Number"]; ?></td>
+                        <td><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
+                        
+            
+                    </tr>
+                <?php $j = $j + 1;
+                } ?>
             </table>
 
         </div>
