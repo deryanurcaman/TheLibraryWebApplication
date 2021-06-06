@@ -10,8 +10,8 @@ $query = mysqli_query($conn, $sql);
 $result2 = mysqli_fetch_array($query);
 
 
-$Book_Code = $Book_Name = $Author = $Type = $Num_of_Edition  = $Quantity = $PublishingHouse_Name = '';        // initialize with empty string
-$errors = array('Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => ''); // keys and their ampty values
+$Book_CodeN = $Book_NameN = $AuthorN = $TypeN = $Num_of_EditionN  = $QuantityN = $PublishingHouse_NameN = '';        // initialize with empty string
+$errors = array('Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => '', 'check' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Book_Code'])) {
         $errors['Book_Code'] = 'Book Code is required';
@@ -63,20 +63,41 @@ if (isset($_POST['submit'])) {
         if (!empty($_POST['Book_Code']) && !empty($_POST['Book_Name']) && !empty($_POST['Author']) && !empty($_POST['Type']) && !empty($_POST['Num_of_Edition'])  && !empty($_POST['Quantity']) && !empty($_POST['PublishingHouse_Name'])) {
 
 
-    $sqlNew = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Status, Quantity, PublishingHouse_Name) 
+            $sqlcheck = "SELECT * FROM books WHERE Book_Code = '$Book_CodeN'";
+
+            $resultcheck = mysqli_query($conn, $sqlcheck);
+
+
+            $row = mysqli_fetch_array($resultcheck, MYSQLI_ASSOC);
+
+            $count = mysqli_num_rows($resultcheck);
+
+            // If result matched $myusername and $mypassword, table row must be 1 row
+            if ($count == 1) {
+                if($row['Book_Name']!=$Book_NameN || $row['Author']!=$AuthorN || $row['Type']!=$TypeN || $row['Num_of_Edition']!=$Num_of_EditionN || $row['PublishingHouse_Name']!=$PublishingHouse_NameN){
+                    $errors['check'] = 'At least one of the entered information does not match with the book code.';
+                }else{
+
+                $sqlupdate = 'UPDATE books SET Quantity=Quantity+'.$QuantityN.' WHERE Book_Code = "' . $Book_CodeN . '"';
+
+                if (mysqli_query($conn, $sqlupdate)) {
+                    echo '<script> alert("Book updated successfully."); window.location="books.php" </script>';
+
+                } else {
+                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                }
+            }} else {
+
+
+                $sqlNew = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Status, Quantity, PublishingHouse_Name) 
     VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', 0, '$QuantityN', '$PublishingHouse_NameN');";
 
-
-
-
-            if (mysqli_query($conn, $sqlNew)) {
-                echo "added a book successfully";
-            } else {
-                echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                if (mysqli_query($conn, $sqlNew)) {
+                    echo '<script> alert("Book added successfully."); window.location="books.php" </script>';
+                } else {
+                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                }
             }
-            
-            header('Location: http://localhost/DatabasesProject-2021/frontend/books/books.php');
-            exit;
         }
     }
 }
@@ -191,58 +212,64 @@ if (isset($_POST['submit'])) {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                 <label id="text_input"><label id="text_input">Book Code:</label>
-                    <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_Code); ?>">
+                    <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_CodeN); ?>">
 
-                    <div style="color: red;">
+                    <div style="color: red; font-size:15px;">
                         <?php echo $errors['Book_Code']; ?>
                         <!-- display error message here !-->
                     </div>
                     <br>
                     <label id="text_input"><label id="text_input">Book Name:</label>
-                        <input type="text" name="Book_Name" placeholder="Enter Book Name" class="select" value="<?php echo htmlspecialchars($Book_Name); ?>">
+                        <input type="text" name="Book_Name" placeholder="Enter Book Name" class="select" value="<?php echo htmlspecialchars($Book_NameN); ?>">
 
-                        <div style="color: red;">
+                        <div style="color: red; font-size:15px;">
                             <?php echo $errors['Book_Name']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Author:</label>
-                        <input type="text" name="Author" placeholder="Enter Author" class="select" value="<?php echo htmlspecialchars($Author); ?>">
+                        <input type="text" name="Author" placeholder="Enter Author" class="select" value="<?php echo htmlspecialchars($AuthorN); ?>">
 
-                        <div style="color: red;">
+                        <div style="color: red; font-size:15px;">
                             <?php echo $errors['Author']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Type:</label>
-                        <input type="text" name="Type" placeholder="Enter Type" class="select" value="<?php echo htmlspecialchars($Type); ?>">
+                        <input type="text" name="Type" placeholder="Enter Type" class="select" value="<?php echo htmlspecialchars($TypeN); ?>">
 
-                        <div style="color: red;">
+                        <div style="color: red; font-size:15px;">
                             <?php echo $errors['Type']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Number Of Edition:</label>
-                        <input type="number" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_Edition); ?>">
+                        <input type="number" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_EditionN); ?>">
 
-                        <div style="color: red;">
+                        <div style="color: red; font-size:15px;">
                             <?php echo $errors['Num_of_Edition']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Quantity:</label>
-                        <input type="number" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($Quantity); ?>">
+                        <input type="number" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
 
-                        <div style="color: red;">
+                        <div style="color: red; font-size:15px;">
                             <?php echo $errors['Quantity']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Publishing House Name:</label>
-                        <input type="text" name="PublishingHouse_Name" placeholder="Enter Publishing House Name" class="select" value="<?php echo htmlspecialchars($PublishingHouse_Name); ?>">
+                        <input type="text" name="PublishingHouse_Name" placeholder="Enter Publishing House Name" class="select" value="<?php echo htmlspecialchars($PublishingHouse_NameN); ?>">
 
-                        <div style="color: red;">
+                        <div style="color: red; font-size:15px;">
                             <?php echo $errors['PublishingHouse_Name']; ?>
+                            <!-- display error message here !-->
+                        </div>
+                        <br>
+
+                        <div style="color: red; font-size:15px;">
+                            <?php echo $errors['check']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
