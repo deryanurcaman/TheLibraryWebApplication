@@ -126,6 +126,7 @@ while($result = mysqli_fetch_array($query))
             <table>
                 <tr id="heads">
                     <th id="hashtag">#</th>
+                    <th>Employee Code</th>
                     <th>Name and Surname</th>
                     <th>Sex</th>
                     <th>Phone Number</th>
@@ -138,6 +139,7 @@ while($result = mysqli_fetch_array($query))
                 ?>
                 <tr>
                     <td id="hashtag"><?php echo $j ?></td>
+                    <td><?php echo $row["Employee_Code"]; ?></td>
                     <td><?php echo $row["Employee_Name"]; ?></td>
                     <td><?php echo $row["Sex"]; ?></td>
                     <td><?php echo $row["Employee_Phone_Number"]; ?></td>
