@@ -15,7 +15,6 @@ $table1 = "CREATE TABLE Books(
     Author VARCHAR(100),
     Type VARCHAR(100),
     Num_of_Edition INT(11),
-    Status BOOLEAN,
     Quantity INT(11),
     PublishingHouse_Name VARCHAR(100), 
     PRIMARY KEY (Book_Id));";
