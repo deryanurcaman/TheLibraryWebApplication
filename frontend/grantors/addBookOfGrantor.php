@@ -26,8 +26,8 @@ while ($resultb = mysqli_fetch_array($queryb)) {
     $rowsb[] = $resultb;
 }
 
-$Book_Code = $Book_Name = $Author = $Type = $Num_of_Edition  = $Quantity = $PublishingHouse_Name = '';        // initialize with empty string
-$errors = array('m_name' => '', 'Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => ''); // keys and their ampty values
+$Book_CodeN = $Book_NameN = $AuthorN = $TypeN = $Num_of_EditionN  = $QuantityN = $PublishingHouse_NameN = '';        // initialize with empty string
+$errors = array('check' => '', 'm_name' => '', 'Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['m_name'])) {
         $errors['m_name'] = 'A grantor name is required';
@@ -79,36 +79,59 @@ if (isset($_POST['submit'])) {
 
         if (!empty($_POST['m_name']) && !empty($_POST['Book_Code']) && !empty($_POST['Book_Name']) && !empty($_POST['Author']) && !empty($_POST['Type']) && !empty($_POST['Num_of_Edition'])  && !empty($_POST['Quantity']) && !empty($_POST['PublishingHouse_Name'])) {
 
-
-            $employee_id=$_SESSION['Employee_Id'];
-
             $sql1 = 'SELECT * FROM grantors WHERE Grantor_Name = "' . $mname . '"';
             $query1 = mysqli_query($conn, $sql1);
             $result1 = mysqli_fetch_array($query1);
 
-           
+
+            $sqlcheck = "SELECT * FROM books WHERE Book_Code = '$Book_CodeN'";
+
+            $resultcheck = mysqli_query($conn, $sqlcheck);
 
 
-            $sqlNew2 = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Status, Quantity, PublishingHouse_Name) 
-            VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', 0, '$QuantityN', '$PublishingHouse_NameN');";
+            $row = mysqli_fetch_array($resultcheck, MYSQLI_ASSOC);
+
+            $count = mysqli_num_rows($resultcheck);
 
 
-            mysqli_query($conn, $sqlNew2);
+            // If result matched $myusername and $mypassword, table row must be 1 row
+            if ($count == 1) {
+                if ($row['Book_Name'] != $Book_NameN || $row['Author'] != $AuthorN || $row['Type'] != $TypeN || $row['Num_of_Edition'] != $Num_of_EditionN || $row['PublishingHouse_Name'] != $PublishingHouse_NameN) {
+                    $errors['check'] = 'At least one of the entered information does not match with the book code.';
+                } else {
 
-            $sql2 = 'SELECT * FROM books WHERE Book_Name = "' . $Book_NameN . '"';
-            $query2 = mysqli_query($conn, $sql2);
-            $result2 = mysqli_fetch_array($query2);
+                    $sqlupdate = 'UPDATE books SET Quantity=Quantity+' . $QuantityN . ' WHERE Book_Code = "' . $Book_CodeN . '"';
 
-            $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id) 
-            VALUES ( '" . $result2['Book_Id'] . "', '" . $result1['Grantor_Id'] . "');";
-        
+                    $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id) 
+            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "');";
 
-            mysqli_query($conn, $sqlNew1);
+                    if (mysqli_query($conn, $sqlupdate) && mysqli_query($conn, $sqlNew1)) {
+                        echo '<script> alert("Book updated successfully."); window.location="../books/books.php" </script>';
+                    } else {
+                        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                    }
+                }
+            } else {
+                $sqlNew2 = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Quantity, PublishingHouse_Name) 
+            VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', '$QuantityN', '$PublishingHouse_NameN');";
 
 
-       
-            header('Location: http://localhost/DatabasesProject-2021/frontend/books/books.php');
-            exit;
+                if (mysqli_query($conn, $sqlNew2)) {
+                    
+                } else {
+                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                }
+
+                $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id) 
+            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "');";
+
+
+                if (mysqli_query($conn, $sqlNew1)) {
+                    echo '<script> alert("Book added successfully."); window.location="books.php" </script>';
+                } else {
+                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                }
+            }
         }
     }
 }
@@ -238,7 +261,7 @@ if (isset($_POST['submit'])) {
                 <label> Book Information:</label><br>
                 <hr>
                 <label id="text_input"><label id="text_input">Book Code:</label>
-                    <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_Code); ?>">
+                    <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_CodeN); ?>">
 
                     <div style="color: red;">
                         <?php echo $errors['Book_Code']; ?>
@@ -246,7 +269,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <br>
                     <label id="text_input"><label id="text_input">Book Name:</label>
-                        <input type="text" name="Book_Name" placeholder="Enter Book Name" class="select" value="<?php echo htmlspecialchars($Book_Name); ?>">
+                        <input type="text" name="Book_Name" placeholder="Enter Book Name" class="select" value="<?php echo htmlspecialchars($Book_NameN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['Book_Name']; ?>
@@ -254,7 +277,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Author:</label>
-                        <input type="text" name="Author" placeholder="Enter Author" class="select" value="<?php echo htmlspecialchars($Author); ?>">
+                        <input type="text" name="Author" placeholder="Enter Author" class="select" value="<?php echo htmlspecialchars($AuthorN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['Author']; ?>
@@ -262,7 +285,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Type:</label>
-                        <input type="text" name="Type" placeholder="Enter Type" class="select" value="<?php echo htmlspecialchars($Type); ?>">
+                        <input type="text" name="Type" placeholder="Enter Type" class="select" value="<?php echo htmlspecialchars($TypeN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['Type']; ?>
@@ -270,7 +293,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Number Of Edition:</label>
-                        <input type="number" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_Edition); ?>">
+                        <input type="number" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_EditionN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['Num_of_Edition']; ?>
@@ -278,7 +301,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Quantity:</label>
-                        <input type="number" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($Quantity); ?>">
+                        <input type="number" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['Quantity']; ?>
@@ -286,13 +309,19 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Publishing House Name:</label>
-                        <input type="text" name="PublishingHouse_Name" placeholder="Enter Publishing House Name" class="select" value="<?php echo htmlspecialchars($PublishingHouse_Name); ?>">
+                        <input type="text" name="PublishingHouse_Name" placeholder="Enter Publishing House Name" class="select" value="<?php echo htmlspecialchars($PublishingHouse_NameN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['PublishingHouse_Name']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
+
+                        <div style="color: red;">
+                            <?php echo $errors['check']; ?>
+                            <!-- display error message here !-->
+                        </div>
+                        
                         <br>
                         <br>
                         <button id="submit" name="submit" type="submit">Add</button>

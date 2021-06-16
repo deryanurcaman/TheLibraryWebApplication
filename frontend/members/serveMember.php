@@ -30,7 +30,7 @@ while ($resultm = mysqli_fetch_array($querym)) {
     $rowsm[] = $resultm;
 }
 
-$sqlb = 'SELECT * FROM books ORDER BY Book_Name';
+$sqlb = 'SELECT * FROM books WHERE Quantity>0 ORDER BY Book_Name';
 $queryb = mysqli_query($conn, $sqlb);
 $rowsb = array();
 while ($resultb = mysqli_fetch_array($queryb)) {

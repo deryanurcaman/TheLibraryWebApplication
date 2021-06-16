@@ -89,8 +89,8 @@ if (isset($_POST['submit'])) {
             }} else {
 
 
-                $sqlNew = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Status, Quantity, PublishingHouse_Name) 
-    VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', 0, '$QuantityN', '$PublishingHouse_NameN');";
+                $sqlNew = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Quantity, PublishingHouse_Name) 
+    VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', '$QuantityN', '$PublishingHouse_NameN');";
 
                 if (mysqli_query($conn, $sqlNew)) {
                     echo '<script> alert("Book added successfully."); window.location="books.php" </script>';
@@ -252,7 +252,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Quantity:</label>
-                        <input type="number" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
+                        <input type="number" min="1" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['Quantity']; ?>

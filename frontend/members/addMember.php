@@ -23,19 +23,19 @@ $Member_Name = $Member_Code = $Member_Phone_Number = $Book_Code = $Book_Name = $
 $errors = array('Member_Name' => '', 'Member_Code' => '', 'Member_Phone_Number' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Member_Name'])) {
-        $errors['Member_Name'] = 'Member_Name is required';
+        $errors['Member_Name'] = 'Member name is required';
     } else {
-        $Member_NameN = $_POST['Member_Name'];
+        $Member_Name = $_POST['Member_Name'];
     }
     if (empty($_POST['Member_Code'])) {
-        $errors['Member_Code'] = 'Member_Code is required';
+        $errors['Member_Code'] = 'Member code is required';
     } else {
-        $Member_CodeN = $_POST['Member_Code'];
+        $Member_Code = $_POST['Member_Code'];
     }
     if (empty($_POST['Member_Phone_Number'])) {
-        $errors['Member_Phone_Number'] = 'Member_Phone_Number is required';
+        $errors['Member_Phone_Number'] = 'Member phone number is required';
     } else {
-        $Member_Phone_NumberN = $_POST['Member_Phone_Number'];
+        $Member_Phone_Number = $_POST['Member_Phone_Number'];
     }
     
 

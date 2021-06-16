@@ -13,19 +13,19 @@ $Employee_Name = $Employee_Code = $Employee_Phone_Number = $Sex = $Username = $P
 $errors = array('Employee_Name' => '', 'Employee_Code' => '', 'Employee_Phone_Number' => '', 'Sex' => '', 'Username' => '', 'Password' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Employee_Name'])) {
-        $errors['Employee_Name'] = 'Employee_Name is required';
+        $errors['Employee_Name'] = 'Employee name is required';
     } else {
-        $Employee_NameN = $_POST['Employee_Name'];
+        $Employee_Name = $_POST['Employee_Name'];
     }
     if (empty($_POST['Employee_Code'])) {
-        $errors['Employee_Code'] = 'Employee_Code is required';
+        $errors['Employee_Code'] = 'Employee code is required';
     } else {
-        $Employee_CodeN = $_POST['Employee_Code'];
+        $Employee_Code = $_POST['Employee_Code'];
     }
     if (empty($_POST['Employee_Phone_Number'])) {
-        $errors['Employee_Phone_Number'] = 'Employee_Phone_Number is required';
+        $errors['Employee_Phone_Number'] = 'Employee phone number is required';
     } else {
-        $Employee_Phone_NumberN = $_POST['Employee_Phone_Number'];
+        $Employee_Phone_Number = $_POST['Employee_Phone_Number'];
     }
     if (empty($_POST['Sex'])) {
         $errors['Sex'] = 'Sex is required';
@@ -35,12 +35,12 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['Username'])) {
         $errors['Username'] = 'Username is required';
     } else {
-        $UsernameN = $_POST['Username'];
+        $Username = $_POST['Username'];
     }
     if (empty($_POST['Password'])) {
         $errors['Password'] = 'Password is required';
     } else {
-        $PasswordN = $_POST['Password'];
+        $Password = $_POST['Password'];
     }
 
 
