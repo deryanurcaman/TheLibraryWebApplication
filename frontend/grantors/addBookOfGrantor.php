@@ -27,7 +27,7 @@ while ($resultb = mysqli_fetch_array($queryb)) {
 }
 
 $Book_Code = $Book_Name = $Author = $Type = $Num_of_Edition  = $Quantity = $PublishingHouse_Name = '';        // initialize with empty string
-$errors = array('Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => ''); // keys and their ampty values
+$errors = array('m_name' => '', 'Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['m_name'])) {
         $errors['m_name'] = 'A grantor name is required';
