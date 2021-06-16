@@ -136,7 +136,6 @@ while ($result = mysqli_fetch_array($query)) {
                     <th>Author</th>
                     <th>Type</th>
                     <th>Number of Edition</th>
-                    <th>Status</th>
                     <th>Quantity</th>
                     <th>Publisher</th>
                     <th>Delete</th>
@@ -152,7 +151,6 @@ while ($result = mysqli_fetch_array($query)) {
                         <td><?php echo $row["Author"]; ?></td>
                         <td><?php echo $row["Type"]; ?></td>
                         <td><?php echo $row["Num_of_Edition"]; ?></td>
-                        <td><?php echo $row["Status"]; ?></td>
                         <td><?php echo $row["Quantity"]; ?></td>
                         <td><?php echo $row["PublishingHouse_Name"]; ?></td>
                         <td><a href="delete-process.php?Book_Code=<?php echo $row['Book_Code']; ?>"><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
