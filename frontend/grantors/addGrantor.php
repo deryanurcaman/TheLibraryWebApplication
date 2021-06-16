@@ -18,21 +18,21 @@ while($result = mysqli_fetch_array($query))
     $rows[] = $result;
 }
 
-$Grantor_Name = $Grantor_Code = $Grantor_Phone_Number = $Book_Code = $Book_Name = $Date = '';        // initialize with empty string
+$Grantor_NameN = $Grantor_CodeN = $Grantor_Phone_NumberN = $Book_CodeN = $Book_NameN = $DateN = '';        // initialize with empty string
 $errors = array('Grantor_Name' => '', 'Grantor_Code' => '', 'Grantor_Phone_Number' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Grantor_Name'])) {
-        $errors['Grantor_Name'] = 'Grantor_Name is required';
+        $errors['Grantor_Name'] = 'Grantor name is required';
     } else {
         $Grantor_NameN = $_POST['Grantor_Name'];
     }
     if (empty($_POST['Grantor_Code'])) {
-        $errors['Grantor_Code'] = 'Grantor_Code is required';
+        $errors['Grantor_Code'] = 'Grantor code is required';
     } else {
         $Grantor_CodeN = $_POST['Grantor_Code'];
     }
     if (empty($_POST['Grantor_Phone_Number'])) {
-        $errors['Grantor_Phone_Number'] = 'Grantor_Phone_Number is required';
+        $errors['Grantor_Phone_Number'] = 'Grantor\'s phone number is required';
     } else {
         $Grantor_Phone_NumberN = $_POST['Grantor_Phone_Number'];
     }
@@ -173,7 +173,7 @@ if (isset($_POST['submit'])) {
                 <label>Grantor Information:</label><br>
                 <hr>
                 <label id="text_input">Grantor Name:</label>
-                <input type="text" name="Grantor_Name" placeholder="Enter Grantor Name" class="select" value="<?php echo htmlspecialchars($Grantor_Name); ?>">
+                <input type="text" name="Grantor_Name" placeholder="Enter Grantor Name" class="select" value="<?php echo htmlspecialchars($Grantor_NameN); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Name']; ?>
@@ -181,7 +181,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <label id="text_input">Grantor Code:</label>
-                <input type="text" name="Grantor_Code" placeholder="Enter Grantor Code" class="select" value="<?php echo htmlspecialchars($Grantor_Code); ?>">
+                <input type="text" name="Grantor_Code" placeholder="Enter Grantor Code" class="select" value="<?php echo htmlspecialchars($Grantor_CodeN); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Code']; ?>
@@ -189,7 +189,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <label id="text_input">Grantor Phone Number:</label>
-                <input type="text" name="Grantor_Phone_Number" placeholder="Enter Grantor Phone_Number" class="select" value="<?php echo htmlspecialchars($Grantor_Phone_Number); ?>">
+                <input type="text" name="Grantor_Phone_Number" placeholder="Enter Grantor Phone_Number" class="select" value="<?php echo htmlspecialchars($Grantor_Phone_NumberN); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Phone_Number']; ?>
