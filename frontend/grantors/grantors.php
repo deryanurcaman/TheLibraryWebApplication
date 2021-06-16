@@ -172,7 +172,7 @@ while ($result = mysqli_fetch_array($query)) {
                         <td><?php echo $row["Grantor_Code"]; ?></td>
                         <td><?php echo $row["Grantor_Name"]; ?></td>
                         <td><?php echo $row["Grantor_Phone_Number"]; ?></td>
-                        <td><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
+                        <td><a href="delete-process.php?code=<?php echo $row['code'];?>"><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
                     </tr>
                 <?php $j = $j + 1;
                 } ?>

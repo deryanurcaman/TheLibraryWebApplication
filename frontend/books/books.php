@@ -155,7 +155,7 @@ while ($result = mysqli_fetch_array($query)) {
                         <td><?php echo $row["Status"]; ?></td>
                         <td><?php echo $row["Quantity"]; ?></td>
                         <td><?php echo $row["PublishingHouse_Name"]; ?></td>
-                        <td><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
+                        <td><a href="delete-process.php?Book_Code=<?php echo $row['Book_Code']; ?>"><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
                     </tr>
                 <?php $j = $j + 1;
                 } ?>
