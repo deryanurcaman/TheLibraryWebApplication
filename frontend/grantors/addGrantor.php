@@ -18,7 +18,7 @@ while($result = mysqli_fetch_array($query))
     $rows[] = $result;
 }
 
-$Member_Name = $Member_Code = $Member_Phone_Number = $Book_Code = $Book_Name = $Date = '';        // initialize with empty string
+$Grantor_Name = $Grantor_Code = $Grantor_Phone_Number = $Book_Code = $Book_Name = $Date = '';        // initialize with empty string
 $errors = array('Grantor_Name' => '', 'Grantor_Code' => '', 'Grantor_Phone_Number' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Grantor_Name'])) {

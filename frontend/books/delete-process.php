@@ -2,7 +2,7 @@
 include '../../database/config.php';
 $conn = OpenCon();
 
-$sql1='SELECT * FROM courses WHERE code = "'.$_GET["code"].'"';
+$sql1='SELECT * FROM books WHERE Book_Code = "'.$_GET["Book_Code"].'"';
     $query1 = mysqli_query($conn, $sql1);
     $resultNew = mysqli_fetch_array($query1);
 
