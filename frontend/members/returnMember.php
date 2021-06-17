@@ -21,21 +21,47 @@ $username = $_SESSION['Username'];
 $sql = 'SELECT * FROM employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
 $result = mysqli_fetch_array($query);
-$emp=$result['Employee_Id'];
+$emp = $result['Employee_Id'];
 
-$sqlm = 'SELECT * FROM members ORDER BY Member_Name';
+// $sqlm = 'SELECT * FROM members ORDER BY Member_Name';
+// $querym = mysqli_query($conn, $sqlm);
+// $rowsm = array();
+// while ($resultm = mysqli_fetch_array($querym)) {
+//     $rowsm[] = $resultm;
+// }
+
+// $sqlb = 'SELECT * FROM books ORDER BY Book_Name';
+// $queryb = mysqli_query($conn, $sqlb);
+// $rowsb = array();
+// while ($resultb = mysqli_fetch_array($queryb)) {
+//     $rowsb[] = $resultb;
+// }
+
+
+$sqlm = "SELECT DISTINCT `members`.`Member_Name`, `members`.`Member_Id`
+FROM `borrowed_books` 
+	LEFT JOIN `members` ON `borrowed_books`.`Member_Id` = `members`.`Member_Id`
+    WHERE  `borrowed_books`.`Return_Date` IS NULL
+    ORDER BY `members`.`Member_Name`";
 $querym = mysqli_query($conn, $sqlm);
 $rowsm = array();
 while ($resultm = mysqli_fetch_array($querym)) {
     $rowsm[] = $resultm;
 }
 
-$sqlb = 'SELECT * FROM books ORDER BY Book_Name';
-$queryb = mysqli_query($conn, $sqlb);
-$rowsb = array();
-while ($resultb = mysqli_fetch_array($queryb)) {
-    $rowsb[] = $resultb;
-}
+// if (isset($_POST['m_button'])){
+// $sqlb = "SELECT `books`.`Book_Name`
+// FROM `borrowed_books` 
+// 	LEFT JOIN `members` ON `borrowed_books`.`Member_Id` = `members`.`Member_Id` 
+// 	LEFT JOIN `books` ON `borrowed_books`.`Book_Id` = `books`.`Book_Id`
+//     WHERE  `borrowed_books`.`Return_Date` IS NULL AND  `members`.`Member_Id` ='" . $rowsm['Member_Id'] . "'
+//     ORDER BY `books`.`Book_Name`";
+// $queryb = mysqli_query($conn, $sqlb);
+// $rowsb = array();
+// while ($resultb = mysqli_fetch_array($queryb)) {
+//     $rowsb[] = $resultb;
+// }
+// }
 
 
 $mname = $bname = $bcode = $date = '';        // initialize with empty string
@@ -77,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql4 = 'UPDATE books SET Quantity=Quantity+1 WHERE Book_Name = "' . $bname . '"';
 
-        $sql3 = "UPDATE borrowed_books SET Return_Date = '$date' WHERE Book_Id = '" .$result2['Book_Id'] . "' ;";
+        $sql3 = "UPDATE borrowed_books SET Return_Date = '$date' WHERE Book_Id = '" . $result2['Book_Id'] . "' ;";
 
         $sql5 = "INSERT INTO transactions (Member_Id, Employee_Id, Case_Name) 
         VALUES ( '" . $result1['Member_Id'] . "', '$emp', '$case_name');";
@@ -113,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-    <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+        <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
@@ -186,16 +212,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <hr>
                 <label id="text_input">Member Name:</label>
 
-                <select name="m_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
-                        <?php
-                        foreach ($rowsm as $rowm) {
-                            echo '
+                <select name="m_name" class="select" onchange="this.form.submit()" value="<?php echo htmlspecialchars($mname); ?>">
+                    <?php
+                    foreach ($rowsm as $rowm) {
+                        echo '
                         <option> ' . $rowm['Member_Name'] . ' </option>
                         ';
-                        }
-                        ?>
-                    </select>
-               <br>
+                    }
+                    ?>
+                </select>
+                <br>
                 <div style="color: red;">
                     <?php echo $errors['m_name']; ?>
                     <!-- display error message here !-->
@@ -204,8 +230,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label>Borrowed Book Information:</label><br>
                 <hr>
                 <label id="text_input"><label id="text_input">Book Name:</label>
-                <select name="b_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
+                    <select name="b_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
                         <?php
+
+
+                            $mname = $_POST["m_name"];
+                            $sqlb = "SELECT `books`.`Book_Name`
+                            FROM `borrowed_books` 
+                                LEFT JOIN `members` ON `borrowed_books`.`Member_Id` = `members`.`Member_Id` 
+                                LEFT JOIN `books` ON `borrowed_books`.`Book_Id` = `books`.`Book_Id`
+                                WHERE  `borrowed_books`.`Return_Date` IS NULL AND  `members`.`Member_Name` ='$mname'
+                                ORDER BY `books`.`Book_Name`";
+                            $queryb = mysqli_query($conn, $sqlb);
+                            $rowsb = array();
+                            while ($resultb = mysqli_fetch_array($queryb)) {
+                                $rowsb[] = $resultb;
+                            }
+                    
+
                         foreach ($rowsb as $rowb) {
                             echo '
                         <option> ' . $rowb['Book_Name'] . ' </option>
@@ -222,7 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label id="text_input">Date:</label>
                     <input type="date" name="date" id="select" value="<?php echo htmlspecialchars($date); ?>">
                     <div style="color: red;">
-                        <?php echo $errors['date'];?>
+                        <?php echo $errors['date']; ?>
                         <!-- display error message here !-->
                     </div>
                     <br>
