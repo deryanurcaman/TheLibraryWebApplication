@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="books.css">
-    <title>Books</title>
+    <title>Add A New Book</title>
 </head>
 
 
@@ -206,11 +206,13 @@ if (isset($_POST['submit'])) {
     <div class="main">
 
         <div class="Instructors_requests" id="Join">
-            <h1 style="text-align: center;">Add A Book</h1>
+            <h1 style="text-align: center;">Add A New Book</h1>
             <hr><br>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
+                <label>Book Information:</label><br>
+                <hr>
                 <label id="text_input"><label id="text_input">Book Code:</label>
                     <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_CodeN); ?>">
 

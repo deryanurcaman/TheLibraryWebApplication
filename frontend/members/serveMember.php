@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="members.css?v=<?php echo time(); ?>">
-    <title>Serve to Member</title>
+    <title>Serve A Book To The Member</title>
 </head>
 
 <?php
@@ -177,14 +177,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="main">
 
         <div class="Instructors_requests" id="Serve">
-            <h1 style="text-align: center;">Serve to The Member</h1>
+            <h1 style="text-align: center;">Serve A Book To The Member</h1>
             <hr><br>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                 <label>Member Information:</label><br>
                 <hr>
-                <label id="text_input">Member Name:</label>
+                <label id="text_input">Member Name/Surname:</label>
 
                 <select name="m_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
                         <?php

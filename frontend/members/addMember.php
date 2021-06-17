@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="members.css">
-    <title>Members</title>
+    <title>Add A New Member</title>
 </head>
 
 <style>
@@ -170,8 +170,8 @@ if (isset($_POST['submit'])) {
 
                 <label>Member Information:</label><br>
                 <hr>
-                <label id="text_input">Member Name:</label>
-                <input type="text" name="Member_Name" placeholder="Enter Member Name" class="select" value="<?php echo htmlspecialchars($Member_Name); ?>">
+                <label id="text_input">Member Name/Surname:</label>
+                <input type="text" name="Member_Name" placeholder="Enter Member Name and Surname" class="select" value="<?php echo htmlspecialchars($Member_Name); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Member_Name']; ?>
@@ -187,7 +187,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <label id="text_input">Member Phone Number:</label>
-                <input type="text" name="Member_Phone_Number" placeholder="Enter Member Phone_Number" class="select" value="<?php echo htmlspecialchars($Member_Phone_Number); ?>">
+                <input type="text" name="Member_Phone_Number" placeholder="Enter Member Phone Number" class="select" value="<?php echo htmlspecialchars($Member_Phone_Number); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Member_Phone_Number']; ?>

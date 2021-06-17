@@ -241,7 +241,7 @@ if (isset($_POST['submit'])) {
 
                 <label>Grantor Information:</label><br>
                 <hr>
-                <label id="text_input">Grantor Name:</label>
+                <label id="text_input">Grantor Name/Surname:</label>
 
                 <select name="m_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
                     <?php

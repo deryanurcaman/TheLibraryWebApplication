@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="employees.css?v=<?php echo time(); ?>">
-    <title>Books</title>
+    <title>Add A New Employee</title>
 </head>
 
 <script>
@@ -178,13 +178,15 @@ if (isset($_POST['submit'])) {
     <div class="main">
 
         <div class="Instructors_requests" id="Join">
-            <h1 style="text-align: center;">Add An Employee</h1>
+            <h1 style="text-align: center;">Add A New Employee</h1>
             <hr><br>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-                <label id="text_input">Employee Name:</label>
-                <input type="text" name="Employee_Name" placeholder="Enter Employee Name" class="select" value="<?php echo htmlspecialchars($Employee_Name); ?>">
+                <label>Employee Information:</label><br>
+                <hr>
+                <label id="text_input">Employee Name/Surname:</label>
+                <input type="text" name="Employee_Name" placeholder="Enter Employee Name and Surname" class="select" value="<?php echo htmlspecialchars($Employee_Name); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Employee_Name']; ?>
@@ -200,7 +202,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <label id="text_input">Employee Phone Number:</label>
-                <input type="text" name="Employee_Phone_Number" placeholder="Enter Employee Phone_Number" class="select" value="<?php echo htmlspecialchars($Employee_Phone_Number); ?>">
+                <input type="text" name="Employee_Phone_Number" placeholder="Enter Employee Phone Number" class="select" value="<?php echo htmlspecialchars($Employee_Phone_Number); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Employee_Phone_Number']; ?>

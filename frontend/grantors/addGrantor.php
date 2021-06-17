@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="grantors.css">
-    <title>Grantors</title>
+    <title>Add A New Grantor</title>
 </head>
 
 <style>
@@ -165,15 +165,15 @@ if (isset($_POST['submit'])) {
     <div class="main">
 
         <div class="Instructors_requests" id="Join">
-            <h1 style="text-align: center;">Add A Grantor</h1>
+            <h1 style="text-align: center;">Add A New Grantor</h1>
             <hr><br>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                 <label>Grantor Information:</label><br>
                 <hr>
-                <label id="text_input">Grantor Name:</label>
-                <input type="text" name="Grantor_Name" placeholder="Enter Grantor Name" class="select" value="<?php echo htmlspecialchars($Grantor_NameN); ?>">
+                <label id="text_input">Grantor Name/Surname:</label>
+                <input type="text" name="Grantor_Name" placeholder="Enter Grantor Name and Surname" class="select" value="<?php echo htmlspecialchars($Grantor_NameN); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Name']; ?>
@@ -189,7 +189,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br>
                 <label id="text_input">Grantor Phone Number:</label>
-                <input type="text" name="Grantor_Phone_Number" placeholder="Enter Grantor Phone_Number" class="select" value="<?php echo htmlspecialchars($Grantor_Phone_NumberN); ?>">
+                <input type="text" name="Grantor_Phone_Number" placeholder="Enter Grantor Phone Number" class="select" value="<?php echo htmlspecialchars($Grantor_Phone_NumberN); ?>">
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Phone_Number']; ?>
