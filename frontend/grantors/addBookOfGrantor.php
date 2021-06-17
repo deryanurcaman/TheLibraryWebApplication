@@ -103,12 +103,12 @@ if (isset($_POST['submit'])) {
                     $sqlupdate = 'UPDATE books SET Quantity=Quantity+' . $QuantityN . ' WHERE Book_Code = "' . $Book_CodeN . '"';
 
                     $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity, Donate_Employee) 
-            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, $emp);";
+            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, '$emp');";
 
                     if (mysqli_query($conn, $sqlupdate) && mysqli_query($conn, $sqlNew1)) {
                         echo '<script> alert("Book updated successfully."); window.location="../books/books.php" </script>';
                     } else {
-                        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                        echo "Error: " . $sqlNew1 . "<br>" . mysqli_error($conn);
                     }
                 }
             } else { //new book

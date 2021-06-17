@@ -159,6 +159,7 @@ while ($result1 = mysqli_fetch_array($query1)) {
                     <th>Book Code</th>
                     <th>Book Name</th>
                     <th>Quantity</th>
+                    <th>Employee</th>
 
                 </tr>
                 <?php $j = 1;
@@ -170,6 +171,7 @@ while ($result1 = mysqli_fetch_array($query1)) {
                         <td><?php echo $row["Book_Code"]; ?></td>
                         <td><?php echo $row["Book_Name"]; ?></td>
                         <td><?php echo $row["Donated_Quantity"]; ?></td>
+                        <td><?php echo $row["Donate_Employee"]; ?></td>
                     </tr>
                 <?php $j = $j + 1;
                 } ?>
