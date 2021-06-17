@@ -208,12 +208,10 @@ if (isset($_POST['submit'])) {
         <div class="Instructors_requests" id="Join">
             <h1 style="text-align: center;">Add A New Book</h1>
             <hr><br>
+            
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-                <label>Book Information:</label><br>
-                <hr>
-                <label id="text_input"><label id="text_input">Book Code:</label>
+                <label id="text_input"><label>Book Code:</label>
                     <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_CodeN); ?>">
 
                     <div style="color: red; font-size:15px;">
@@ -221,7 +219,7 @@ if (isset($_POST['submit'])) {
                         <!-- display error message here !-->
                     </div>
                     <br>
-                    <label id="text_input"><label id="text_input">Book Name:</label>
+                    <label id="text_input"><label>Book Name:</label>
                         <input type="text" name="Book_Name" placeholder="Enter Book Name" class="select" value="<?php echo htmlspecialchars($Book_NameN); ?>">
 
                         <div style="color: red; font-size:15px;">
@@ -229,7 +227,7 @@ if (isset($_POST['submit'])) {
                             <!-- display error message here !-->
                         </div>
                         <br>
-                        <label id="text_input">Author:</label>
+                        <label>Author:</label>
                         <input type="text" name="Author" placeholder="Enter Author" class="select" value="<?php echo htmlspecialchars($AuthorN); ?>">
 
                         <div style="color: red; font-size:15px;">
@@ -237,7 +235,7 @@ if (isset($_POST['submit'])) {
                             <!-- display error message here !-->
                         </div>
                         <br>
-                        <label id="text_input">Type:</label>
+                        <label>Type:</label>
                         <input type="text" name="Type" placeholder="Enter Type" class="select" value="<?php echo htmlspecialchars($TypeN); ?>">
 
                         <div style="color: red; font-size:15px;">
@@ -245,15 +243,15 @@ if (isset($_POST['submit'])) {
                             <!-- display error message here !-->
                         </div>
                         <br>
-                        <label id="text_input">Number Of Edition:</label>
-                        <input type="number" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_EditionN); ?>">
+                        <label>Number Of Edition:</label>
+                        <input type="number" min="1" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_EditionN); ?>">
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['Num_of_Edition']; ?>
                             <!-- display error message here !-->
                         </div>
                         <br>
-                        <label id="text_input">Quantity:</label>
+                        <label>Quantity:</label>
                         <input type="number" min="1" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
 
                         <div style="color: red; font-size:15px;">
@@ -261,7 +259,7 @@ if (isset($_POST['submit'])) {
                             <!-- display error message here !-->
                         </div>
                         <br>
-                        <label id="text_input">Publishing House Name:</label>
+                        <label>Publishing House Name:</label>
                         <input type="text" name="PublishingHouse_Name" placeholder="Enter Publishing House Name" class="select" value="<?php echo htmlspecialchars($PublishingHouse_NameN); ?>">
 
                         <div style="color: red; font-size:15px;">

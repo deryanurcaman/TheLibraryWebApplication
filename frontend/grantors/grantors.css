@@ -280,10 +280,10 @@ tr {
 }
 
 #text_input {
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 4px;
     color: rgb(29, 26, 26);
-    font-weight: 300;
+    font-weight: 600;
 }
 
 .select {

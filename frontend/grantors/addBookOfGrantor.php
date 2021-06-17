@@ -240,7 +240,7 @@ if (isset($_POST['submit'])) {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                 <label>Grantor Information:</label><br>
-                <hr>
+                <hr><br>
                 <label id="text_input">Grantor Name/Surname:</label>
 
                 <select name="m_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
@@ -259,7 +259,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <br><br>
                 <label> Book Information:</label><br>
-                <hr>
+                <hr><br>
                 <label id="text_input"><label id="text_input">Book Code:</label>
                     <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_CodeN); ?>">
 
@@ -293,7 +293,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Number Of Edition:</label>
-                        <input type="number" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_EditionN); ?>">
+                        <input type="number" min="1" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_EditionN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['Num_of_Edition']; ?>
@@ -301,7 +301,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
                         <label id="text_input">Quantity:</label>
-                        <input type="number" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
+                        <input type="number" min="1" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
 
                         <div style="color: red;">
                             <?php echo $errors['Quantity']; ?>

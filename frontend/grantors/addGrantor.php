@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="grantors.css">
+    <link rel="stylesheet" href="grantors.css?v=<?php echo time(); ?>">
     <title>Add A New Grantor</title>
 </head>
 
@@ -169,9 +169,6 @@ if (isset($_POST['submit'])) {
             <hr><br>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-                <label>Grantor Information:</label><br>
-                <hr>
                 <label id="text_input">Grantor Name/Surname:</label>
                 <input type="text" name="Grantor_Name" placeholder="Enter Grantor Name and Surname" class="select" value="<?php echo htmlspecialchars($Grantor_NameN); ?>">
 
@@ -198,7 +195,7 @@ if (isset($_POST['submit'])) {
                 <br><br>
             
 
-                <button  id="submit" name="submit" type="submit">Add</button>
+                <button  id="buton" name="submit" type="submit">Add</button>
 
             </form>
         </div>

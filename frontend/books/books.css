@@ -235,6 +235,14 @@ button img {
     height: 50px;
 }
 
+form {
+    width: 45%;
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+    margin-left: 8em;
+}
+
 #buton:hover {
     cursor: pointer;
     background-color: rgba(87, 57, 11, 0.877);

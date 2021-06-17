@@ -182,9 +182,6 @@ if (isset($_POST['submit'])) {
             <hr><br>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-                <label>Employee Information:</label><br>
-                <hr>
                 <label id="text_input">Employee Name/Surname:</label>
                 <input type="text" name="Employee_Name" placeholder="Enter Employee Name and Surname" class="select" value="<?php echo htmlspecialchars($Employee_Name); ?>">
 
