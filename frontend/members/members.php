@@ -129,7 +129,6 @@ while ($result = mysqli_fetch_array($query)) {
                     <th>Member Code</th>
                     <th>Member Name</th>
                     <th>Member Phone Number</th>
-                    <th>Delete</th>
                 </tr>
                 <?php $j = 1;
                 foreach ($rows as $row) {
@@ -141,7 +140,6 @@ while ($result = mysqli_fetch_array($query)) {
                         <td><?php echo $row["Member_Code"]; ?></td>
                         <td><?php echo $row["Member_Name"]; ?></td>
                         <td><?php echo $row["Member_Phone_Number"]; ?></td>
-                        <td><a href="delete-process.php?code=<?php echo $row['Member_Code'];?>"><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
                         
             
                     </tr>

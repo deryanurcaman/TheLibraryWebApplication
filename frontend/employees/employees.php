@@ -131,7 +131,7 @@ while($result = mysqli_fetch_array($query))
                     <th>Sex</th>
                     <th>Phone Number</th>
                     <th>Username</th>
-<th>Delete</th>
+
                 </tr>
     
             <?php $j=1;
@@ -144,7 +144,6 @@ while($result = mysqli_fetch_array($query))
                     <td><?php echo $row["Sex"]; ?></td>
                     <td><?php echo $row["Employee_Phone_Number"]; ?></td>
                     <td><?php echo $row["Username"]; ?></td>
-                    <td><a href="delete-process.php?code=<?php echo $row['code'];?>"><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
                 </tr>
                 <?php $j=$j+1;}?>
             </table>
