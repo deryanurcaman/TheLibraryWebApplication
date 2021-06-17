@@ -21,7 +21,7 @@ $username = $_SESSION['Username'];
 $sql = 'SELECT * FROM employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
 $result = mysqli_fetch_array($query);
-$emp=$result['Employee_Id'];
+$emp=$result['Employee_Name'];
 
 $sqlm = 'SELECT * FROM members ORDER BY Member_Name';
 $querym = mysqli_query($conn, $sqlm);
@@ -76,13 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql4 = 'UPDATE books SET Quantity=Quantity-1 WHERE Book_Name = "' . $bname . '"';
 
-        $sql3 = "INSERT INTO borrowed_books ( Book_Id, Member_Id, Borrow_Date) 
-        VALUES ( '" . $result2['Book_Id'] . "', '" . $result1['Member_Id'] . "', '$date');";
+        $sql3 = "INSERT INTO borrowed_books ( Book_Id, Member_Id, Borrow_Date, Serve_Employee ) 
+        VALUES ( '" . $result2['Book_Id'] . "', '" . $result1['Member_Id'] . "', '$date', '$emp' );";
 
-        $sql5 = "INSERT INTO transactions (Member_Id, Employee_Id, Case_Name) 
-        VALUES ( '" . $result1['Member_Id'] . "', '$emp', '$case_name');";
 
-        if (mysqli_query($conn, $sql3) && mysqli_query($conn, $sql4) && mysqli_query($conn, $sql5)) {
+        if (mysqli_query($conn, $sql3) && mysqli_query($conn, $sql4)) {
             echo '<script> alert("Book served to member successfully."); // window.location="serve_existing_member.php" </script>';
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

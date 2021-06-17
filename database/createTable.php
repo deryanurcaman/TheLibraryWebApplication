@@ -43,27 +43,20 @@ $table4 = "CREATE TABLE Employees(
     Password VARCHAR(100),
     PRIMARY KEY (Employee_Id));";
 
-$table5 = "CREATE TABLE Transactions(
-    Transactions_Id INT(11) NOT NULL AUTO_INCREMENT,
-    Member_Id INT(11),
-    Employee_Id INT(11),
-    Case_Name VARCHAR(100),
-    PRIMARY KEY (Transactions_Id),
-    FOREIGN KEY (Member_Id) REFERENCES Members(Member_Id) ON DELETE CASCADE, 
-    FOREIGN KEY (Employee_Id) REFERENCES Employees(Employee_Id) ON DELETE CASCADE);";
-
-$table6 = "CREATE TABLE Borrowed_Books(
+$table5 = "CREATE TABLE Borrowed_Books(
     Borrowed_Books_Id INT(11) NOT NULL AUTO_INCREMENT,
     Book_Id INT(11),
     Member_Id INT(11),
     Borrow_Date DATE, 
     Return_Date DATE, 
+    Serve_Employee VARCHAR(100),
+    Return_Employee VARCHAR(100),
     PRIMARY KEY (Borrowed_Books_Id),
     FOREIGN KEY (Book_Id) REFERENCES Books(Book_Id) ON DELETE CASCADE, 
     FOREIGN KEY (Member_Id) REFERENCES Members(Member_Id) ON DELETE CASCADE);";
 
 
-$table7= "CREATE TABLE Donated_Books(
+$table6= "CREATE TABLE Donated_Books(
     Donated_Books_Id INT(11) NOT NULL AUTO_INCREMENT,
     Book_Id INT(11) NOT NULL,
     Grantor_Id INT(11) NOT NULL,
@@ -75,7 +68,7 @@ $table7= "CREATE TABLE Donated_Books(
 
 
 
-$tables = [$table1, $table2, $table3, $table4, $table5, $table6, $table7];
+$tables = [$table1, $table2, $table3, $table4, $table5, $table6];
 
 
 foreach ($tables as $k => $sql) {
