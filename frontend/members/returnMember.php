@@ -82,8 +82,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $bname = mysqli_real_escape_string($conn, $_POST['b_name']);
     }
 
+    
     if (empty($_POST['date'])) {
-        $errors['date'] = 'A date is required';
+        
+            $errors['date'] = 'A date is required';
     } else {
         $date = mysqli_real_escape_string($conn, $_POST['date']);
     }
@@ -206,13 +208,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1 style="text-align: center;">Return The Member</h1>
             <hr><br>
 
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" name='postForm' id='form' method="post">
 
                 <label>Member Information:</label><br>
                 <hr>
                 <label id="text_input">Member Name:</label>
-
                 <select name="m_name" class="select" onchange="this.form.submit()" value="<?php echo htmlspecialchars($mname); ?>">
+                    <?php
+                    if (isset($_POST['m_name'])) {
+                        echo '<option selected> ' . $_POST['m_name'] . ' </option>
+                   ';
+                    } else {
+                        echo ' <option selected disabled> Choose here </option>';
+                    }
+                    ?>
                     <?php
                     foreach ($rowsm as $rowm) {
                         echo '
@@ -231,22 +240,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <hr>
                 <label id="text_input"><label id="text_input">Book Name:</label>
                     <select name="b_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
+                    <?php
+                    if (isset($_POST['b_name'])) {
+                        echo '<option selected> ' . $_POST['b_name'] . ' </option>
+                   ';
+                    } else {
+                        echo ' <option selected disabled> Choose here </option>';
+                    }
+                    ?>
                         <?php
-
-
-                            $mname = $_POST["m_name"];
-                            $sqlb = "SELECT `books`.`Book_Name`
+                        $mname = $_POST["m_name"];
+                        $sqlb = "SELECT `books`.`Book_Name`
                             FROM `borrowed_books` 
                                 LEFT JOIN `members` ON `borrowed_books`.`Member_Id` = `members`.`Member_Id` 
                                 LEFT JOIN `books` ON `borrowed_books`.`Book_Id` = `books`.`Book_Id`
                                 WHERE  `borrowed_books`.`Return_Date` IS NULL AND  `members`.`Member_Name` ='$mname'
                                 ORDER BY `books`.`Book_Name`";
-                            $queryb = mysqli_query($conn, $sqlb);
-                            $rowsb = array();
-                            while ($resultb = mysqli_fetch_array($queryb)) {
-                                $rowsb[] = $resultb;
-                            }
-                    
+                        $queryb = mysqli_query($conn, $sqlb);
+                        $rowsb = array();
+                        while ($resultb = mysqli_fetch_array($queryb)) {
+                            $rowsb[] = $resultb;
+                        }
+
 
                         foreach ($rowsb as $rowb) {
                             echo '
@@ -269,7 +284,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <br>
                     <br>
-                    <button id="submit" type="submit">Return</button>
+                    <button id="buton" type="submit">Return</button>
 
             </form>
         </div>
