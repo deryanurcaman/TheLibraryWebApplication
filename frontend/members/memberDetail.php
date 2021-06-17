@@ -22,6 +22,20 @@ $rows1 = array();
 while ($result1 = mysqli_fetch_array($query1)) {
     $rows1[] = $result1;
 }
+
+
+$sqlname = "SELECT *
+FROM `Members` 
+     WHERE `Members`.`Member_Code` = '" . $_GET["Member_Code"] . "'";
+
+
+$queryname = mysqli_query($conn, $sqlname);
+$rowsname = array();
+while ($resultname = mysqli_fetch_array($queryname)) {
+    $rowsname[] = $resultname;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +142,12 @@ while ($result1 = mysqli_fetch_array($query1)) {
     <div class="main">
 
         <div class="Instructors_requests">
-            <h1>Jae Kim</h1><br>
+            <h1><?php
+                foreach ($rowsname as $row) {
+                    echo $row["Member_Name"];
+                    break;
+                } ?>
+            </h1><br>
             <table>
                 <tr id="heads">
                     <th id="hashtag">#</th>
@@ -139,7 +158,7 @@ while ($result1 = mysqli_fetch_array($query1)) {
                     <th>Returning Process Employee</th>
                 </tr>
                 <?php $j = 1;
-                 foreach ($rows1 as $row) {
+                foreach ($rows1 as $row) {
                 ?>
                     <tr>
 

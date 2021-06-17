@@ -152,7 +152,12 @@ while ($result1 = mysqli_fetch_array($query1)) {
 
     <div class="main">
         <div class="Instructors_requests">
-            <h1>Beatrice Haywood</h1><br>
+            <h1><?php
+                foreach ($rows1 as $row) {
+                    echo $row["Grantor_Name"];
+                    break;
+                } ?>
+            </h1><br>
             <table>
                 <tr id="heads">
                     <th id="hashtag">#</th>
@@ -163,7 +168,7 @@ while ($result1 = mysqli_fetch_array($query1)) {
 
                 </tr>
                 <?php $j = 1;
-                 foreach ($rows1 as $row) {
+                foreach ($rows1 as $row) {
                 ?>
                     <tr>
 
