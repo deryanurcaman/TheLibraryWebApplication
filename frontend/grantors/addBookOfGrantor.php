@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
                     $sqlupdate = 'UPDATE books SET Quantity=Quantity+' . $QuantityN . ' WHERE Book_Code = "' . $Book_CodeN . '"';
 
                     $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity, Donate_Employee) 
-            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, '$emp');";
+                    VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, '$emp');";
 
                     if (mysqli_query($conn, $sqlupdate) && mysqli_query($conn, $sqlNew1)) {
                         echo '<script> alert("Book updated successfully."); window.location="../books/books.php" </script>';
@@ -112,24 +112,26 @@ if (isset($_POST['submit'])) {
                     }
                 }
             } else { //new book
-                $sqlNew2 = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Quantity, PublishingHouse_Name) 
-            VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', '$QuantityN', '$PublishingHouse_NameN');";
 
-
-                if (mysqli_query($conn, $sqlNew2)) {
-                    
-                } else {
-                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
-                }
-
-                $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity, Donate_Employee) 
-            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, $emp);";
-
-
+                $sqlNew1 = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Quantity, PublishingHouse_Name) 
+                VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', '$QuantityN', '$PublishingHouse_NameN');";
                 if (mysqli_query($conn, $sqlNew1)) {
-                    echo '<script> alert("Book added successfully."); window.location="books.php" </script>';
                 } else {
                     echo "Error: " . $sqlNew1 . "<br>" . mysqli_error($conn);
+                }
+
+                $sqlcheck = "SELECT * FROM books WHERE Book_Code = '$Book_CodeN'";
+
+                $resultcheck = mysqli_query($conn, $sqlcheck);
+    
+                $rowNew = mysqli_fetch_array($resultcheck, MYSQLI_ASSOC);
+
+                $sqlNew2 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity, Donate_Employee) 
+                VALUES ( '" . $rowNew['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, '$emp');";
+                if (mysqli_query($conn, $sqlNew2)) {
+                    echo '<script> alert("Book added successfully."); //window.location="books.php" </script>';
+                } else {
+                    echo "Error: " . $sqlNew2 . "<br>" . mysqli_error($conn);
                 }
             }
         }
@@ -321,7 +323,7 @@ if (isset($_POST['submit'])) {
                             <?php echo $errors['check']; ?>
                             <!-- display error message here !-->
                         </div>
-                        
+
                         <br>
                         <br>
                         <button id="buton" name="submit" type="submit">Add</button>
