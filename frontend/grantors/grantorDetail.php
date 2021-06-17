@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../../database/config.php';
 $conn = OpenCon();
 
@@ -7,7 +7,23 @@ session_start();
 $username = $_SESSION['Username'];
 $sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
-$result2 = mysqli_fetch_array($query);
+$result = mysqli_fetch_array($query);
+
+
+$sql1 = "SELECT *
+    FROM `Grantors` 
+        LEFT JOIN `Donated_Books` ON `Donated_Books`.`Grantor_Id` = `Grantors`.`Grantor_Id` 
+        LEFT JOIN `Books` ON `Donated_Books`.`Book_Id` = `Books`.`Book_Id` 
+        WHERE `Grantors`.`Grantor_Code` = '" . $_GET["Grantor_Code"] . "'";
+
+
+$query1 = mysqli_query($conn, $sql1);
+$rows1 = array();
+while ($result1 = mysqli_fetch_array($query1)) {
+    $rows1[] = $result1;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -71,11 +87,11 @@ $result2 = mysqli_fetch_array($query);
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-    <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+        <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
-        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result2['Employee_Name']; ?></strong>
+        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result['Employee_Name']; ?></strong>
 
         <br>
         <hr style="border-color: white;">
@@ -142,20 +158,21 @@ $result2 = mysqli_fetch_array($query);
                     <th id="hashtag">#</th>
                     <th>Book Code</th>
                     <th>Book Name</th>
+                    <th>Quantity</th>
+
                 </tr>
                 <?php $j = 1;
-                //foreach ($rows as $row) {}
+                 foreach ($rows1 as $row) {
                 ?>
                     <tr>
-                
-                        <td id="hashtag"><?php echo $j ?></td>
-                        <td>BK20</td>
-                        <td>Chess Story</td>
-                        <!--<td><?php echo $row["Grantor_Code"]; ?></td>!-->
-                        
+
+                        <td><?php echo $j ?></td>
+                        <td><?php echo $row["Book_Code"]; ?></td>
+                        <td><?php echo $row["Book_Name"]; ?></td>
+                        <td><?php echo $row["Donated_Quantity"]; ?></td>
                     </tr>
                 <?php $j = $j + 1;
-                ?>
+                } ?>
             </table>
         </div>
         <br><br>

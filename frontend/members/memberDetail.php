@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../../database/config.php';
 $conn = OpenCon();
 
@@ -7,7 +7,37 @@ session_start();
 $username = $_SESSION['Username'];
 $sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
-$result2 = mysqli_fetch_array($query);
+$result = mysqli_fetch_array($query);
+
+
+$sql1 = "SELECT * FROM `Transactions`, `Members`, `Borrowed_Books`, `Books`, `Employees`
+	WHERE `Transactions`.`Member_Id` = `Borrowed_Books`.`Member_Id` AND `Borrowed_Books`.`Book_Id` = `Books`.`Book_Id` AND `Transactions`.`Employee_Id` = `Employees`.`Employee_Id`
+    AND  `Borrowed_Books`.`Member_Id` = `Members`.`Member_Id` AND `Members`.`Member_Code` = '" . $_GET["Member_Code"] . "'
+    AND `Transactions`.`Case_Name` = 'serve'
+    GROUP BY Transactions_Id";
+
+
+
+$query1 = mysqli_query($conn, $sql1);
+$rows1 = array();
+while ($result1 = mysqli_fetch_array($query1)) {
+    $rows1[] = $result1;
+}
+
+
+$sql2 = "SELECT `Employees`.`Employee_Name`
+FROM `Members` 
+	LEFT JOIN `Borrowed_Books` ON `Borrowed_Books`.`Member_Id` = `Members`.`Member_Id` 
+	LEFT JOIN `Books` ON `Borrowed_Books`.`Book_Id` = `Books`.`Book_Id` 
+	LEFT JOIN `Transactions` ON `Transactions`.`Member_Id` = `Members`.`Member_Id`
+    LEFT JOIN `Employees` ON `Transactions`.`Employee_Id` = `Employees`.`Employee_Id`
+    WHERE `Members`.`Member_Code` = '" . $_GET["Member_Code"] . "' AND `Transactions`.`Case_Name` = 'return'";
+
+$query2 = mysqli_query($conn, $sql2);
+$rows2 = array();
+while ($result2 = mysqli_fetch_array($query2)) {
+    $rows2[] = $result2;
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +83,7 @@ $result2 = mysqli_fetch_array($query);
         </div>
 
         <br>
-        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result2['Employee_Name']; ?></strong>
+        <strong style="text-align:center;"><b style="font-size: 70px;">Welcome</b><br><?php echo $result['Employee_Name']; ?></strong>
 
         <br>
         <hr style="border-color: white;">
@@ -125,20 +155,19 @@ $result2 = mysqli_fetch_array($query);
                     <th>Returning Process Employee</th>
                 </tr>
                 <?php $j = 1;
-                //foreach ($rows as $row) {}
+                 foreach ($rows1 as $row) {
                 ?>
                     <tr>
+
                         <td><?php echo $j ?></td>
-                        <td>Chess Story</td>
-                        <td>17.06.2021</td>
-                        <td>Barnaby Lee</td>
-                        <td>23.06.2021</td>
-                        <td>Tulip Karasu</td>
-                        <!--<td><?php echo $row["Grantor_Code"]; ?></td>!-->
-            
+                        <td><?php echo $row["Book_Name"]; ?></td>
+                        <td><?php echo $row["Borrow_Date"]; ?></td>
+                        <td><?php echo $row["Employee_Name"]; ?></td>
+                        <td><?php echo $row["Return_Date"]; ?></td>
+                        <td><?php echo $row2["Employee_Name"]; ?></td>
                     </tr>
                 <?php $j = $j + 1;
-                 ?>
+                } ?>
             </table>
 
         </div>

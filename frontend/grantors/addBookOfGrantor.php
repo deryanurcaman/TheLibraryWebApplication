@@ -102,8 +102,8 @@ if (isset($_POST['submit'])) {
 
                     $sqlupdate = 'UPDATE books SET Quantity=Quantity+' . $QuantityN . ' WHERE Book_Code = "' . $Book_CodeN . '"';
 
-                    $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id) 
-            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "');";
+                    $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity) 
+            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN);";
 
                     if (mysqli_query($conn, $sqlupdate) && mysqli_query($conn, $sqlNew1)) {
                         echo '<script> alert("Book updated successfully."); window.location="../books/books.php" </script>';
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
                         echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
                     }
                 }
-            } else {
+            } else { //new book
                 $sqlNew2 = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Quantity, PublishingHouse_Name) 
             VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', '$QuantityN', '$PublishingHouse_NameN');";
 
@@ -122,14 +122,14 @@ if (isset($_POST['submit'])) {
                     echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
                 }
 
-                $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id) 
-            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "');";
+                $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity) 
+            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN);";
 
 
                 if (mysqli_query($conn, $sqlNew1)) {
                     echo '<script> alert("Book added successfully."); window.location="books.php" </script>';
                 } else {
-                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                    echo "Error: " . $sqlNew1 . "<br>" . mysqli_error($conn);
                 }
             }
         }
@@ -324,7 +324,7 @@ if (isset($_POST['submit'])) {
                         
                         <br>
                         <br>
-                        <button id="submit" name="submit" type="submit">Add</button>
+                        <button id="buton" name="submit" type="submit">Add</button>
 
             </form>
         </div>

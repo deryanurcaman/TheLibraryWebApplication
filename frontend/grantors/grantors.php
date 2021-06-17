@@ -166,7 +166,7 @@ while ($result = mysqli_fetch_array($query)) {
                 ?>
                     <tr>
                     
-                        <td><a href="./grantorDetail.php"><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></a></td>
+                        <td><a href="./grantorDetail.php?Grantor_Code=<?php echo $row['Grantor_Code'];?>"><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></a></td>
                         <td id="hashtag"><?php echo $j ?></td>
                         <td><?php echo $row["Grantor_Code"]; ?></td>
                         <td><?php echo $row["Grantor_Name"]; ?></td>

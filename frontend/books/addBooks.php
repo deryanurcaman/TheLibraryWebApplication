@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="books.css?v=<?php echo time(); ?>">
     <title>Add A New Book</title>
 </head>
 
@@ -276,7 +276,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
 
-                        <button id="submit" name="submit" type="submit">Add</button>
+                        <button  id="buton" name="submit" type="submit">Add</button>
             </form>
         </div>
     </div>

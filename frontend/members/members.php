@@ -136,12 +136,12 @@ while ($result = mysqli_fetch_array($query)) {
                 ?>
                     <tr>
                         
-                        <td><a href="./memberDetail.php"><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></a></td>
+                        <td><a href="./memberDetail.php?Member_Code=<?php echo $row['Member_Code'];?>"><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></a></td>
                         <td><?php echo $j ?></td>
                         <td><?php echo $row["Member_Code"]; ?></td>
                         <td><?php echo $row["Member_Name"]; ?></td>
                         <td><?php echo $row["Member_Phone_Number"]; ?></td>
-                        <td><a href="delete-process.php?code=<?php echo $row['code'];?>"><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
+                        <td><a href="delete-process.php?code=<?php echo $row['Member_Code'];?>"><button id="decision"><img src="../../assets/reject.png" alt=""></button></td>
                         
             
                     </tr>

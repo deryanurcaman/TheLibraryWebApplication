@@ -222,7 +222,7 @@ button img {
     height: 30px;
 }
 
-#submit {
+#buton {
     margin-left: 26em;
     background-color: rgba(41, 26, 3, 0.945);
     width: 20%;
@@ -235,7 +235,7 @@ button img {
     height: 50px;
 }
 
-#submit:hover {
+#buton:hover {
     cursor: pointer;
     background-color: rgba(87, 57, 11, 0.877);
 }
