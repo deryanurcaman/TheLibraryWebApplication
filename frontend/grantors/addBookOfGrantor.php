@@ -240,7 +240,7 @@ if (isset($_POST['submit'])) {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                 <label>Grantor Information:</label><br>
-                <hr><br>
+                <hr>
                 <label id="text_input">Grantor Name/Surname:</label>
 
                 <select name="m_name" class="select" value="<?php echo htmlspecialchars($mname); ?>">
@@ -257,9 +257,9 @@ if (isset($_POST['submit'])) {
                     <?php echo $errors['m_name']; ?>
                     <!-- display error message here !-->
                 </div>
-                <br><br>
+                <br><br><br>
                 <label> Book Information:</label><br>
-                <hr><br>
+                <hr>
                 <label id="text_input"><label id="text_input">Book Code:</label>
                     <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_CodeN); ?>">
 
