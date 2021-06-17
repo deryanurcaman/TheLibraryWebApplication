@@ -135,9 +135,8 @@ while ($result = mysqli_fetch_array($query)) {
                 foreach ($rows as $row) {
                 ?>
                     <tr>
-                        <a href="../grantors/grantorInfo.php">
-                            <td><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></td>
-                        </a>
+                        
+                        <td><a href="./memberDetail.php"><img src="../../assets/information.png" alt="" height="50px" id="myBtn"></a></td>
                         <td><?php echo $j ?></td>
                         <td><?php echo $row["Member_Code"]; ?></td>
                         <td><?php echo $row["Member_Name"]; ?></td>

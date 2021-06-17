@@ -1,3 +1,15 @@
+<?php 
+include '../../database/config.php';
+$conn = OpenCon();
+
+$username = '';
+session_start();
+$username = $_SESSION['Username'];
+$sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
+$query = mysqli_query($conn, $sql);
+$result2 = mysqli_fetch_array($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
