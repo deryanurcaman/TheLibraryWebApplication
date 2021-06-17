@@ -61,6 +61,7 @@ $table6= "CREATE TABLE Donated_Books(
     Book_Id INT(11) NOT NULL,
     Grantor_Id INT(11) NOT NULL,
     Donated_Quantity INT(11) NOT NULL,
+    Donate_Employee VARCHAR(100),
     PRIMARY KEY (Donated_Books_Id),
     FOREIGN KEY (Book_Id) REFERENCES Books(Book_Id) ON DELETE CASCADE, 
     FOREIGN KEY (Grantor_Id) REFERENCES Grantors(Grantor_Id) ON DELETE CASCADE);";

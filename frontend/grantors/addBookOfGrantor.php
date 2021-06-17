@@ -10,7 +10,7 @@ $username = $_SESSION['Username'];
 $sql = 'SELECT * FROM employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
 $result = mysqli_fetch_array($query);
-$emp = $result['Employee_Id'];
+$emp = $result['Employee_Name'];
 
 $sqlm = 'SELECT * FROM grantors ORDER BY Grantor_Name';
 $querym = mysqli_query($conn, $sqlm);
@@ -102,8 +102,8 @@ if (isset($_POST['submit'])) {
 
                     $sqlupdate = 'UPDATE books SET Quantity=Quantity+' . $QuantityN . ' WHERE Book_Code = "' . $Book_CodeN . '"';
 
-                    $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity) 
-            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN);";
+                    $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity, Donate_Employee) 
+            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, $emp);";
 
                     if (mysqli_query($conn, $sqlupdate) && mysqli_query($conn, $sqlNew1)) {
                         echo '<script> alert("Book updated successfully."); window.location="../books/books.php" </script>';
@@ -122,8 +122,8 @@ if (isset($_POST['submit'])) {
                     echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
                 }
 
-                $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity) 
-            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN);";
+                $sqlNew1 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity, Donate_Employee) 
+            VALUES ( '" . $row['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, $emp);";
 
 
                 if (mysqli_query($conn, $sqlNew1)) {
