@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="members.css">
+    <link rel="stylesheet" href="members.css?v=<?php echo time(); ?>">
     <title>Add A New Member</title>
 </head>
 
@@ -167,9 +167,6 @@ if (isset($_POST['submit'])) {
             <hr><br>
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-                <label>Member Information:</label><br>
-                <hr>
                 <label id="text_input">Member Name/Surname:</label>
                 <input type="text" name="Member_Name" placeholder="Enter Member Name and Surname" class="select" value="<?php echo htmlspecialchars($Member_Name); ?>">
 
