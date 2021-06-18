@@ -257,7 +257,6 @@ if (isset($_POST['submit'])) {
                 <br>
                 <div style="color: red;">
                     <?php echo $errors['m_name']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br><br><br>
                 <label> Book Information:</label><br>
@@ -267,7 +266,6 @@ if (isset($_POST['submit'])) {
 
                     <div style="color: red;">
                         <?php echo $errors['Book_Code']; ?>
-                        <!-- display error message here !-->
                     </div>
                     <br>
                     <label id="text_input"><label id="text_input">Book Name:</label>
@@ -275,7 +273,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red;">
                             <?php echo $errors['Book_Name']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Author:</label>
@@ -283,7 +280,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red;">
                             <?php echo $errors['Author']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Type:</label>
@@ -291,7 +287,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red;">
                             <?php echo $errors['Type']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Number Of Edition:</label>
@@ -299,7 +294,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red;">
                             <?php echo $errors['Num_of_Edition']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Quantity:</label>
@@ -307,7 +301,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red;">
                             <?php echo $errors['Quantity']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label id="text_input">Publishing House Name:</label>
@@ -315,13 +308,11 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red;">
                             <?php echo $errors['PublishingHouse_Name']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
 
                         <div style="color: red;">
                             <?php echo $errors['check']; ?>
-                            <!-- display error message here !-->
                         </div>
 
                         <br>

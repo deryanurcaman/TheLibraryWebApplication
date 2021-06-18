@@ -80,91 +80,6 @@ form {
     }
 }
 
-
-/* Dropdown Button */
-
-.dropbtn {
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #7e7979, #350404ef);
-    color: aliceblue;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 0.5em;
-    border-style: groove;
-    border-color: rgb(93, 82, 82);
-    position: fixed;
-    margin-left: 225px;
-    margin-top: 0px;
-}
-
-.dropbtn:hover {
-    cursor: pointer;
-}
-
-
-/* The container <div> - needed to position the dropdown content */
-
-.dropdown {
-    position: fixed;
-    display: inline-block;
-    margin-top: 5px;
-}
-
-
-/* Dropdown Content (Hidden by Default) */
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    margin-top: 52px;
-    margin-left: 225px;
-    border-radius: 0.5em;
-}
-
-
-/* Links inside the dropdown */
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-/* Change color of dropdown links on hover */
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-    border-radius: 0.5em;
-}
-
-
-/* Show the dropdown menu on hover */
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-
-.dropdown:hover .dropbtn {
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #494646, #250303ef);
-    color: rgb(171, 178, 194);
-}
-
-.Instructors_requests {
-    border-radius: 20px;
-    padding-bottom: 2em;
-    padding-right: 20px;
-    background-color: rgba(255, 255, 255, 0.507);
-}
-
 body {
     background-size: cover;
     background-attachment: fixed;
@@ -186,70 +101,6 @@ tbody tr:nth-child(odd) {
 
 #tablenavbar tr:nth-child(odd) {
     background-color: unset;
-}
-
-#heads {
-    border-bottom: rgb(104, 104, 104) solid 3px;
-    color: rgb(41, 37, 37);
-}
-
-th,
-td,
-tr {
-    text-align: center;
-    border: rgb(163, 163, 163) solid 1px;
-    padding: 5px;
-}
-
-h1 {
-    text-align: center;
-    padding-top: 1em;
-    color: rgb(41, 37, 37);
-    padding-top: 1em;
-}
-
-#hashtag {
-    padding: 1em;
-}
-
-li {
-    padding-right: 2em;
-    list-style-type: none;
-}
-
-#research_student {
-    width: 200px;
-}
-
-#research_note {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-button img {
-    height: 30px;
-}
-
-#buton {
-    margin-left: 26em;
-    background-color: rgba(41, 26, 3, 0.945);
-    width: 20%;
-    height: 5%;
-    color: white;
-    border-radius: 4px;
-    transition-property: background-color;
-    transition-duration: 1s;
-    font-size: 15px;
-    height: 50px;
-}
-
-#buton:hover {
-    cursor: pointer;
-    background-color: rgba(87, 57, 11, 0.877);
-}
-
-#decision {
-    margin: 10px;
 }
 
 .sidenav img {
@@ -275,43 +126,8 @@ tr {
     height: 60px;
 }
 
-#text_input {
-    font-size: 20px;
-    border-radius: 4px;
-    color: rgb(29, 26, 26);
-    font-weight: 600;
-}
-
-.select {
-    width: 49%;
-    padding: 10px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-textarea::placeholder {
-    font-family: sans-serif;
-    font-size: 16px;
-    border-width: 1em;
-}
-
-textarea {
-    border-radius: 0.5em;
-}
-
-#upload {
-    cursor: pointer;
-    margin-left: 1em;
-    height: 50px;
-}
-
 hr {
     border-color: black;
-}
-
-textarea,
-input {
-    font-family: 'Domine', serif;
 }
 
 .main img {

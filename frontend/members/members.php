@@ -28,12 +28,6 @@ while ($result = mysqli_fetch_array($query)) {
     <title>Members</title>
 </head>
 
-<script>
-    function save() {
-        alert("The Request Is Successfully Sent");
-    }
-</script>
-
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Stalemate&display=swap');

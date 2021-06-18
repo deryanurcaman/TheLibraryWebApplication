@@ -40,9 +40,8 @@ if (isset($_POST['submit'])) {
     
 
     if(array_filter($errors)) {
-        // echo 'errors in the form';
+       
     } else {
-        // echo 'no errors in the form';
 
     if (!empty($_POST['Member_Name']) && !empty($_POST['Member_Code']) && !empty($_POST['Member_Phone_Number']) ) {
     
@@ -172,7 +171,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Member_Name']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Member Code:</label>
@@ -180,7 +178,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Member_Code']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Member Phone Number:</label>
@@ -188,7 +185,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Member_Phone_Number']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br><br>
             

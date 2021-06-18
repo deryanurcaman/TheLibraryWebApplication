@@ -221,19 +221,6 @@ li {
     list-style-type: none;
 }
 
-#research_student {
-    width: 200px;
-}
-
-#research_note {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-button img {
-    height: 30px;
-}
-
 #buton {
     margin-left: 26em;
     background-color: rgba(41, 26, 3, 0.945);
@@ -250,14 +237,6 @@ button img {
 #buton:hover {
     cursor: pointer;
     background-color: rgba(87, 57, 11, 0.877);
-}
-
-#decision {
-    margin: 10px;
-}
-
-#decision:hover {
-    cursor: pointer;
 }
 
 .sidenav img {
@@ -305,12 +284,6 @@ textarea::placeholder {
 
 textarea {
     border-radius: 0.5em;
-}
-
-#upload {
-    cursor: pointer;
-    margin-left: 1em;
-    height: 50px;
 }
 
 hr {

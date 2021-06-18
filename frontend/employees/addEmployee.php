@@ -9,7 +9,7 @@ $sql = 'SELECT * FROM Employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
 $result2 = mysqli_fetch_array($query);
 
-$Employee_Name = $Employee_Code = $Employee_Phone_Number = $Sex = $Username = $Password = '';        // initialize with empty string
+$Employee_Name = $Employee_Code = $Employee_Phone_Number = $Sex = $Username = $Password = '';
 $errors = array('Employee_Name' => '', 'Employee_Code' => '', 'Employee_Phone_Number' => '', 'Sex' => '', 'Username' => '', 'Password' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Employee_Name'])) {
@@ -45,9 +45,8 @@ if (isset($_POST['submit'])) {
 
 
     if (array_filter($errors)) {
-        // echo 'errors in the form';
+      
     } else {
-        // echo 'no errors in the form';
 
         if (!empty($_POST['Employee_Name']) && !empty($_POST['Employee_Code']) && !empty($_POST['Employee_Phone_Number']) && !empty($_POST['Sex']) && !empty($_POST['Username']) && !empty($_POST['Password'])) {
 
@@ -81,12 +80,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="employees.css?v=<?php echo time(); ?>">
     <title>Add A New Employee</title>
 </head>
-
-<script>
-    function save() {
-        alert("The Request Is Successfully Sent");
-    }
-</script>
 
 
 <style>
@@ -187,7 +180,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Employee_Name']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Employee Code:</label>
@@ -195,7 +187,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Employee_Code']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Employee Phone Number:</label>
@@ -203,7 +194,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Employee_Phone_Number']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Sex:</label>
@@ -217,7 +207,6 @@ if (isset($_POST['submit'])) {
                 </select>
                 <div style="color: red;">
                     <?php echo $errors['Sex']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Username:</label>
@@ -225,7 +214,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Username']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Password:</label>
@@ -233,7 +221,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Password']; ?>
-                    <!-- display error message here !-->
                 </div>
 
 

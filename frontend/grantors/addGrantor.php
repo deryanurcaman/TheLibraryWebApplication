@@ -39,9 +39,8 @@ if (isset($_POST['submit'])) {
     
 
     if(array_filter($errors)) {
-        // echo 'errors in the form';
+      
     } else {
-        // echo 'no errors in the form';
 
     if (!empty($_POST['Grantor_Name']) && !empty($_POST['Grantor_Code']) && !empty($_POST['Grantor_Phone_Number']) ) {
     
@@ -174,7 +173,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Name']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Grantor Code:</label>
@@ -182,7 +180,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Code']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br>
                 <label id="text_input">Grantor Phone Number:</label>
@@ -190,7 +187,6 @@ if (isset($_POST['submit'])) {
 
                 <div style="color: red;">
                     <?php echo $errors['Grantor_Phone_Number']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br><br>
             
@@ -199,16 +195,6 @@ if (isset($_POST['submit'])) {
 
             </form>
         </div>
-    </div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span> Some text in the Modal..
-        </div>
-
     </div>
 
 </body>

@@ -10,7 +10,7 @@ $query = mysqli_query($conn, $sql);
 $result2 = mysqli_fetch_array($query);
 
 
-$Book_CodeN = $Book_NameN = $AuthorN = $TypeN = $Num_of_EditionN  = $QuantityN = $PublishingHouse_NameN = '';        // initialize with empty string
+$Book_CodeN = $Book_NameN = $AuthorN = $TypeN = $Num_of_EditionN  = $QuantityN = $PublishingHouse_NameN = '';
 $errors = array('Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => '', 'check' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Book_Code'])) {
@@ -38,11 +38,7 @@ if (isset($_POST['submit'])) {
     } else {
         $Num_of_EditionN = $_POST['Num_of_Edition'];
     }
-    // if (empty($_POST['Status'])) {
-    //     $errors['Status'] = 'Status is required';
-    // } else {
-    //     $StatusN = $_POST['Status'];
-    // }
+
     if (empty($_POST['Quantity'])) {
         $errors['Quantity'] = 'Quantity is required';
     } else {
@@ -56,9 +52,8 @@ if (isset($_POST['submit'])) {
 
 
     if (array_filter($errors)) {
-        // echo 'errors in the form';
+       
     } else {
-        // echo 'no errors in the form';
 
         if (!empty($_POST['Book_Code']) && !empty($_POST['Book_Name']) && !empty($_POST['Author']) && !empty($_POST['Type']) && !empty($_POST['Num_of_Edition'])  && !empty($_POST['Quantity']) && !empty($_POST['PublishingHouse_Name'])) {
 
@@ -72,7 +67,6 @@ if (isset($_POST['submit'])) {
 
             $count = mysqli_num_rows($resultcheck);
 
-            // If result matched $myusername and $mypassword, table row must be 1 row
             if ($count == 1) {
                 if($row['Book_Name']!=$Book_NameN || $row['Author']!=$AuthorN || $row['Type']!=$TypeN || $row['Num_of_Edition']!=$Num_of_EditionN || $row['PublishingHouse_Name']!=$PublishingHouse_NameN){
                     $errors['check'] = 'At least one of the entered information does not match with the book code.';
@@ -216,7 +210,6 @@ if (isset($_POST['submit'])) {
 
                     <div style="color: red; font-size:15px;">
                         <?php echo $errors['Book_Code']; ?>
-                        <!-- display error message here !-->
                     </div>
                     <br>
                     <label id="text_input"><label>Book Name:</label>
@@ -224,7 +217,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['Book_Name']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label>Author:</label>
@@ -232,7 +224,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['Author']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label>Type:</label>
@@ -240,7 +231,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['Type']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label>Number Of Edition:</label>
@@ -248,7 +238,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['Num_of_Edition']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label>Quantity:</label>
@@ -256,7 +245,6 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['Quantity']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
                         <label>Publishing House Name:</label>
@@ -264,13 +252,11 @@ if (isset($_POST['submit'])) {
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['PublishingHouse_Name']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
 
                         <div style="color: red; font-size:15px;">
                             <?php echo $errors['check']; ?>
-                            <!-- display error message here !-->
                         </div>
                         <br>
 
