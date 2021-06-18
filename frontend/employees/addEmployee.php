@@ -10,7 +10,7 @@ $query = mysqli_query($conn, $sql);
 $result2 = mysqli_fetch_array($query);
 
 $Employee_Name = $Employee_Code = $Employee_Phone_Number = $Sex = $Username = $Password = '';
-$errors = array('Employee_Name' => '', 'Employee_Code' => '', 'Employee_Phone_Number' => '', 'Sex' => '', 'Username' => '', 'Password' => ''); // keys and their ampty values
+$errors = array('check2' => '','check' => '', 'Employee_Name' => '', 'Employee_Code' => '', 'Employee_Phone_Number' => '', 'Sex' => '', 'Username' => '', 'Password' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Employee_Name'])) {
         $errors['Employee_Name'] = 'Employee name is required';
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['Sex'])) {
         $errors['Sex'] = 'Sex is required';
     } else {
-        $SexN = $_POST['Sex'];
+        $Sex = $_POST['Sex'];
     }
     if (empty($_POST['Username'])) {
         $errors['Username'] = 'Username is required';
@@ -45,26 +45,52 @@ if (isset($_POST['submit'])) {
 
 
     if (array_filter($errors)) {
-      
     } else {
 
         if (!empty($_POST['Employee_Name']) && !empty($_POST['Employee_Code']) && !empty($_POST['Employee_Phone_Number']) && !empty($_POST['Sex']) && !empty($_POST['Username']) && !empty($_POST['Password'])) {
 
 
-            $sqlNew = "INSERT INTO Employees ( Employee_Code, Employee_Name, Employee_Phone_Number, Sex, Username, Password) 
-    VALUES ( '$Employee_Code', '$Employee_Name', '$Employee_Phone_Number', '$Sex', '$Username', '$Password' );";
+            $sqlcheck = "SELECT * FROM employees WHERE Employee_Code = '$Employee_Code'";
+
+            $resultcheck = mysqli_query($conn, $sqlcheck);
 
 
+            $row = mysqli_fetch_array($resultcheck, MYSQLI_ASSOC);
 
+            $count = mysqli_num_rows($resultcheck);
 
-            if (mysqli_query($conn, $sqlNew)) {
-                echo "added an employee successfully";
+            if ($count == 1) {
+                $errors['check'] = 'The code is already taken.';
             } else {
-                echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+
+                $sqlcheck2 = "SELECT * FROM employees WHERE Username = '$Username'";
+
+                $resultcheck2 = mysqli_query($conn, $sqlcheck2);
+
+
+                $row2 = mysqli_fetch_array($resultcheck2, MYSQLI_ASSOC);
+
+                $count2 = mysqli_num_rows($resultcheck2);
+
+                if ($count2 == 1) {
+                    $errors['check2'] = 'The username is already taken.';
+                } else {
+
+
+                    $sqlNew = "INSERT INTO Employees ( Employee_Code, Employee_Name, Employee_Phone_Number, Sex, Username, Password) 
+                    VALUES ( '$Employee_Code', '$Employee_Name', '$Employee_Phone_Number', '$Sex', '$Username', '$Password' );";
+
+
+                    if (mysqli_query($conn, $sqlNew)) {
+                        echo "added an employee successfully";
+                    } else {
+                        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                    }
+                    echo 'no errors in the form';
+                    header('Location: http://localhost/DatabasesProject-2021/frontend/employees/employees.php');
+                    exit;
+                }
             }
-            echo 'no errors in the form';
-            header('Location: http://localhost/DatabasesProject-2021/frontend/employees/employees.php');
-            exit;
         }
     }
 }
@@ -223,13 +249,12 @@ if (isset($_POST['submit'])) {
                     <?php echo $errors['Password']; ?>
                 </div>
 
-
-
-
-
-
-
-                <br><br>
+                <br>
+                <div style="color: red;">
+                    <?php echo $errors['check']; ?>
+                    <?php echo $errors['check2']; ?>
+                </div>
+                <br>
 
                 <button id="buton" name="submit" type="submit">Add</button>
 
