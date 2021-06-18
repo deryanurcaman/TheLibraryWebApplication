@@ -86,7 +86,6 @@ if (isset($_POST['submit'])) {
                     } else {
                         echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
                     }
-                    echo 'no errors in the form';
                     header('Location: http://localhost/DatabasesProject-2021/frontend/employees/employees.php');
                     exit;
                 }

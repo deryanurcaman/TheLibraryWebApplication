@@ -73,9 +73,7 @@ if (isset($_POST['submit'])) {
 
 
     if (array_filter($errors)) {
-        // echo 'errors in the form';
     } else {
-        // echo 'no errors in the form';
 
         if (!empty($_POST['m_name']) && !empty($_POST['Book_Code']) && !empty($_POST['Book_Name']) && !empty($_POST['Author']) && !empty($_POST['Type']) && !empty($_POST['Num_of_Edition'])  && !empty($_POST['Quantity']) && !empty($_POST['PublishingHouse_Name'])) {
 
