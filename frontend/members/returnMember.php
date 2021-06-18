@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql5 = "UPDATE  borrowed_books SET Return_Employee = '$emp'  WHERE Book_Id = '" . $result2['Book_Id'] . "' ;";
 
         if (mysqli_query($conn, $sql3) && mysqli_query($conn, $sql4)&& mysqli_query($conn, $sql5)) {
-            echo '<script> alert("Book returned to member successfully."); // window.location="serve_existing_member.php" </script>';
+            echo '<script> alert("Book returned to member successfully.");  window.location="returnMember.php" </script>';
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }

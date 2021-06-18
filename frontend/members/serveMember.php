@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         if (mysqli_query($conn, $sql3) && mysqli_query($conn, $sql4)) {
-            echo '<script> alert("Book served to member successfully."); // window.location="serve_existing_member.php" </script>';
+            echo '<script> alert("Book served to member successfully."); window.location="serveMember.php" </script>';
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }

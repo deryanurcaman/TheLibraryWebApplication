@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
     
     
     $sqlNew = "INSERT INTO Members ( Member_Code, Member_Name, Member_Phone_Number) 
-    VALUES ( '$Member_CodeN', '$Member_NameN', '$Member_Phone_NumberN');";
+    VALUES ( '$Member_Code', '$Member_Name', '$Member_Phone_Number');";
 
 
 
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
         echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
     }
         echo 'no errors in the form';
-        header('Location: http://localhost/DatabasesProject-2021/frontend/members.php');
+        header('Location: http://localhost/DatabasesProject-2021/frontend/members/members.php');
         exit;
     
 }}}

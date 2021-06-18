@@ -129,7 +129,7 @@ if (isset($_POST['submit'])) {
                 $sqlNew2 = "INSERT INTO donated_books ( Book_Id, Grantor_Id, Donated_Quantity, Donate_Employee) 
                 VALUES ( '" . $rowNew['Book_Id'] . "', '" . $result1['Grantor_Id'] . "', $QuantityN, '$emp');";
                 if (mysqli_query($conn, $sqlNew2)) {
-                    echo '<script> alert("Book added successfully."); //window.location="books.php" </script>';
+                    echo '<script> alert("Book added successfully."); window.location="../books/books.php" </script>';
                 } else {
                     echo "Error: " . $sqlNew2 . "<br>" . mysqli_error($conn);
                 }

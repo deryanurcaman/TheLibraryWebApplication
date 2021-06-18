@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 
 
             $sqlNew = "INSERT INTO Employees ( Employee_Code, Employee_Name, Employee_Phone_Number, Sex, Username, Password) 
-    VALUES ( '$Employee_CodeN', '$Employee_NameN', '$Employee_Phone_NumberN', '$SexN', '$UsernameN', '$PasswordN' );";
+    VALUES ( '$Employee_Code', '$Employee_Name', '$Employee_Phone_Number', '$Sex', '$Username', '$Password' );";
 
 
 
