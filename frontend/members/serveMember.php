@@ -194,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         ?>
                     </select>
                <br>
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['m_name']; ?>
                 </div>
                 <br><br>
@@ -211,13 +211,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         ?>
                     </select>
                     <br>
-                    <div style="color: red;font-size:15px; font-weight:600;">
+                    <div style="color: #581845;font-size:15px; font-weight:600;">
                         <?php echo $errors['b_name']; ?>
                     </div>
                     <br>
                     <label id="text_input">Date:</label>
                     <input type="date" name="date" id="select" value="<?php echo htmlspecialchars($date); ?>">
-                    <div style="color: red;font-size:15px; font-weight:600;">
+                    <div style="color: #581845;font-size:15px; font-weight:600;">
                         <?php echo $errors['date'];?>
                     </div>
                     <br>

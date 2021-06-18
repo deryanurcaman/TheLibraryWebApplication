@@ -184,25 +184,25 @@ if (isset($_POST['submit'])) {
                 <label id="text_input">Grantor Name/Surname:</label>
                 <input type="text" name="Grantor_Name" placeholder="Enter Grantor Name and Surname" class="select" value="<?php echo htmlspecialchars($Grantor_NameN); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Grantor_Name']; ?>
                 </div>
                 <br>
                 <label id="text_input">Grantor Code:</label>
                 <input type="text" name="Grantor_Code" placeholder="Enter Grantor Code" class="select" value="<?php echo htmlspecialchars($Grantor_CodeN); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Grantor_Code']; ?>
                 </div>
                 <br>
                 <label id="text_input">Grantor Phone Number:</label>
                 <input type="text" name="Grantor_Phone_Number" placeholder="Enter Grantor Phone Number" class="select" value="<?php echo htmlspecialchars($Grantor_Phone_NumberN); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Grantor_Phone_Number']; ?>
                 </div>
                 <br>
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['check']; ?>
                 </div>
                 <br>

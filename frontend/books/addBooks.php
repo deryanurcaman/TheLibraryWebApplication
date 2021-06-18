@@ -208,54 +208,54 @@ if (isset($_POST['submit'])) {
                 <label id="text_input"><label>Book Code:</label>
                     <input type="text" name="Book_Code" placeholder="Enter Book Code" class="select" value="<?php echo htmlspecialchars($Book_CodeN); ?>">
 
-                    <div style="color: red; font-size:15px;">
+                    <div style="color: #581845; font-size:15px;">
                         <?php echo $errors['Book_Code']; ?>
                     </div>
                     <br>
                     <label id="text_input"><label>Book Name:</label>
                         <input type="text" name="Book_Name" placeholder="Enter Book Name" class="select" value="<?php echo htmlspecialchars($Book_NameN); ?>">
 
-                        <div style="color: red; font-size:15px;">
+                        <div style="color: #581845; font-size:15px;">
                             <?php echo $errors['Book_Name']; ?>
                         </div>
                         <br>
                         <label>Author:</label>
                         <input type="text" name="Author" placeholder="Enter Author" class="select" value="<?php echo htmlspecialchars($AuthorN); ?>">
 
-                        <div style="color: red; font-size:15px;">
+                        <div style="color: #581845; font-size:15px;">
                             <?php echo $errors['Author']; ?>
                         </div>
                         <br>
                         <label>Type:</label>
                         <input type="text" name="Type" placeholder="Enter Type" class="select" value="<?php echo htmlspecialchars($TypeN); ?>">
 
-                        <div style="color: red; font-size:15px;">
+                        <div style="color: #581845; font-size:15px;">
                             <?php echo $errors['Type']; ?>
                         </div>
                         <br>
                         <label>Number Of Edition:</label>
                         <input type="number" min="1" name="Num_of_Edition" placeholder="Enter Number Of Edition" class="select" value="<?php echo htmlspecialchars($Num_of_EditionN); ?>">
 
-                        <div style="color: red; font-size:15px;">
+                        <div style="color: #581845; font-size:15px;">
                             <?php echo $errors['Num_of_Edition']; ?>
                         </div>
                         <br>
                         <label>Quantity:</label>
                         <input type="number" min="1" name="Quantity" placeholder="Enter Quantity" class="select" value="<?php echo htmlspecialchars($QuantityN); ?>">
 
-                        <div style="color: red; font-size:15px;">
+                        <div style="color: #581845; font-size:15px;">
                             <?php echo $errors['Quantity']; ?>
                         </div>
                         <br>
                         <label>Publishing House Name:</label>
                         <input type="text" name="PublishingHouse_Name" placeholder="Enter Publishing House Name" class="select" value="<?php echo htmlspecialchars($PublishingHouse_NameN); ?>">
 
-                        <div style="color: red; font-size:15px;">
+                        <div style="color: #581845; font-size:15px;">
                             <?php echo $errors['PublishingHouse_Name']; ?>
                         </div>
                         <br>
 
-                        <div style="color: red; font-size:15px;">
+                        <div style="color: #581845; font-size:15px;">
                             <?php echo $errors['check']; ?>
                         </div>
                         <br>

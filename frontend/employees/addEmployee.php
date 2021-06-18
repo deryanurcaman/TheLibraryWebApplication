@@ -203,21 +203,21 @@ if (isset($_POST['submit'])) {
                 <label id="text_input">Employee Name/Surname:</label>
                 <input type="text" name="Employee_Name" placeholder="Enter Employee Name and Surname" class="select" value="<?php echo htmlspecialchars($Employee_Name); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Employee_Name']; ?>
                 </div>
                 <br>
                 <label id="text_input">Employee Code:</label>
                 <input type="text" name="Employee_Code" placeholder="Enter Employee Code" class="select" value="<?php echo htmlspecialchars($Employee_Code); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Employee_Code']; ?>
                 </div>
                 <br>
                 <label id="text_input">Employee Phone Number:</label>
                 <input type="text" name="Employee_Phone_Number" placeholder="Enter Employee Phone Number" class="select" value="<?php echo htmlspecialchars($Employee_Phone_Number); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Employee_Phone_Number']; ?>
                 </div>
                 <br>
@@ -230,26 +230,26 @@ if (isset($_POST['submit'])) {
 
 
                 </select>
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Sex']; ?>
                 </div>
                 <br>
                 <label id="text_input">Username:</label>
                 <input type="text" name="Username" placeholder="Enter Username" class="select" value="<?php echo htmlspecialchars($Username); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Username']; ?>
                 </div>
                 <br>
                 <label id="text_input">Password:</label>
                 <input type="password" name="Password" placeholder="Enter Password" class="select" value="<?php echo htmlspecialchars($Password); ?>">
 
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['Password']; ?>
                 </div>
 
                 <br>
-                <div style="color: red;font-size:15px; font-weight:600;">
+                <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['check']; ?>
                     <?php echo $errors['check2']; ?>
                 </div>
