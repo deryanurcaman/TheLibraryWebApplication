@@ -21,7 +21,7 @@ $username = $_SESSION['Username'];
 $sql = 'SELECT * FROM employees WHERE Username = "' . $username . '"';
 $query = mysqli_query($conn, $sql);
 $result = mysqli_fetch_array($query);
-$emp = $result['Employee_Name'];
+$emp = $result['Employee_Id'];
 
 // $sqlm = 'SELECT * FROM members ORDER BY Member_Name';
 // $querym = mysqli_query($conn, $sqlm);

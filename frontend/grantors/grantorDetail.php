@@ -181,7 +181,27 @@ while ($result1 = mysqli_fetch_array($query1)) {
                         <td><?php echo $row["Book_Code"]; ?></td>
                         <td><?php echo $row["Book_Name"]; ?></td>
                         <td><?php echo $row["Donated_Quantity"]; ?></td>
-                        <td><?php echo $row["Donate_Employee"]; ?></td>
+                        <td><?php
+
+                        $sql = "SELECT DISTINCT `Employee_Name` 
+                        FROM `Donated_Books` 
+                        LEFT JOIN `Employees` ON `Donated_Books`.`Donate_Employee` = `Employees`.`Employee_Id` 
+                        WHERE `Donated_Books`.`Donate_Employee` = '" . $row["Donate_Employee"] . "'
+                        ;";
+
+                        $query = mysqli_query($conn, $sql);
+                        $result = mysqli_fetch_array($query);
+
+
+                        // if (mysqli_num_rows($result) > 0) {
+                        //     echo 'arraymis';
+                        // }
+
+                        echo $result[0];
+
+
+                        
+                        ?></td>
                     </tr>
                 <?php $j = $j + 1;
                 } ?>

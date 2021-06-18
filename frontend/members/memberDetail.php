@@ -12,9 +12,10 @@ $result = mysqli_fetch_array($query);
 
 $sql1 = "SELECT *
 FROM `Borrowed_Books` 
+    LEFT JOIN `Books` ON `Borrowed_Books`.`Book_Id` = `Books`.`Book_Id`     
 	LEFT JOIN `Members` ON `Borrowed_Books`.`Member_Id` = `Members`.`Member_Id` 
-	LEFT JOIN `Books` ON `Borrowed_Books`.`Book_Id` = `Books`.`Book_Id`
-     WHERE `Members`.`Member_Code` = '" . $_GET["Member_Code"] . "'";
+    WHERE `Members`.`Member_Code` = '" . $_GET["Member_Code"] . "'";
+
 
 
 $query1 = mysqli_query($conn, $sql1);
@@ -140,7 +141,7 @@ while ($resultname = mysqli_fetch_array($queryname)) {
     </div>
 
     <div class="dropdown">
-    <a href="exportDetail.php?Member_Code=<?php echo $_GET["Member_Code"];?>"><button class="dropbtn">Download List</button></a>
+        <a href="exportDetail.php?Member_Code=<?php echo $_GET["Member_Code"]; ?>"><button class="dropbtn">Download List</button></a>
     </div>
 
     <div class="main">
@@ -169,9 +170,46 @@ while ($resultname = mysqli_fetch_array($queryname)) {
                         <td><?php echo $j ?></td>
                         <td><?php echo $row["Book_Name"]; ?></td>
                         <td><?php echo $row["Borrow_Date"]; ?></td>
-                        <td><?php echo $row["Serve_Employee"]; ?></td>
+                        <td><?php
+
+                        $sql = "SELECT DISTINCT `Employee_Name` 
+                        FROM `Borrowed_Books` 
+                        LEFT JOIN `Employees` ON `Borrowed_Books`.`Serve_Employee` = `Employees`.`Employee_Id` 
+                        WHERE `Borrowed_Books`.`Serve_Employee` = '" . $row["Serve_Employee"] . "'
+                        ;";
+
+                        $query = mysqli_query($conn, $sql);
+                        $result = mysqli_fetch_array($query);
+
+
+                        // if (mysqli_num_rows($result) > 0) {
+                        //     echo 'arraymis';
+                        // }
+
+                        echo $result[0];
+
+
+
+                        
+                        ?></td>
+
+
                         <td><?php echo $row["Return_Date"]; ?></td>
-                        <td><?php echo $row["Return_Employee"]; ?></td>
+
+
+                        <td><?php $sql = "SELECT DISTINCT `Employee_Name` 
+                        FROM `Borrowed_Books` 
+                        LEFT JOIN `Employees` ON `Borrowed_Books`.`Return_Employee` = `Employees`.`Employee_Id` 
+                        WHERE `Borrowed_Books`.`Return_Employee` = '" . $row["Return_Employee"] . "'
+                        ;";
+
+                        $query = mysqli_query($conn, $sql);
+                        $result = mysqli_fetch_array($query);
+                        
+                        echo $result[0];
+
+                       
+                         ?></td>
                     </tr>
                 <?php $j = $j + 1;
                 } ?>

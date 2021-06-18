@@ -49,11 +49,13 @@ $table5 = "CREATE TABLE Borrowed_Books(
     Member_Id INT(11),
     Borrow_Date DATE, 
     Return_Date DATE, 
-    Serve_Employee VARCHAR(100),
-    Return_Employee VARCHAR(100),
+    Serve_Employee INT(11),
+    Return_Employee INT(11),
     PRIMARY KEY (Borrowed_Books_Id),
     FOREIGN KEY (Book_Id) REFERENCES Books(Book_Id) ON DELETE CASCADE, 
-    FOREIGN KEY (Member_Id) REFERENCES Members(Member_Id) ON DELETE CASCADE);";
+    FOREIGN KEY (Member_Id) REFERENCES Members(Member_Id) ON DELETE CASCADE,
+    FOREIGN KEY (Serve_Employee) REFERENCES Employees(Employee_Id) ON DELETE CASCADE, 
+    FOREIGN KEY (Return_Employee) REFERENCES Employees(Employee_Id) ON DELETE CASCADE);";
 
 
 $table6= "CREATE TABLE Donated_Books(
@@ -61,10 +63,11 @@ $table6= "CREATE TABLE Donated_Books(
     Book_Id INT(11) NOT NULL,
     Grantor_Id INT(11) NOT NULL,
     Donated_Quantity INT(11) NOT NULL,
-    Donate_Employee VARCHAR(100),
+    Donate_Employee INT(11),
     PRIMARY KEY (Donated_Books_Id),
     FOREIGN KEY (Book_Id) REFERENCES Books(Book_Id) ON DELETE CASCADE, 
-    FOREIGN KEY (Grantor_Id) REFERENCES Grantors(Grantor_Id) ON DELETE CASCADE);";
+    FOREIGN KEY (Grantor_Id) REFERENCES Grantors(Grantor_Id) ON DELETE CASCADE,
+    FOREIGN KEY (Donate_Employee) REFERENCES Employees(Employee_Id) ON DELETE CASCADE);";
 
 
 
