@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../../database/config.php';
 $conn = OpenCon();
 
@@ -12,15 +12,14 @@ $result2 = mysqli_fetch_array($query);
 $sqlString = "SELECT * FROM Members;";
 $query = mysqli_query($conn, $sqlString);
 $rows = array();
-while($result = mysqli_fetch_array($query))
-{
+while ($result = mysqli_fetch_array($query)) {
     $rows[] = $result;
 }
 
 
 
 $Member_Name = $Member_Code = $Member_Phone_Number = $Book_Code = $Book_Name = $Date = '';        // initialize with empty string
-$errors = array('Member_Name' => '', 'Member_Code' => '', 'Member_Phone_Number' => ''); // keys and their ampty values
+$errors = array('check' => '','Member_Name' => '', 'Member_Code' => '', 'Member_Phone_Number' => ''); // keys and their ampty values
 if (isset($_POST['submit'])) {
     if (empty($_POST['Member_Name'])) {
         $errors['Member_Name'] = 'Member name is required';
@@ -37,31 +36,42 @@ if (isset($_POST['submit'])) {
     } else {
         $Member_Phone_Number = $_POST['Member_Phone_Number'];
     }
-    
 
-    if(array_filter($errors)) {
-       
+
+    if (array_filter($errors)) {
     } else {
 
-    if (!empty($_POST['Member_Name']) && !empty($_POST['Member_Code']) && !empty($_POST['Member_Phone_Number']) ) {
-    
-    
-    $sqlNew = "INSERT INTO Members ( Member_Code, Member_Name, Member_Phone_Number) 
+        if (!empty($_POST['Member_Name']) && !empty($_POST['Member_Code']) && !empty($_POST['Member_Phone_Number'])) {
+
+            $sqlcheck = "SELECT * FROM members WHERE Member_Code = '$Member_Code'";
+
+            $resultcheck = mysqli_query($conn, $sqlcheck);
+
+
+            $row = mysqli_fetch_array($resultcheck, MYSQLI_ASSOC);
+
+            $count = mysqli_num_rows($resultcheck);
+
+            if ($count == 1) {
+                $errors['check'] = 'The code is already taken.';
+            } else {
+
+                $sqlNew = "INSERT INTO Members ( Member_Code, Member_Name, Member_Phone_Number) 
     VALUES ( '$Member_Code', '$Member_Name', '$Member_Phone_Number');";
 
 
+                if (mysqli_query($conn, $sqlNew)) {
+                    echo "added a member successfully";
+                } else {
+                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                }
 
-
-    if (mysqli_query($conn, $sqlNew)) {
-        echo "added a member successfully";
-    } else {
-        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                header('Location: http://localhost/DatabasesProject-2021/frontend/members/members.php');
+                exit;
+            }
+        }
     }
-        echo 'no errors in the form';
-        header('Location: http://localhost/DatabasesProject-2021/frontend/members/members.php');
-        exit;
-    
-}}}
+}
 
 ?>
 
@@ -79,15 +89,16 @@ if (isset($_POST['submit'])) {
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Stalemate&display=swap');
+
     body {
         font-family: 'Domine', serif;
     }
-    
+
     strong {
         font-family: 'Domine', serif;
         font-size: 25px;
     }
-    
+
     body b {
         font-family: 'Stalemate', cursive;
         font-size: 50px;
@@ -97,7 +108,7 @@ if (isset($_POST['submit'])) {
 <body>
     <!-- Side navigation -->
     <div class="sidenav">
-    <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
+        <div><img src="../../assets/logo.png" height="150px" style="opacity: 0.8;"></img>
         </div>
 
         <br>
@@ -186,10 +197,14 @@ if (isset($_POST['submit'])) {
                 <div style="color: red;">
                     <?php echo $errors['Member_Phone_Number']; ?>
                 </div>
-                <br><br>
-            
+                <br>
+                <div style="color: red;">
+                    <?php echo $errors['check']; ?>
+                </div>
+                <br>
 
-                <button  id="buton" name="submit" type="submit">Add</button>
+
+                <button id="buton" name="submit" type="submit">Add</button>
 
             </form>
         </div>
