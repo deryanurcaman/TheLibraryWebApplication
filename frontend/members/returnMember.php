@@ -203,9 +203,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ?>
                 </select>
                 <br>
-                <div style="color: red;">
+                <div style="color: red; font-size:15px; font-weight:600;">
                     <?php echo $errors['m_name']; ?>
-                    <!-- display error message here !-->
                 </div>
                 <br><br>
                 <label>Borrowed Book Information:</label><br>
@@ -243,13 +242,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         ?>
                     </select>
                     <br>
-                    <div style="color: red;">
+                    <div style="color: red; font-size:15px;">
                         <?php echo $errors['b_name']; ?>
                     </div>
                     <br>
                     <label id="text_input">Date:</label>
                     <input type="date" name="date" id="select" value="<?php echo htmlspecialchars($date); ?>">
-                    <div style="color: red;">
+                    <div style="color: red; font-size:15px;">
                         <?php echo $errors['date']; ?>
                     </div>
                     <br>

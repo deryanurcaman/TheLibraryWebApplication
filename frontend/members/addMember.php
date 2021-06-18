@@ -180,25 +180,25 @@ if (isset($_POST['submit'])) {
                 <label id="text_input">Member Name/Surname:</label>
                 <input type="text" name="Member_Name" placeholder="Enter Member Name and Surname" class="select" value="<?php echo htmlspecialchars($Member_Name); ?>">
 
-                <div style="color: red;">
+                <div style="color: red;font-size:15px; font-weight:600;">
                     <?php echo $errors['Member_Name']; ?>
                 </div>
                 <br>
                 <label id="text_input">Member Code:</label>
                 <input type="text" name="Member_Code" placeholder="Enter Member Code" class="select" value="<?php echo htmlspecialchars($Member_Code); ?>">
 
-                <div style="color: red;">
+                <div style="color: red;font-size:15px; font-weight:600;">
                     <?php echo $errors['Member_Code']; ?>
                 </div>
                 <br>
                 <label id="text_input">Member Phone Number:</label>
                 <input type="text" name="Member_Phone_Number" placeholder="Enter Member Phone Number" class="select" value="<?php echo htmlspecialchars($Member_Phone_Number); ?>">
 
-                <div style="color: red;">
+                <div style="color: red;font-size:15px; font-weight:600;">
                     <?php echo $errors['Member_Phone_Number']; ?>
                 </div>
                 <br>
-                <div style="color: red;">
+                <div style="color: red;font-size:15px; font-weight:600;">
                     <?php echo $errors['check']; ?>
                 </div>
                 <br>
