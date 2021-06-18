@@ -33,7 +33,7 @@ while ($result1 = mysqli_fetch_array($query1)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="grantors.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../members/members.css?v=<?php echo time(); ?>">
     <title>Grantors Detailed Info</title>
 </head>
 
@@ -150,6 +150,11 @@ while ($result1 = mysqli_fetch_array($query1)) {
 
     </div>
 
+    <div class="dropdown">
+    <a href="exportDetail.php?Grantor_Code=<?php echo $_GET["Grantor_Code"];?>"><button class="dropbtn">Download List</button></a>
+    </div>
+
+
     <div class="main">
         <div class="Instructors_requests">
             <h1><?php
@@ -164,7 +169,7 @@ while ($result1 = mysqli_fetch_array($query1)) {
                     <th>Book Code</th>
                     <th>Book Name</th>
                     <th>Quantity</th>
-                    <th>Employee</th>
+                    <th>Donate Process Employee</th>
 
                 </tr>
                 <?php $j = 1;

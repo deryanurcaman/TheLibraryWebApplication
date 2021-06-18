@@ -139,6 +139,10 @@ while ($resultname = mysqli_fetch_array($queryname)) {
 
     </div>
 
+    <div class="dropdown">
+    <a href="exportDetail.php?Member_Code=<?php echo $_GET["Member_Code"];?>"><button class="dropbtn">Download List</button></a>
+    </div>
+
     <div class="main">
 
         <div class="Instructors_requests">

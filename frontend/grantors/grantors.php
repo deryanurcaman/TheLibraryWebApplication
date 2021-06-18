@@ -32,7 +32,7 @@ while ($result = mysqli_fetch_array($query)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="grantors.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../members/members.css?v=<?php echo time(); ?>">
     <title>Grantors</title>
 </head>
 
@@ -148,6 +148,12 @@ while ($result = mysqli_fetch_array($query)) {
 
 
     </div>
+
+
+    <div class="dropdown">
+    <a href="export.php"><button class="dropbtn">Download List</button></a>
+    </div>
+
 
     <div class="main">
         <div class="Instructors_requests">

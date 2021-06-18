@@ -124,6 +124,14 @@ while ($result = mysqli_fetch_array($query)) {
 
     </div>
 
+
+    <div class="dropdown">
+    <a href="export.php"><button class="dropbtn">Download Archive</button></a>
+    </div>
+
+    <br>
+
+
     <div class="main">
 
         <div class="Instructors_requests">

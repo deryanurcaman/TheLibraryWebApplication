@@ -87,14 +87,17 @@ form {
 .dropbtn {
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #7e7979, #350404ef);
     color: aliceblue;
-    padding: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
     font-size: 16px;
     border: none;
     border-radius: 0.5em;
     border-style: groove;
     border-color: rgb(93, 82, 82);
     position: fixed;
-    margin-left: 225px;
+    margin-left: 200px;
     margin-top: 0px;
 }
 
