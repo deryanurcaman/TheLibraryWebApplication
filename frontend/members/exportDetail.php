@@ -9,7 +9,7 @@ FROM `Borrowed_Books`
      WHERE `Members`.`Member_Code` = '" . $_GET["Member_Code"] . "'";  
 $setRec = mysqli_query($conn, $sql);  
 $columnHeader = '';  
-$columnHeader = "Member Code" . "\t" . "Member Name" . "\t". "Phone Number" . "\t". "Borrowed Book Name" . "\t". "Borrow Date" . "\t". "Borrowing Process Employee" . "\t". "Return Date" . "\t". "Returning Process Employee" . "\t";  
+$columnHeader = "Member Code" . "\t" . "Member Name" . "\t". "Phone Number" . "\t". "Borrowed Book Name" . "\t". "Borrow Date" . "\t". "Borrowing Process Employee Id" . "\t". "Return Date" . "\t". "Returning Process Employee Id" . "\t";  
 $setData = '';  
   while ($rec = mysqli_fetch_row($setRec)) {  
     $rowData = '';  

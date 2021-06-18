@@ -9,7 +9,7 @@ FROM `Grantors`
     WHERE `Grantors`.`Grantor_Code` = '" . $_GET["Grantor_Code"] . "'";  
 $setRec = mysqli_query($conn, $sql);  
 $columnHeader = '';  
-$columnHeader = "Grantor Code" . "\t" . "Grantor Name" . "\t". "Phone Number" . "\t". "Donated Book Name" . "\t". "Donated Quantity" . "\t". "Donate Process Employee" . "\t";  
+$columnHeader = "Grantor Code" . "\t" . "Grantor Name" . "\t". "Phone Number" . "\t". "Donated Book Name" . "\t". "Donated Quantity" . "\t". "Donate Process Employee Id" . "\t";  
 $setData = '';  
   while ($rec = mysqli_fetch_row($setRec)) {  
     $rowData = '';  
