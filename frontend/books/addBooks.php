@@ -38,7 +38,6 @@ if (isset($_POST['submit'])) {
     } else {
         $Num_of_EditionN = $_POST['Num_of_Edition'];
     }
-
     if (empty($_POST['Quantity'])) {
         $errors['Quantity'] = 'Quantity is required';
     } else {
@@ -52,7 +51,6 @@ if (isset($_POST['submit'])) {
 
 
     if (array_filter($errors)) {
-       
     } else {
 
         if (!empty($_POST['Book_Code']) && !empty($_POST['Book_Name']) && !empty($_POST['Author']) && !empty($_POST['Type']) && !empty($_POST['Num_of_Edition'])  && !empty($_POST['Quantity']) && !empty($_POST['PublishingHouse_Name'])) {
@@ -68,23 +66,23 @@ if (isset($_POST['submit'])) {
             $count = mysqli_num_rows($resultcheck);
 
             if ($count == 1) {
-                if($row['Book_Name']!=$Book_NameN || $row['Author']!=$AuthorN || $row['Type']!=$TypeN || $row['Num_of_Edition']!=$Num_of_EditionN || $row['PublishingHouse_Name']!=$PublishingHouse_NameN){
+                //existing book
+                if ($row['Book_Name'] != $Book_NameN || $row['Author'] != $AuthorN || $row['Type'] != $TypeN || $row['Num_of_Edition'] != $Num_of_EditionN || $row['PublishingHouse_Name'] != $PublishingHouse_NameN) {
                     $errors['check'] = 'At least one of the entered information does not match with the book code.';
-                }else{
-
-                $sqlupdate = 'UPDATE books SET Quantity=Quantity+'.$QuantityN.' WHERE Book_Code = "' . $Book_CodeN . '"';
-
-                if (mysqli_query($conn, $sqlupdate)) {
-                    echo '<script> alert("Book updated successfully."); window.location="books.php" </script>';
-
                 } else {
-                    echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+
+                    $sqlupdate = 'UPDATE books SET Quantity=Quantity+' . $QuantityN . ' WHERE Book_Code = "' . $Book_CodeN . '"';
+
+                    if (mysqli_query($conn, $sqlupdate)) {
+                        echo '<script> alert("Book updated successfully."); window.location="books.php" </script>';
+                    } else {
+                        echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
+                    }
                 }
-            }} else {
-
-
+            } else {
+                //new book
                 $sqlNew = "INSERT INTO Books ( Book_Code, Book_Name, Author, Type, Num_of_Edition, Quantity, PublishingHouse_Name) 
-    VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', '$QuantityN', '$PublishingHouse_NameN');";
+                VALUES ( '$Book_CodeN', '$Book_NameN', '$AuthorN', '$TypeN', '$Num_of_EditionN', '$QuantityN', '$PublishingHouse_NameN');";
 
                 if (mysqli_query($conn, $sqlNew)) {
                     echo '<script> alert("Book added successfully."); window.location="books.php" </script>';
@@ -202,7 +200,7 @@ if (isset($_POST['submit'])) {
         <div class="Instructors_requests" id="Join">
             <h1 style="text-align: center;">Add A New Book</h1>
             <hr><br>
-            
+
 
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <label id="text_input"><label>Book Code:</label>
@@ -260,7 +258,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <br>
 
-                        <button  id="buton" name="submit" type="submit">Add</button>
+                        <button id="buton" name="submit" type="submit">Add</button>
             </form>
         </div>
     </div>

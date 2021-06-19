@@ -120,12 +120,8 @@ $result2 = mysqli_fetch_array($query);
             <br> <br> <br><br> <br>
             <a href="./employees/addEmployee.php"><button style=" float: left;font-size: 18px; margin-top: 50px; margin-left: 50px"><img src="../assets/add_employee.png" alt=""> <br>Add A New Employee</button></a>
             
-        </div>
-
-        
+        </div>    
     </div>
-
-
 </body>
 
 </html>

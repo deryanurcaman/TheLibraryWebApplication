@@ -163,16 +163,8 @@ while ($result1 = mysqli_fetch_array($query1)) {
 
                         $query = mysqli_query($conn, $sql);
                         $result = mysqli_fetch_array($query);
-
-
-                        // if (mysqli_num_rows($result) > 0) {
-                        //     echo 'arraymis';
-                        // }
-
                         echo $result[0];
 
-
-                        
                         ?></td>
                     </tr>
                 <?php $j = $j + 1;

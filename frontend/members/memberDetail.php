@@ -175,23 +175,15 @@ while ($resultname = mysqli_fetch_array($queryname)) {
                         $query = mysqli_query($conn, $sql);
                         $result = mysqli_fetch_array($query);
 
-
-                        // if (mysqli_num_rows($result) > 0) {
-                        //     echo 'arraymis';
-                        // }
-
                         echo $result[0];
-
-
-
-                        
                         ?></td>
-
 
                         <td><?php echo $row["Return_Date"]; ?></td>
 
 
-                        <td><?php $sql = "SELECT DISTINCT `Employee_Name` 
+                        <td><?php 
+                        
+                        $sql = "SELECT DISTINCT `Employee_Name` 
                         FROM `Borrowed_Books` 
                         LEFT JOIN `Employees` ON `Borrowed_Books`.`Return_Employee` = `Employees`.`Employee_Id` 
                         WHERE `Borrowed_Books`.`Return_Employee` = '" . $row["Return_Employee"] . "'

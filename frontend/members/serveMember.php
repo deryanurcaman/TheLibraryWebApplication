@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="members.css?v=<?php echo time(); ?>">
-    <title>Serve A Book To The Member</title>
-</head>
-
 <?php
 include '../../database/config.php';
 $conn = OpenCon();
@@ -88,6 +77,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="members.css?v=<?php echo time(); ?>">
+    <title>Serve A Book To The Member</title>
+</head>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
@@ -190,14 +191,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             echo '
                         <option> ' . $rowm['Member_Name'] . ' </option>
                         ';
-                        }
-                        ?>
+                        }?>
                     </select>
                <br>
                 <div style="color: #581845;font-size:15px; font-weight:600;">
                     <?php echo $errors['m_name']; ?>
                 </div>
+
                 <br><br>
+
                 <label>Borrowed Book Information:</label><br>
                 <hr>
                 <label id="text_input"><label id="text_input">Book Name:</label>
@@ -207,8 +209,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             echo '
                         <option> ' . $rowb['Book_Name'] . ' </option>
                         ';
-                        }
-                        ?>
+                        }?>
                     </select>
                     <br>
                     <div style="color: #581845;font-size:15px; font-weight:600;">

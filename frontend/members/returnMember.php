@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="members.css?v=<?php echo time(); ?>">
-    <title>Return The Book From The Member</title>
-</head>
-
 <?php
 include '../../database/config.php';
 $conn = OpenCon();
@@ -26,9 +15,10 @@ $emp = $result['Employee_Id'];
 
 $sqlm = "SELECT DISTINCT `members`.`Member_Name`, `members`.`Member_Id`
 FROM `borrowed_books` 
-	LEFT JOIN `members` ON `borrowed_books`.`Member_Id` = `members`.`Member_Id`
-    WHERE  `borrowed_books`.`Return_Date` IS NULL
-    ORDER BY `members`.`Member_Name`";
+LEFT JOIN `members` ON `borrowed_books`.`Member_Id` = `members`.`Member_Id`
+WHERE  `borrowed_books`.`Return_Date` IS NULL
+ORDER BY `members`.`Member_Name`";
+
 $querym = mysqli_query($conn, $sqlm);
 $rowsm = array();
 while ($resultm = mysqli_fetch_array($querym)) {
@@ -53,8 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $bname = mysqli_real_escape_string($conn, $_POST['b_name']);
     }
-
-    
     if (empty($_POST['date'])) {
         
             $errors['date'] = 'A date is required';
@@ -75,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query2 = mysqli_query($conn, $sql2);
         $result2 = mysqli_fetch_array($query2);
 
+
         $sql4 = 'UPDATE books SET Quantity=Quantity+1 WHERE Book_Name = "' . $bname . '"';
 
         $sql3 = "UPDATE borrowed_books SET Return_Date = '$date' WHERE Book_Id = '" . $result2['Book_Id'] . "' ;";
@@ -89,6 +78,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="members.css?v=<?php echo time(); ?>">
+    <title>Return The Book From The Member</title>
+</head>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
@@ -192,21 +192,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    ';
                     } else {
                         echo ' <option selected disabled> Choose here </option>';
-                    }
-                    ?>
+                    }?>
                     <?php
                     foreach ($rowsm as $rowm) {
                         echo '
                         <option> ' . $rowm['Member_Name'] . ' </option>
                         ';
-                    }
-                    ?>
+                    }?>
                 </select>
                 <br>
                 <div style="color: #581845; font-size:15px; font-weight:600;">
                     <?php echo $errors['m_name']; ?>
                 </div>
+
                 <br><br>
+
                 <label>Borrowed Book Information:</label><br>
                 <hr>
                 <label id="text_input"><label id="text_input">Book Name:</label>
@@ -217,8 +217,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                    ';
                     } else {
                         echo ' <option selected disabled> Choose here </option>';
-                    }
-                    ?>
+                    }?>
                         <?php
                         $mname = $_POST["m_name"];
                         $sqlb = "SELECT `books`.`Book_Name`
@@ -232,14 +231,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         while ($resultb = mysqli_fetch_array($queryb)) {
                             $rowsb[] = $resultb;
                         }
-
-
                         foreach ($rowsb as $rowb) {
                             echo '
                         <option> ' . $rowb['Book_Name'] . ' </option>
                         ';
-                        }
-                        ?>
+                        }?>
                     </select>
                     <br>
                     <div style="color: #581845; font-size:15px;">

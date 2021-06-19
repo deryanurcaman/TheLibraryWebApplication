@@ -82,7 +82,7 @@ if (isset($_POST['submit'])) {
 
 
                     if (mysqli_query($conn, $sqlNew)) {
-                        echo "added an employee successfully";
+                        echo "Added an employee successfully";
                     } else {
                         echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
                     }

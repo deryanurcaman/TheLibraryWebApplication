@@ -140,8 +140,6 @@ while ($result = mysqli_fetch_array($query)) {
                         <td><?php echo $row["Member_Code"]; ?></td>
                         <td><?php echo $row["Member_Name"]; ?></td>
                         <td><?php echo $row["Member_Phone_Number"]; ?></td>
-                        
-            
                     </tr>
                 <?php $j = $j + 1;
                 } ?>

@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 
 
                 if (mysqli_query($conn, $sqlNew)) {
-                    echo "added a member successfully";
+                    echo "Added a member successfully";
                 } else {
                     echo "Error: " . $sqlNew . "<br>" . mysqli_error($conn);
                 }
