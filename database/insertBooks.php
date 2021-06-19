@@ -1,3 +1,6 @@
+//creating initial inventory of books
+<br>
+
 <?php
 
 include 'config.php';

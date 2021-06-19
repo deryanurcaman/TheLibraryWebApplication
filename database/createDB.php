@@ -1,3 +1,6 @@
+//creating database
+<br>
+
 <?php
 $servername = "localhost";
 $username = "webuser";

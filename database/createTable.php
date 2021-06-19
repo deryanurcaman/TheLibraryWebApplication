@@ -1,4 +1,4 @@
-//creating inital tables
+//creating initial tables
 <br>
 
 <?php
