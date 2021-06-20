@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
 
     if (empty($_POST['username'])) { 
-        $errors['username'] = 'An username is required';
+        $errors['username'] = 'A username is required';
     } else {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
     }
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <input type="text" name="username" placeholder="Enter your username" size="80" class="select" value="<?php echo htmlspecialchars($username); ?>">
         </p>
-        <div style="color: #581845;">
+        <div style="color: #581845;font-size:15px; font-weight:600;">
             <?php echo $errors['username']; ?>
             <!-- display error message here !-->
         </div>
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <input type="password" name="password" placeholder="Enter your password" size="80" class="select" value="<?php echo htmlspecialchars($password); ?>">
         </p>
-        <div style="color: #581845;">
+        <div style="color: #581845;font-size:15px; font-weight:600;">
             <?php echo $errors['password']; echo $errors['check'];?>
             <!-- display error message here !-->
         </div>
