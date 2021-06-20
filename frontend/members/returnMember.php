@@ -53,11 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST['m_name']) && !empty($_POST['b_name']) && !empty($_POST['date'])) {
 
 
-        $sql1 = 'SELECT * FROM members WHERE Member_Name = "' . $mname . '"';
-        $query1 = mysqli_query($conn, $sql1);
-        $result1 = mysqli_fetch_array($query1);
-        $case_name = "return";
-
 
         $sql2 = 'SELECT * FROM books WHERE Book_Name = "' . $bname . '"';
         $query2 = mysqli_query($conn, $sql2);

@@ -57,12 +57,8 @@ if (isset($_POST['submit'])) {
 
 
             $sqlcheck = "SELECT * FROM books WHERE Book_Code = '$Book_CodeN'";
-
             $resultcheck = mysqli_query($conn, $sqlcheck);
-
-
             $row = mysqli_fetch_array($resultcheck, MYSQLI_ASSOC);
-
             $count = mysqli_num_rows($resultcheck);
 
             if ($count == 1) {

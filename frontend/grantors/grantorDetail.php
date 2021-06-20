@@ -10,8 +10,7 @@ $query = mysqli_query($conn, $sql);
 $result = mysqli_fetch_array($query);
 
 
-$sql1 = "SELECT *
-    FROM `Grantors` 
+$sql1 = "SELECT * FROM `Grantors` 
         LEFT JOIN `Donated_Books` ON `Donated_Books`.`Grantor_Id` = `Grantors`.`Grantor_Id` 
         LEFT JOIN `Books` ON `Donated_Books`.`Book_Id` = `Books`.`Book_Id` 
         WHERE `Grantors`.`Grantor_Code` = '" . $_GET["Grantor_Code"] . "'";

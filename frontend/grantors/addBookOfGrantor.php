@@ -19,12 +19,6 @@ while ($resultm = mysqli_fetch_array($querym)) {
     $rowsm[] = $resultm;
 }
 
-$sqlb = 'SELECT * FROM books ORDER BY Book_Name';
-$queryb = mysqli_query($conn, $sqlb);
-$rowsb = array();
-while ($resultb = mysqli_fetch_array($queryb)) {
-    $rowsb[] = $resultb;
-}
 
 $Book_CodeN = $Book_NameN = $AuthorN = $TypeN = $Num_of_EditionN  = $QuantityN = $PublishingHouse_NameN = '';        // initialize with empty string
 $errors = array('check' => '', 'm_name' => '', 'Book_Code' => '', 'Book_Name' => '', 'Author' => '', 'Type' => '', 'Num_of_Edition' => '', 'Quantity' => '', 'PublishingHouse_Name' => ''); // keys and their ampty values
@@ -92,7 +86,7 @@ if (isset($_POST['submit'])) {
             $count = mysqli_num_rows($resultcheck);
 
 
-            // If result matched $myusername and $mypassword, table row must be 1 row
+            //existing book
             if ($count == 1) {
                 if ($row['Book_Name'] != $Book_NameN || $row['Author'] != $AuthorN || $row['Type'] != $TypeN || $row['Num_of_Edition'] != $Num_of_EditionN || $row['PublishingHouse_Name'] != $PublishingHouse_NameN) {
                     $errors['check'] = 'At least one of the entered information does not match with the book code.';

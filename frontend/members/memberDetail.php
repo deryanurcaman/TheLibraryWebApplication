@@ -29,7 +29,6 @@ $sqlname = "SELECT *
 FROM `Members` 
      WHERE `Members`.`Member_Code` = '" . $_GET["Member_Code"] . "'";
 
-
 $queryname = mysqli_query($conn, $sqlname);
 $rowsname = array();
 while ($resultname = mysqli_fetch_array($queryname)) {
