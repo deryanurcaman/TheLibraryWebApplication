@@ -2,7 +2,7 @@
 
 This project is a system where employees of a library perform all the operations related to the library, such as adding new books to the inventory, serve books to the members.
 
-# What can employees do in the system?
+## What can employees do in the system?
 
 - do changes in the inventory (such as adding new books) and see all details of it
 - download excels of the archive of books, members, grantors
