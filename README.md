@@ -1,4 +1,4 @@
-# TheLibraryWebApplication
+# The Library Web Application with PHP and HTML/CSS
 
 This project is a system where employees of a library perform all the operations related to the library, such as adding new books to the inventory, serve books to the members.
 
